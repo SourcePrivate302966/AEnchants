@@ -1,5 +1,6 @@
 package com.nomic.ArchonEnchants.Enchants;
 
+import java.util.List;
 import java.util.Random;
 
 import org.bukkit.ChatColor;
@@ -10,7 +11,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.inventory.meta.ItemMeta;
 
 public class Lightning implements Listener {
 
@@ -22,29 +22,25 @@ public class Lightning implements Listener {
 		Player p = (Player) arrow.getShooter();
 		Player hit = (Player) e.getEntity();
 		Location l = e.getEntity().getLocation();
-		ItemMeta meta = p.getItemInHand().getItemMeta();
-		String tierOne = "&bLightning I";
-		String tierTwo = "&eLightning II";
-		String tierThree = "&cLightning III";
-		if (!(meta.getLore().contains(ChatColor.translateAlternateColorCodes('&', tierOne))
-				|| meta.getLore().contains(ChatColor.translateAlternateColorCodes('&', tierTwo))
-				|| meta.getLore().contains(ChatColor.translateAlternateColorCodes('&',tierThree))))
+		List<String> lore = p.getItemInHand().getItemMeta().getLore();
+		String one = "&bLightning I";
+		String two = "&eLightning II";
+		String three = "&cLightning III";
+		if (lore == null)
 			return;
 		double health = hit.getHealth();
-		if (meta.getLore().contains(ChatColor.translateAlternateColorCodes('&', tierOne))) {
+		if (lore.contains(ChatColor.translateAlternateColorCodes('&', one))) {
 			int chance = (1 + new Random().nextInt(32));
 			if (chance == 1) {
 				l.getWorld().strikeLightning(l);
 			}
-		}
-		if (meta.getLore().contains(ChatColor.translateAlternateColorCodes('&', tierTwo))) {
+		} else if (lore.contains(ChatColor.translateAlternateColorCodes('&', two))) {
 			int chance = (1 + new Random().nextInt(19));
 			if (chance == 1) {
 				l.getWorld().strikeLightning(l);
 				hit.setHealth(health - 2);
 			}
-		}
-		if (meta.getLore().contains(ChatColor.translateAlternateColorCodes('&',tierThree))) {
+		} else if (lore.contains(ChatColor.translateAlternateColorCodes('&',three))) {
 			int chance = (1 + new Random().nextInt(9));
 			if (chance == 1) {
 				l.getWorld().strikeLightning(l);

@@ -67,9 +67,8 @@ public class Blast implements Listener {
 				b.getRelative(BlockFace.SOUTH_WEST).breakNaturally();
 				b.getRelative(BlockFace.EAST).breakNaturally();
 				b.getRelative(BlockFace.WEST).breakNaturally();
-				}
 			}
-		if (lore.contains(ChatColor.translateAlternateColorCodes('&', two))) {
+		} else if (lore.contains(ChatColor.translateAlternateColorCodes('&', two))) {
 			if (pitch < 30 && pitch > -30) {
 				if (0 <= rot && rot < 45 || 135 <= rot && rot < 225) {
 					b.getRelative(BlockFace.DOWN).breakNaturally();

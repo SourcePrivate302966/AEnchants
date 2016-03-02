@@ -1,12 +1,13 @@
 package com.nomic.ArchonEnchants.Enchants;
 
+import java.util.List;
+
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockDamageEvent;
-import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
@@ -15,21 +16,17 @@ public class Haste implements Listener {
 	@EventHandler(priority = EventPriority.NORMAL)
 	public void onMine(BlockDamageEvent e) {
 		Player p = e.getPlayer();
-		ItemMeta meta = p.getItemInHand().getItemMeta();
-		String tierOne = "&bHaste I";
-		String tierTwo = "&eHaste II";
-		String tierThree = "&cHaste III";
-		if (!(meta.getLore().contains(ChatColor.translateAlternateColorCodes('&', tierOne))
-				|| meta.getLore().contains(ChatColor.translateAlternateColorCodes('&', tierTwo))
-				|| meta.getLore().contains(ChatColor.translateAlternateColorCodes('&', tierThree))))
+		List<String> lore = p.getItemInHand().getItemMeta().getLore();
+		String one = "&bHaste I";
+		String two = "&eHaste II";
+		String three = "&cHaste III";
+		if (lore == null)
 			return;
-		if (meta.getLore().contains(ChatColor.translateAlternateColorCodes('&', tierOne))) {
+		if (lore.contains(ChatColor.translateAlternateColorCodes('&', one))) {
 			p.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, (4 * 20), 0));
-		}
-		if (meta.getLore().contains(ChatColor.translateAlternateColorCodes('&', tierTwo))) {
+		} else if (lore.contains(ChatColor.translateAlternateColorCodes('&', two))) {
 			p.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, (4 * 20), 0));
-		}
-		if (meta.getLore().contains(ChatColor.translateAlternateColorCodes('&', tierThree))) {
+		} else if (lore.contains(ChatColor.translateAlternateColorCodes('&', three))) {
 			p.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, (4 * 20), 1));
 		}
 	}

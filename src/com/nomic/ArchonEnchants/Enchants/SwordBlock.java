@@ -18,8 +18,8 @@ public class SwordBlock implements Listener {
 		if (!(p.isBlocking()))
 			return;
 		ItemMeta meta = p.getItemInHand().getItemMeta();
-		String tierOne = "&bSword Block I";
-		if (!(meta.getLore().contains(ChatColor.translateAlternateColorCodes('&', tierOne))))
+		String one = "&bSword Block I";
+		if (!(meta.getLore().contains(ChatColor.translateAlternateColorCodes('&', one))))
 			return;
 		double damage = e.getDamage();
 		p.setLastDamage(damage * 0.95);

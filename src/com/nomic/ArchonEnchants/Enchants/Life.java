@@ -1,5 +1,6 @@
 package com.nomic.ArchonEnchants.Enchants;
 
+import java.util.List;
 import java.util.Random;
 
 import org.bukkit.ChatColor;
@@ -8,7 +9,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.inventory.meta.ItemMeta;
 
 public class Life implements Listener {
 
@@ -17,20 +17,18 @@ public class Life implements Listener {
 		if (!(e.getEntity() instanceof Player && e.getDamager() instanceof Player))
 			return;
 		Player p = (Player) e.getDamager();
-		ItemMeta meta = p.getItemInHand().getItemMeta();
-		String tierOne = "&bLife I";
-		String tierTwo = "&eLife II";
-		if (!(meta.getLore().contains(ChatColor.translateAlternateColorCodes('&', tierOne))
-				|| meta.getLore().contains(ChatColor.translateAlternateColorCodes('&', tierTwo))))
+		List<String> lore = p.getItemInHand().getItemMeta().getLore();
+		String one = "&bLife I";
+		String two = "&eLife II";
+		if (lore == null)
 			return;
 		double health = p.getHealth();
 		int chance = (1 + new Random().nextInt(9));
-		if (meta.getLore().contains(ChatColor.translateAlternateColorCodes('&', tierOne))) {
+		if (lore.contains(ChatColor.translateAlternateColorCodes('&', one))) {
 			if (chance == 1) {
 				p.setHealth(health + 1);
 			}
-		}
-		if (meta.getLore().contains(ChatColor.translateAlternateColorCodes('&', tierTwo))) {
+		} else if (lore.contains(ChatColor.translateAlternateColorCodes('&', two))) {
 			if (chance == 1) {
 				p.setHealth(health + 2);
 			}
