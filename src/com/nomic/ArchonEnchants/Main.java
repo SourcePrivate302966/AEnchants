@@ -16,11 +16,12 @@ import com.nomic.ArchonEnchants.Enchants.SwordBlock;
 import com.nomic.ArchonEnchants.Enchants.Thunderous;
 
 public class Main extends JavaPlugin {
+
 	
 	public void onEnable() {
 		registerEvents();
+		
 	}
-
 	public void registerEvents() {
 		PluginManager pm = getServer().getPluginManager();
 		
