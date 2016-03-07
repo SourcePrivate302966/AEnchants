@@ -17,14 +17,15 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-public class Feast implements Listener {
+public class HealthBoost implements Listener {
 
 	Material diamondh = Material.DIAMOND_HELMET;
 	Material ironh = Material.IRON_HELMET;
 	Material chainh = Material.CHAINMAIL_HELMET;
 	Material leatherh = Material.LEATHER_HELMET;
 
-	String one = "&bFish I";
+	String one = "&bHealth Boost I";
+	String two = "&eHealth Boost II";
 
 	@EventHandler(priority = EventPriority.NORMAL)
 	public void shift(InventoryClickEvent e) {
@@ -43,7 +44,7 @@ public class Feast implements Listener {
 		if (!(e.getClick() == ClickType.SHIFT_LEFT || e.getClick() == ClickType.SHIFT_RIGHT)) {
 			if (m == diamondh || m == ironh || m == chainh || m == leatherh && e.getSlotType() == SlotType.ARMOR) {
 				if (p.getInventory().getHelmet() == null) {
-					p.removePotionEffect(PotionEffectType.WATER_BREATHING);
+					p.removePotionEffect(PotionEffectType.HEALTH_BOOST);
 				}
 			}
 			return;
@@ -55,10 +56,12 @@ public class Feast implements Listener {
 			return;
 		if (p.getInventory().getHelmet() == null && e.getSlotType() != SlotType.ARMOR) {
 			if (lore.contains(ChatColor.translateAlternateColorCodes('&', one))) {
-				p.addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, (1000000 * 20), 0));
-			} 
+				p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, (1000000 * 20), 0));
+			} else if (lore.contains(ChatColor.translateAlternateColorCodes('&', two))) {
+				p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, (1000000 * 20), 1));
+			}
 		} else if (p.getInventory().getHelmet() != null && e.getSlotType() == SlotType.ARMOR) {
-			p.removePotionEffect(PotionEffectType.WATER_BREATHING);
+			p.removePotionEffect(PotionEffectType.HEALTH_BOOST);
 		}
 	}
 
@@ -76,7 +79,9 @@ public class Feast implements Listener {
 		if (e.getAction().equals(Action.RIGHT_CLICK_AIR) || e.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
 			if (p.getInventory().getHelmet() == null) {
 				if (lore.contains(ChatColor.translateAlternateColorCodes('&', one))) {
-					p.addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, (1000000 * 20), 0));
+					p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, (1000000 * 20), 0));
+				} else if (lore.contains(ChatColor.translateAlternateColorCodes('&', two))) {
+					p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, (1000000 * 20), 1));
 				} 
 			}
 		}

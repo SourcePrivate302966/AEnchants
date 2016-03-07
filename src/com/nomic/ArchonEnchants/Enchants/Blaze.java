@@ -17,14 +17,14 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-public class Feast implements Listener {
+public class Blaze implements Listener {
 
-	Material diamondh = Material.DIAMOND_HELMET;
-	Material ironh = Material.IRON_HELMET;
-	Material chainh = Material.CHAINMAIL_HELMET;
-	Material leatherh = Material.LEATHER_HELMET;
+	Material diamondc = Material.DIAMOND_CHESTPLATE;
+	Material ironc = Material.IRON_CHESTPLATE;
+	Material chainc = Material.CHAINMAIL_CHESTPLATE;
+	Material leatherc = Material.LEATHER_CHESTPLATE;
 
-	String one = "&bFish I";
+	String one = "&bBlaze I";
 
 	@EventHandler(priority = EventPriority.NORMAL)
 	public void shift(InventoryClickEvent e) {
@@ -41,24 +41,24 @@ public class Feast implements Listener {
 				|| e.getClick() == ClickType.NUMBER_KEY || e.getClick() == ClickType.UNKNOWN)
 			return;
 		if (!(e.getClick() == ClickType.SHIFT_LEFT || e.getClick() == ClickType.SHIFT_RIGHT)) {
-			if (m == diamondh || m == ironh || m == chainh || m == leatherh && e.getSlotType() == SlotType.ARMOR) {
-				if (p.getInventory().getHelmet() == null) {
-					p.removePotionEffect(PotionEffectType.WATER_BREATHING);
+			if (m == diamondc || m == ironc || m == chainc || m == leatherc && e.getSlotType() == SlotType.ARMOR) {
+				if (p.getInventory().getChestplate() == null) {
+					p.removePotionEffect(PotionEffectType.FIRE_RESISTANCE);
 				}
 			}
 			return;
 		}
-		if (!(m == diamondh || m == ironh || m == chainh || m == leatherh))
+		if (!(m == diamondc || m == ironc || m == chainc || m == leatherc))
 			return;
 		List<String> lore = e.getCurrentItem().getItemMeta().getLore();
 		if (lore == null)
 			return;
-		if (p.getInventory().getHelmet() == null && e.getSlotType() != SlotType.ARMOR) {
+		if (p.getInventory().getChestplate() == null && e.getSlotType() != SlotType.ARMOR) {
 			if (lore.contains(ChatColor.translateAlternateColorCodes('&', one))) {
-				p.addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, (1000000 * 20), 0));
+				p.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, (1000000 * 20), 0));
 			} 
-		} else if (p.getInventory().getHelmet() != null && e.getSlotType() == SlotType.ARMOR) {
-			p.removePotionEffect(PotionEffectType.WATER_BREATHING);
+		} else if (p.getInventory().getChestplate() != null && e.getSlotType() == SlotType.ARMOR) {
+			p.removePotionEffect(PotionEffectType.FIRE_RESISTANCE);
 		}
 	}
 
@@ -71,12 +71,12 @@ public class Feast implements Listener {
 		if (lore == null)
 			return;
 		Material m = e.getItem().getType();
-		if (!(m == diamondh || m == ironh || m == chainh || m == leatherh))
+		if (!(m == diamondc || m == ironc || m == chainc || m == leatherc))
 			return;
 		if (e.getAction().equals(Action.RIGHT_CLICK_AIR) || e.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
-			if (p.getInventory().getHelmet() == null) {
+			if (p.getInventory().getChestplate() == null) {
 				if (lore.contains(ChatColor.translateAlternateColorCodes('&', one))) {
-					p.addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, (1000000 * 20), 0));
+					p.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, (1000000 * 20), 0));
 				} 
 			}
 		}

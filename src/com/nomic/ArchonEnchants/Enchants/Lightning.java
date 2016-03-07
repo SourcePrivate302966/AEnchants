@@ -40,7 +40,7 @@ public class Lightning implements Listener {
 				l.getWorld().strikeLightning(l);
 				hit.setHealth(health - 2);
 			}
-		} else if (lore.contains(ChatColor.translateAlternateColorCodes('&',three))) {
+		} else if (lore.contains(ChatColor.translateAlternateColorCodes('&', three))) {
 			int chance = (1 + new Random().nextInt(9));
 			if (chance == 1) {
 				l.getWorld().strikeLightning(l);
