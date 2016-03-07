@@ -11,6 +11,7 @@ import com.nomic.ArchonEnchants.Enchants.Feast;
 import com.nomic.ArchonEnchants.Enchants.Fish;
 import com.nomic.ArchonEnchants.Enchants.Haste;
 import com.nomic.ArchonEnchants.Enchants.HealthBoost;
+import com.nomic.ArchonEnchants.Enchants.Leaps;
 import com.nomic.ArchonEnchants.Enchants.Life;
 import com.nomic.ArchonEnchants.Enchants.Lightning;
 import com.nomic.ArchonEnchants.Enchants.LightsOut;
@@ -48,5 +49,6 @@ public class Main extends JavaPlugin {
 		pm.registerEvents(new Fish(), this);
 		pm.registerEvents(new Feast(), this);
 		pm.registerEvents(new Blaze(), this);
+		pm.registerEvents(new Leaps(), this);
 	}
 }
