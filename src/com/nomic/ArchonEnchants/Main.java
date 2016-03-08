@@ -23,7 +23,6 @@ import com.nomic.ArchonEnchants.Enchants.SwordBlock;
 import com.nomic.ArchonEnchants.Enchants.Thunderous;
 
 public class Main extends JavaPlugin {
-
 	
 	public void onEnable() {
 		registerEvents();
@@ -34,7 +33,6 @@ public class Main extends JavaPlugin {
 		
 		pm.registerEvents(new Haste(), this);
 		pm.registerEvents(new Lightning(), this);
-		pm.registerEvents(new Blast(), this);
 		pm.registerEvents(new Life(), this);
 		pm.registerEvents(new Soul(), this);
 		pm.registerEvents(new Thunderous(), this);
@@ -50,5 +48,6 @@ public class Main extends JavaPlugin {
 		pm.registerEvents(new Feast(), this);
 		pm.registerEvents(new Blaze(), this);
 		pm.registerEvents(new Leaps(), this);
+		pm.registerEvents(new Blast(), this);
 	}
 }
