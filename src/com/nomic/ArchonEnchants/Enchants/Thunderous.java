@@ -20,6 +20,8 @@ public class Thunderous implements Listener {
 		Player p = (Player) e.getDamager();
 		Player enemy = (Player) e.getEntity();
 		Location l = enemy.getLocation();
+		if (p.getItemInHand() == null)
+			return;
 		List<String> lore = p.getItemInHand().getItemMeta().getLore();
 		String one = "&bThunderous I";
 		String two = "&eThunderous II";

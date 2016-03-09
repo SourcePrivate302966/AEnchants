@@ -21,6 +21,8 @@ public class Archery implements Listener {
 		if (!(a.getShooter() instanceof Player))
 			return;
 		Player p = (Player) a.getShooter();
+		if (p.getItemInHand() == null)
+			return;
 		List<String> lore = p.getItemInHand().getItemMeta().getLore();
 		String one = "&bArchery I";
 		String two = "&eArchery II";

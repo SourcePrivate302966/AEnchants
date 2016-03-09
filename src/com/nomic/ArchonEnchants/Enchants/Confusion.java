@@ -20,6 +20,8 @@ public class Confusion implements Listener {
 			return;
 		Player p = (Player) e.getDamager();
 		Player enemy = (Player) e.getEntity();
+		if (p.getItemInHand() == null)
+			return;
 		List<String> lore = p.getItemInHand().getItemMeta().getLore();
 		String one = "&bConfusion I";
 		String two = "&eConfusion II";

@@ -17,6 +17,8 @@ public class ObsidianDestroyer implements Listener {
 	@EventHandler(priority = EventPriority.HIGH)
 	public void onMine(BlockDamageEvent e) {
 		Player p = e.getPlayer();
+		if (p.getItemInHand() == null)
+			return;
 		List<String> lore = p.getItemInHand().getItemMeta().getLore();
 		if (e.getBlock().getType() != Material.OBSIDIAN)
 			return;

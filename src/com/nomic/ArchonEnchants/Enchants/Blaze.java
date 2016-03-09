@@ -24,6 +24,11 @@ public class Blaze implements Listener {
 	Material chainc = Material.CHAINMAIL_CHESTPLATE;
 	Material leatherc = Material.LEATHER_CHESTPLATE;
 
+	Material diamondl = Material.DIAMOND_LEGGINGS;
+	Material ironl = Material.IRON_LEGGINGS;
+	Material chainl = Material.CHAINMAIL_LEGGINGS;
+	Material leatherl = Material.LEATHER_LEGGINGS;
+
 	String one = "&bBlaze I";
 
 	@EventHandler(priority = EventPriority.NORMAL)
@@ -41,24 +46,43 @@ public class Blaze implements Listener {
 				|| e.getClick() == ClickType.NUMBER_KEY || e.getClick() == ClickType.UNKNOWN)
 			return;
 		if (!(e.getClick() == ClickType.SHIFT_LEFT || e.getClick() == ClickType.SHIFT_RIGHT)) {
-			if (m == diamondc || m == ironc || m == chainc || m == leatherc && e.getSlotType() == SlotType.ARMOR) {
-				if (p.getInventory().getChestplate() == null) {
+			if (e.getSlotType() == SlotType.ARMOR) {
+				if (m == diamondc || m == ironc || m == chainc
+						|| m == leatherc && p.getInventory().getChestplate() == null) {
+					p.removePotionEffect(PotionEffectType.FIRE_RESISTANCE);
+				} else if (m == diamondl || m == ironl || m == chainl
+						|| m == leatherl && p.getInventory().getLeggings() == null) {
 					p.removePotionEffect(PotionEffectType.FIRE_RESISTANCE);
 				}
 			}
 			return;
 		}
-		if (!(m == diamondc || m == ironc || m == chainc || m == leatherc))
+		if (!(m == diamondc || m == ironc || m == chainc || m == leatherc || m == diamondl || m == ironl || m == chainl
+				|| m == leatherl))
 			return;
 		List<String> lore = e.getCurrentItem().getItemMeta().getLore();
 		if (lore == null)
 			return;
-		if (p.getInventory().getChestplate() == null && e.getSlotType() != SlotType.ARMOR) {
-			if (lore.contains(ChatColor.translateAlternateColorCodes('&', one))) {
-				p.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, (1000000 * 20), 0));
-			} 
-		} else if (p.getInventory().getChestplate() != null && e.getSlotType() == SlotType.ARMOR) {
-			p.removePotionEffect(PotionEffectType.FIRE_RESISTANCE);
+		if (e.getSlotType() != SlotType.ARMOR) {
+			if (m == diamondc || m == ironc || m == chainc
+					|| m == leatherc && p.getInventory().getChestplate() == null) {
+				if (lore.contains(ChatColor.translateAlternateColorCodes('&', one))) {
+					p.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, (1000000 * 20), 0));
+				}
+			} else if (m == diamondl || m == ironl || m == chainl
+					|| m == leatherl && p.getInventory().getLeggings() == null) {
+				if (lore.contains(ChatColor.translateAlternateColorCodes('&', one))) {
+					p.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, (1000000 * 20), 0));
+				}
+			}
+		} else if (e.getSlotType() == SlotType.ARMOR) {
+			if (m == diamondc || m == ironc || m == chainc
+					|| m == leatherc && p.getInventory().getChestplate() != null) {
+				p.removePotionEffect(PotionEffectType.FIRE_RESISTANCE);
+			} else if (m == diamondl || m == ironl || m == chainl
+					|| m == leatherl && p.getInventory().getLeggings() != null) {
+				p.removePotionEffect(PotionEffectType.FIRE_RESISTANCE);
+			}
 		}
 	}
 
@@ -71,13 +95,20 @@ public class Blaze implements Listener {
 		if (lore == null)
 			return;
 		Material m = e.getItem().getType();
-		if (!(m == diamondc || m == ironc || m == chainc || m == leatherc))
+		if (!(m == diamondc || m == ironc || m == chainc || m == leatherc || m == diamondl || m == ironl || m == chainl
+				|| m == leatherl))
 			return;
 		if (e.getAction().equals(Action.RIGHT_CLICK_AIR) || e.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
-			if (p.getInventory().getChestplate() == null) {
+			if (m == diamondc || m == ironc || m == chainc
+					|| m == leatherc && p.getInventory().getChestplate() == null) {
 				if (lore.contains(ChatColor.translateAlternateColorCodes('&', one))) {
 					p.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, (1000000 * 20), 0));
-				} 
+				}
+			} else if (m == diamondl || m == ironl || m == chainl
+					|| m == leatherl && p.getInventory().getLeggings() == null) {
+				if (lore.contains(ChatColor.translateAlternateColorCodes('&', one))) {
+					p.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, (1000000 * 20), 0));
+				}
 			}
 		}
 	}

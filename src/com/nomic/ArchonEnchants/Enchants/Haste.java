@@ -16,6 +16,8 @@ public class Haste implements Listener {
 	@EventHandler(priority = EventPriority.NORMAL)
 	public void onMine(BlockDamageEvent e) {
 		Player p = e.getPlayer();
+		if (p.getItemInHand() == null)
+			return;
 		List<String> lore = p.getItemInHand().getItemMeta().getLore();
 		String one = "&bHaste I";
 		String two = "&eHaste II";

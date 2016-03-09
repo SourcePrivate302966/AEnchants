@@ -17,6 +17,8 @@ public class Life implements Listener {
 		if (!(e.getEntity() instanceof Player && e.getDamager() instanceof Player))
 			return;
 		Player p = (Player) e.getDamager();
+		if (p.getItemInHand() == null)
+			return;
 		List<String> lore = p.getItemInHand().getItemMeta().getLore();
 		String one = "&bLife I";
 		String two = "&eLife II";

@@ -22,6 +22,8 @@ public class Lightning implements Listener {
 		Player p = (Player) arrow.getShooter();
 		Player hit = (Player) e.getEntity();
 		Location l = e.getEntity().getLocation();
+		if (p.getItemInHand() == null)
+			return;
 		List<String> lore = p.getItemInHand().getItemMeta().getLore();
 		String one = "&bLightning I";
 		String two = "&eLightning II";

@@ -20,6 +20,8 @@ public class LightsOut implements Listener {
 			return;
 		Player p = (Player) e.getDamager();
 		Player enemy = (Player) e.getEntity();
+		if (p.getItemInHand() == null)
+			return;
 		List<String> lore = p.getItemInHand().getItemMeta().getLore();
 		String one = "&bLights Out I";
 		String two = "&eLights Out II";

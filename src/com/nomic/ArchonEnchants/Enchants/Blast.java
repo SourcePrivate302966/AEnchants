@@ -38,6 +38,8 @@ public class Blast implements Listener {
 	@EventHandler(priority = EventPriority.NORMAL)
 	public void blockBreak(BlockBreakEvent e) {
 		Player p = e.getPlayer();
+		if (p.getItemInHand() == null)
+			return;
 		List<String> lore = p.getItemInHand().getItemMeta().getLore();
 		Block b = e.getBlock();
 		if (lore == null)

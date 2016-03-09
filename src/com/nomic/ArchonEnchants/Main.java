@@ -4,6 +4,7 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.nomic.ArchonEnchants.Enchants.Archery;
+import com.nomic.ArchonEnchants.Enchants.Beast;
 import com.nomic.ArchonEnchants.Enchants.Blast;
 import com.nomic.ArchonEnchants.Enchants.Blaze;
 import com.nomic.ArchonEnchants.Enchants.Confusion;
@@ -49,5 +50,6 @@ public class Main extends JavaPlugin {
 		pm.registerEvents(new Blaze(), this);
 		pm.registerEvents(new Leaps(), this);
 		pm.registerEvents(new Blast(), this);
+		pm.registerEvents(new Beast(), this);
 	}
 }

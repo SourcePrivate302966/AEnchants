@@ -1,12 +1,13 @@
 package com.nomic.ArchonEnchants.Enchants;
 
+import java.util.List;
+
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.inventory.meta.ItemMeta;
 
 public class SwordBlock implements Listener {
 	
@@ -17,9 +18,10 @@ public class SwordBlock implements Listener {
 		Player p = (Player) e.getEntity();
 		if (!(p.isBlocking()))
 			return;
-		ItemMeta meta = p.getItemInHand().getItemMeta();
+		List<String> lore = p.getItemInHand().getItemMeta().getLore();
+		
 		String one = "&bSword Block I";
-		if (!(meta.getLore().contains(ChatColor.translateAlternateColorCodes('&', one))))
+		if (!(lore.contains(ChatColor.translateAlternateColorCodes('&', one))))
 			return;
 		double damage = e.getDamage();
 		p.setLastDamage(damage * 0.95);

@@ -16,6 +16,8 @@ public class Soul implements Listener {
 		if (!(e.getEntity() instanceof Player && e.getDamager() instanceof Player))
 			return;
 		Player p = (Player) e.getDamager();
+		if (!(p instanceof Player))
+			return;
 		Player enemy = (Player) e.getEntity();
 		List<String> lore = p.getItemInHand().getItemMeta().getLore();
 		String one = "&bSoul I";
