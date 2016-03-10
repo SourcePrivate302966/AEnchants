@@ -1,4 +1,4 @@
-package com.nomic.ArchonEnchants.Enchants;
+package com.nomic.AEnchants.Enchants;
 
 import java.util.List;
 import java.util.Random;

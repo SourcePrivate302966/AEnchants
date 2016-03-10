@@ -1,27 +1,27 @@
-package com.nomic.ArchonEnchants;
+package com.nomic.AEnchants;
 
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import com.nomic.ArchonEnchants.Enchants.Archery;
-import com.nomic.ArchonEnchants.Enchants.Beast;
-import com.nomic.ArchonEnchants.Enchants.Blast;
-import com.nomic.ArchonEnchants.Enchants.Blaze;
-import com.nomic.ArchonEnchants.Enchants.Confusion;
-import com.nomic.ArchonEnchants.Enchants.Fish;
-import com.nomic.ArchonEnchants.Enchants.Feast;
-import com.nomic.ArchonEnchants.Enchants.Haste;
-import com.nomic.ArchonEnchants.Enchants.HealthBoost;
-import com.nomic.ArchonEnchants.Enchants.Leaps;
-import com.nomic.ArchonEnchants.Enchants.Life;
-import com.nomic.ArchonEnchants.Enchants.Lightning;
-import com.nomic.ArchonEnchants.Enchants.LightsOut;
-import com.nomic.ArchonEnchants.Enchants.ObsidianDestroyer;
-import com.nomic.ArchonEnchants.Enchants.Replenish;
-import com.nomic.ArchonEnchants.Enchants.Scoot;
-import com.nomic.ArchonEnchants.Enchants.Soul;
-import com.nomic.ArchonEnchants.Enchants.SwordBlock;
-import com.nomic.ArchonEnchants.Enchants.Thunderous;
+import com.nomic.AEnchants.Enchants.Archery;
+import com.nomic.AEnchants.Enchants.Beast;
+import com.nomic.AEnchants.Enchants.Blast;
+import com.nomic.AEnchants.Enchants.Blaze;
+import com.nomic.AEnchants.Enchants.Confusion;
+import com.nomic.AEnchants.Enchants.Feast;
+import com.nomic.AEnchants.Enchants.Fish;
+import com.nomic.AEnchants.Enchants.Haste;
+import com.nomic.AEnchants.Enchants.HealthBoost;
+import com.nomic.AEnchants.Enchants.Leaps;
+import com.nomic.AEnchants.Enchants.Life;
+import com.nomic.AEnchants.Enchants.Lightning;
+import com.nomic.AEnchants.Enchants.LightsOut;
+import com.nomic.AEnchants.Enchants.ObsidianDestroyer;
+import com.nomic.AEnchants.Enchants.Replenish;
+import com.nomic.AEnchants.Enchants.Scoot;
+import com.nomic.AEnchants.Enchants.Soul;
+import com.nomic.AEnchants.Enchants.SwordBlock;
+import com.nomic.AEnchants.Enchants.Thunderous;
 
 public class Main extends JavaPlugin {
 	

@@ -1,4 +1,4 @@
-package com.nomic.ArchonEnchants.Enchants;
+package com.nomic.AEnchants.Enchants;
 
 import java.util.List;
 
@@ -60,10 +60,18 @@ public class Beast implements Listener {
 		if (e.getClick() == ClickType.RIGHT || e.getClick() == ClickType.LEFT) {
 			if (e.getSlotType() == SlotType.ARMOR) {
 				Material c = e.getCursor().getType();
-				if (m == diamondh || m == ironh || m == chainh
-						|| m == leatherh && p.getInventory().getHelmet() != null) {
+				if ((m == diamondb || m == ironb || m == chainb || m == leatherb)
+						|| (m == diamondl || m == ironl || m == chainl || m == leatherl)
+						|| (m == diamondc || m == ironc || m == chainc || m == leatherc)
+						|| (m == diamondh || m == ironh || m == chainh || m == leatherh)
+								&& (p.getInventory().getHelmet() != null || p.getInventory().getChestplate() != null
+										|| p.getInventory().getLeggings() != null
+										|| p.getInventory().getBoots() != null)) {
 					p.removePotionEffect(PotionEffectType.INCREASE_DAMAGE);
-				} else if (c == diamondh || c == ironh || c == chainh || c == leatherh && m == null) {
+				} else if ((c == diamondb || c == ironb || c == chainb || c == leatherb)
+						|| (c == diamondl || c == ironl || c == chainl || c == leatherl)
+						|| (c == diamondc || c == ironc || c == chainc || c == leatherc)
+						|| (c == diamondh || c == ironh || c == chainh || c == leatherh) && m == null) {
 					if (e.getCursor() == null)
 						return;
 					List<String> clore = e.getCursor().getItemMeta().getLore();
@@ -75,55 +83,7 @@ public class Beast implements Listener {
 						p.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, (1000000 * 20), 0));
 					} else if (clore.contains(ChatColor.translateAlternateColorCodes('&', three))) {
 						p.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, (1000000 * 20), 1));
-					} 
-				} else if (m == diamondc || m == ironc || m == chainc
-						|| m == leatherc && p.getInventory().getChestplate() != null) {
-					p.removePotionEffect(PotionEffectType.INCREASE_DAMAGE);
-				} else if (c == diamondc || c == ironc || c == chainc || c == leatherc && m == null) {
-					if (e.getCursor() == null)
-						return;
-					List<String> clore = e.getCursor().getItemMeta().getLore();
-					if (clore == null)
-						return;
-					if (clore.contains(ChatColor.translateAlternateColorCodes('&', one))) {
-						p.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, (1000000 * 20), 0));
-					} else if (clore.contains(ChatColor.translateAlternateColorCodes('&', two))) {
-						p.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, (1000000 * 20), 0));
-					} else if (clore.contains(ChatColor.translateAlternateColorCodes('&', three))) {
-						p.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, (1000000 * 20), 1));
-					} 
-				} else if (m == diamondl || m == ironl || m == chainl
-						|| m == leatherl && p.getInventory().getLeggings() != null) {
-					p.removePotionEffect(PotionEffectType.INCREASE_DAMAGE);
-				} else if (c == diamondl || c == ironl || c == chainl || c == leatherl && m == null) {
-					if (e.getCursor() == null)
-						return;
-					List<String> clore = e.getCursor().getItemMeta().getLore();
-					if (clore == null)
-						return;
-					if (clore.contains(ChatColor.translateAlternateColorCodes('&', one))) {
-						p.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, (1000000 * 20), 0));
-					} else if (clore.contains(ChatColor.translateAlternateColorCodes('&', two))) {
-						p.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, (1000000 * 20), 0));
-					} else if (clore.contains(ChatColor.translateAlternateColorCodes('&', three))) {
-						p.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, (1000000 * 20), 1));
-					} 
-				} else if (m == diamondb || m == ironb || m == chainb
-						|| m == leatherb && p.getInventory().getBoots() != null) {
-					p.removePotionEffect(PotionEffectType.INCREASE_DAMAGE);
-				} else if (c == diamondb || c == ironb || c == chainb || c == leatherb && m == null) {
-					if (e.getCursor() == null)
-						return;
-					List<String> clore = e.getCursor().getItemMeta().getLore();
-					if (clore == null)
-						return;
-					if (clore.contains(ChatColor.translateAlternateColorCodes('&', one))) {
-						p.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, (1000000 * 20), 0));
-					} else if (clore.contains(ChatColor.translateAlternateColorCodes('&', two))) {
-						p.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, (1000000 * 20), 0));
-					} else if (clore.contains(ChatColor.translateAlternateColorCodes('&', three))) {
-						p.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, (1000000 * 20), 1));
-					} 
+					}
 				}
 			}
 		}

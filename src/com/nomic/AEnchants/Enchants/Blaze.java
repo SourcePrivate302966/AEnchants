@@ -1,4 +1,4 @@
-package com.nomic.ArchonEnchants.Enchants;
+package com.nomic.AEnchants.Enchants;
 
 import java.util.List;
 
@@ -17,7 +17,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-public class Replenish implements Listener {
+public class Blaze implements Listener {
 
 	Material diamondc = Material.DIAMOND_CHESTPLATE;
 	Material ironc = Material.IRON_CHESTPLATE;
@@ -29,9 +29,7 @@ public class Replenish implements Listener {
 	Material chainl = Material.CHAINMAIL_LEGGINGS;
 	Material leatherl = Material.LEATHER_LEGGINGS;
 
-	String one = "&bReplenish I";
-	String two = "&eReplenish II";
-	String three = "&cReplenish III";
+	String one = "&bBlaze I";
 
 	@EventHandler(priority = EventPriority.NORMAL)
 	public void shift(InventoryClickEvent e) {
@@ -52,7 +50,7 @@ public class Replenish implements Listener {
 				Material c = e.getCursor().getType();
 				if (m == diamondc || m == ironc || m == chainc
 						|| m == leatherc && p.getInventory().getChestplate() != null) {
-					p.removePotionEffect(PotionEffectType.REGENERATION);
+					p.removePotionEffect(PotionEffectType.FIRE_RESISTANCE);
 				} else if (c == diamondc || c == ironc || c == chainc || c == leatherc && m == null) {
 					if (e.getCursor() == null)
 						return;
@@ -60,15 +58,11 @@ public class Replenish implements Listener {
 					if (clore == null)
 						return;
 					if (clore.contains(ChatColor.translateAlternateColorCodes('&', one))) {
-						p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, (1000000 * 20), 0));
-					} else if (clore.contains(ChatColor.translateAlternateColorCodes('&', two))) {
-						p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, (1000000 * 20), 0));
-					} else if (clore.contains(ChatColor.translateAlternateColorCodes('&', three))) {
-						p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, (1000000 * 20), 1));
-					}
+						p.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, (1000000 * 20), 0));
+					} 
 				} else if (m == diamondl || m == ironl || m == chainl
 						|| m == leatherl && p.getInventory().getLeggings() != null) {
-					p.removePotionEffect(PotionEffectType.REGENERATION);
+					p.removePotionEffect(PotionEffectType.FIRE_RESISTANCE);
 				} else if (c == diamondl || c == ironl || c == chainl || c == leatherl && m == null) {
 					if (e.getCursor() == null)
 						return;
@@ -76,12 +70,8 @@ public class Replenish implements Listener {
 					if (clore == null)
 						return;
 					if (clore.contains(ChatColor.translateAlternateColorCodes('&', one))) {
-						p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, (1000000 * 20), 0));
-					} else if (clore.contains(ChatColor.translateAlternateColorCodes('&', two))) {
-						p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, (1000000 * 20), 0));
-					} else if (clore.contains(ChatColor.translateAlternateColorCodes('&', three))) {
-						p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, (1000000 * 20), 1));
-					}
+						p.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, (1000000 * 20), 0));
+					} 
 				}
 			}
 		}
@@ -89,10 +79,10 @@ public class Replenish implements Listener {
 			if (e.getSlotType() == SlotType.ARMOR) {
 				if (m == diamondc || m == ironc || m == chainc
 						|| m == leatherc && p.getInventory().getChestplate() == null) {
-					p.removePotionEffect(PotionEffectType.REGENERATION);
+					p.removePotionEffect(PotionEffectType.FIRE_RESISTANCE);
 				} else if (m == diamondl || m == ironl || m == chainl
 						|| m == leatherl && p.getInventory().getLeggings() == null) {
-					p.removePotionEffect(PotionEffectType.REGENERATION);
+					p.removePotionEffect(PotionEffectType.FIRE_RESISTANCE);
 				}
 			}
 			return;
@@ -107,29 +97,21 @@ public class Replenish implements Listener {
 			if (m == diamondc || m == ironc || m == chainc
 					|| m == leatherc && p.getInventory().getChestplate() == null) {
 				if (lore.contains(ChatColor.translateAlternateColorCodes('&', one))) {
-					p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, (1000000 * 20), 0));
-				} else if (lore.contains(ChatColor.translateAlternateColorCodes('&', two))) {
-					p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, (1000000 * 20), 0));
-				} else if (lore.contains(ChatColor.translateAlternateColorCodes('&', three))) {
-					p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, (1000000 * 20), 1));
+					p.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, (1000000 * 20), 0));
 				}
 			} else if (m == diamondl || m == ironl || m == chainl
 					|| m == leatherl && p.getInventory().getLeggings() == null) {
 				if (lore.contains(ChatColor.translateAlternateColorCodes('&', one))) {
-					p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, (1000000 * 20), 0));
-				} else if (lore.contains(ChatColor.translateAlternateColorCodes('&', two))) {
-					p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, (1000000 * 20), 0));
-				} else if (lore.contains(ChatColor.translateAlternateColorCodes('&', three))) {
-					p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, (1000000 * 20), 1));
+					p.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, (1000000 * 20), 0));
 				}
 			}
 		} else if (e.getSlotType() == SlotType.ARMOR) {
 			if (m == diamondc || m == ironc || m == chainc
 					|| m == leatherc && p.getInventory().getChestplate() != null) {
-				p.removePotionEffect(PotionEffectType.REGENERATION);
+				p.removePotionEffect(PotionEffectType.FIRE_RESISTANCE);
 			} else if (m == diamondl || m == ironl || m == chainl
 					|| m == leatherl && p.getInventory().getLeggings() != null) {
-				p.removePotionEffect(PotionEffectType.REGENERATION);
+				p.removePotionEffect(PotionEffectType.FIRE_RESISTANCE);
 			}
 		}
 	}
@@ -150,20 +132,12 @@ public class Replenish implements Listener {
 			if (m == diamondc || m == ironc || m == chainc
 					|| m == leatherc && p.getInventory().getChestplate() == null) {
 				if (lore.contains(ChatColor.translateAlternateColorCodes('&', one))) {
-					p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, (1000000 * 20), 0));
-				} else if (lore.contains(ChatColor.translateAlternateColorCodes('&', two))) {
-					p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, (1000000 * 20), 0));
-				} else if (lore.contains(ChatColor.translateAlternateColorCodes('&', three))) {
-					p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, (1000000 * 20), 1));
+					p.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, (1000000 * 20), 0));
 				}
 			} else if (m == diamondl || m == ironl || m == chainl
 					|| m == leatherl && p.getInventory().getLeggings() == null) {
 				if (lore.contains(ChatColor.translateAlternateColorCodes('&', one))) {
-					p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, (1000000 * 20), 0));
-				} else if (lore.contains(ChatColor.translateAlternateColorCodes('&', two))) {
-					p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, (1000000 * 20), 0));
-				} else if (lore.contains(ChatColor.translateAlternateColorCodes('&', three))) {
-					p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, (1000000 * 20), 1));
+					p.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, (1000000 * 20), 0));
 				}
 			}
 		}

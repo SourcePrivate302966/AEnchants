@@ -1,4 +1,4 @@
-package com.nomic.ArchonEnchants.Enchants;
+package com.nomic.AEnchants.Enchants;
 
 import java.util.List;
 
@@ -17,15 +17,14 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-public class HealthBoost implements Listener {
+public class Fish implements Listener {
 
 	Material diamondh = Material.DIAMOND_HELMET;
 	Material ironh = Material.IRON_HELMET;
 	Material chainh = Material.CHAINMAIL_HELMET;
 	Material leatherh = Material.LEATHER_HELMET;
 
-	String one = "&bHealth Boost I";
-	String two = "&eHealth Boost II";
+	String one = "&bFish I";
 
 	@EventHandler(priority = EventPriority.NORMAL)
 	public void shift(InventoryClickEvent e) {
@@ -46,7 +45,7 @@ public class HealthBoost implements Listener {
 				Material c = e.getCursor().getType();
 				if (m == diamondh || m == ironh || m == chainh
 						|| m == leatherh && p.getInventory().getHelmet() != null) {
-					p.removePotionEffect(PotionEffectType.HEALTH_BOOST);
+					p.removePotionEffect(PotionEffectType.WATER_BREATHING);
 				} else if (c == diamondh || c == ironh || c == chainh || c == leatherh && m == null) {
 					if (e.getCursor() == null)
 						return;
@@ -54,9 +53,7 @@ public class HealthBoost implements Listener {
 					if (clore == null)
 						return;
 					if (clore.contains(ChatColor.translateAlternateColorCodes('&', one))) {
-						p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, (1000000 * 20), 0));
-					} else if (clore.contains(ChatColor.translateAlternateColorCodes('&', two))) {
-						p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, (1000000 * 20), 1));
+						p.addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, (1000000 * 20), 0));
 					} 
 				}
 			}
@@ -64,7 +61,7 @@ public class HealthBoost implements Listener {
 		if (!(e.getClick() == ClickType.SHIFT_LEFT || e.getClick() == ClickType.SHIFT_RIGHT)) {
 			if (m == diamondh || m == ironh || m == chainh || m == leatherh && e.getSlotType() == SlotType.ARMOR) {
 				if (p.getInventory().getHelmet() == null) {
-					p.removePotionEffect(PotionEffectType.HEALTH_BOOST);
+					p.removePotionEffect(PotionEffectType.WATER_BREATHING);
 				}
 			}
 			return;
@@ -76,12 +73,10 @@ public class HealthBoost implements Listener {
 			return;
 		if (p.getInventory().getHelmet() == null && e.getSlotType() != SlotType.ARMOR) {
 			if (lore.contains(ChatColor.translateAlternateColorCodes('&', one))) {
-				p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, (1000000 * 20), 0));
-			} else if (lore.contains(ChatColor.translateAlternateColorCodes('&', two))) {
-				p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, (1000000 * 20), 1));
-			}
+				p.addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, (1000000 * 20), 0));
+			} 
 		} else if (p.getInventory().getHelmet() != null && e.getSlotType() == SlotType.ARMOR) {
-			p.removePotionEffect(PotionEffectType.HEALTH_BOOST);
+			p.removePotionEffect(PotionEffectType.WATER_BREATHING);
 		}
 	}
 
@@ -99,9 +94,7 @@ public class HealthBoost implements Listener {
 		if (e.getAction().equals(Action.RIGHT_CLICK_AIR) || e.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
 			if (p.getInventory().getHelmet() == null) {
 				if (lore.contains(ChatColor.translateAlternateColorCodes('&', one))) {
-					p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, (1000000 * 20), 0));
-				} else if (lore.contains(ChatColor.translateAlternateColorCodes('&', two))) {
-					p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, (1000000 * 20), 1));
+					p.addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, (1000000 * 20), 0));
 				} 
 			}
 		}
