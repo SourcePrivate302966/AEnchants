@@ -45,6 +45,36 @@ public class Blaze implements Listener {
 				|| e.getClick() == ClickType.DOUBLE_CLICK || e.getClick() == ClickType.MIDDLE
 				|| e.getClick() == ClickType.NUMBER_KEY || e.getClick() == ClickType.UNKNOWN)
 			return;
+		if (e.getClick() == ClickType.RIGHT || e.getClick() == ClickType.LEFT) {
+			if (e.getSlotType() == SlotType.ARMOR) {
+				Material c = e.getCursor().getType();
+				if (m == diamondc || m == ironc || m == chainc
+						|| m == leatherc && p.getInventory().getChestplate() != null) {
+					p.removePotionEffect(PotionEffectType.FIRE_RESISTANCE);
+				} else if (c == diamondc || c == ironc || c == chainc || c == leatherc && m == null) {
+					if (e.getCursor() == null)
+						return;
+					List<String> clore = e.getCursor().getItemMeta().getLore();
+					if (clore == null)
+						return;
+					if (clore.contains(ChatColor.translateAlternateColorCodes('&', one))) {
+						p.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, (1000000 * 20), 0));
+					} 
+				} else if (m == diamondl || m == ironl || m == chainl
+						|| m == leatherl && p.getInventory().getLeggings() != null) {
+					p.removePotionEffect(PotionEffectType.FIRE_RESISTANCE);
+				} else if (c == diamondl || c == ironl || c == chainl || c == leatherl && m == null) {
+					if (e.getCursor() == null)
+						return;
+					List<String> clore = e.getCursor().getItemMeta().getLore();
+					if (clore == null)
+						return;
+					if (clore.contains(ChatColor.translateAlternateColorCodes('&', one))) {
+						p.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, (1000000 * 20), 0));
+					} 
+				}
+			}
+		}
 		if (!(e.getClick() == ClickType.SHIFT_LEFT || e.getClick() == ClickType.SHIFT_RIGHT)) {
 			if (e.getSlotType() == SlotType.ARMOR) {
 				if (m == diamondc || m == ironc || m == chainc

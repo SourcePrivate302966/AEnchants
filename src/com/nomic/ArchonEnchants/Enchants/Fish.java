@@ -24,7 +24,7 @@ public class Fish implements Listener {
 	Material chainh = Material.CHAINMAIL_HELMET;
 	Material leatherh = Material.LEATHER_HELMET;
 
-	String one = "&bFeast I";
+	String one = "&bFish I";
 
 	@EventHandler(priority = EventPriority.NORMAL)
 	public void shift(InventoryClickEvent e) {
@@ -40,10 +40,28 @@ public class Fish implements Listener {
 				|| e.getClick() == ClickType.DOUBLE_CLICK || e.getClick() == ClickType.MIDDLE
 				|| e.getClick() == ClickType.NUMBER_KEY || e.getClick() == ClickType.UNKNOWN)
 			return;
+		if (e.getClick() == ClickType.RIGHT || e.getClick() == ClickType.LEFT) {
+			if (e.getSlotType() == SlotType.ARMOR) {
+				Material c = e.getCursor().getType();
+				if (m == diamondh || m == ironh || m == chainh
+						|| m == leatherh && p.getInventory().getHelmet() != null) {
+					p.removePotionEffect(PotionEffectType.WATER_BREATHING);
+				} else if (c == diamondh || c == ironh || c == chainh || c == leatherh && m == null) {
+					if (e.getCursor() == null)
+						return;
+					List<String> clore = e.getCursor().getItemMeta().getLore();
+					if (clore == null)
+						return;
+					if (clore.contains(ChatColor.translateAlternateColorCodes('&', one))) {
+						p.addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, (1000000 * 20), 0));
+					} 
+				}
+			}
+		}
 		if (!(e.getClick() == ClickType.SHIFT_LEFT || e.getClick() == ClickType.SHIFT_RIGHT)) {
 			if (m == diamondh || m == ironh || m == chainh || m == leatherh && e.getSlotType() == SlotType.ARMOR) {
 				if (p.getInventory().getHelmet() == null) {
-					p.removePotionEffect(PotionEffectType.SATURATION);
+					p.removePotionEffect(PotionEffectType.WATER_BREATHING);
 				}
 			}
 			return;
@@ -55,10 +73,10 @@ public class Fish implements Listener {
 			return;
 		if (p.getInventory().getHelmet() == null && e.getSlotType() != SlotType.ARMOR) {
 			if (lore.contains(ChatColor.translateAlternateColorCodes('&', one))) {
-				p.addPotionEffect(new PotionEffect(PotionEffectType.SATURATION, (1000000 * 20), 0));
+				p.addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, (1000000 * 20), 0));
 			} 
 		} else if (p.getInventory().getHelmet() != null && e.getSlotType() == SlotType.ARMOR) {
-			p.removePotionEffect(PotionEffectType.SATURATION);
+			p.removePotionEffect(PotionEffectType.WATER_BREATHING);
 		}
 	}
 
@@ -76,7 +94,7 @@ public class Fish implements Listener {
 		if (e.getAction().equals(Action.RIGHT_CLICK_AIR) || e.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
 			if (p.getInventory().getHelmet() == null) {
 				if (lore.contains(ChatColor.translateAlternateColorCodes('&', one))) {
-					p.addPotionEffect(new PotionEffect(PotionEffectType.SATURATION, (1000000 * 20), 0));
+					p.addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, (1000000 * 20), 0));
 				} 
 			}
 		}

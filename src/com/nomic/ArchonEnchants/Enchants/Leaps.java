@@ -42,6 +42,28 @@ public class Leaps implements Listener {
 				|| e.getClick() == ClickType.DOUBLE_CLICK || e.getClick() == ClickType.MIDDLE
 				|| e.getClick() == ClickType.NUMBER_KEY || e.getClick() == ClickType.UNKNOWN)
 			return;
+		if (e.getClick() == ClickType.RIGHT || e.getClick() == ClickType.LEFT) {
+			if (e.getSlotType() == SlotType.ARMOR) {
+				Material c = e.getCursor().getType();
+				if (m == diamondb || m == ironb || m == chainb
+						|| m == leatherb && p.getInventory().getBoots() != null) {
+					p.removePotionEffect(PotionEffectType.JUMP);
+				} else if (c == diamondb || c == ironb || c == chainb || c == leatherb && m == null) {
+					if (e.getCursor() == null)
+						return;
+					List<String> clore = e.getCursor().getItemMeta().getLore();
+					if (clore == null)
+						return;
+					if (clore.contains(ChatColor.translateAlternateColorCodes('&', one))) {
+						p.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, (1000000 * 20), 0));
+					} else if (clore.contains(ChatColor.translateAlternateColorCodes('&', two))) {
+						p.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, (1000000 * 20), 0));
+					} else if (clore.contains(ChatColor.translateAlternateColorCodes('&', three))) {
+						p.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, (1000000 * 20), 1));
+					}
+				}
+			}
+		}
 		if (!(e.getClick() == ClickType.SHIFT_LEFT || e.getClick() == ClickType.SHIFT_RIGHT)) {
 			if (m == diamondb || m == ironb || m == chainb || m == leatherb && e.getSlotType() == SlotType.ARMOR) {
 				if (p.getInventory().getBoots() == null) {
