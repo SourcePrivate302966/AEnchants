@@ -38,11 +38,9 @@ public class Feast implements Listener {
 	Material chainh = Material.CHAINMAIL_HELMET;
 	Material leatherh = Material.LEATHER_HELMET;
 	
-	String one = "&bHealth Boost I";
-	String two = "&eHealth Boost II";
+	String one = "&bFeast I";
 	
 	String tOne = ChatColor.translateAlternateColorCodes('&', one);
-	String tTwo = ChatColor.translateAlternateColorCodes('&', two);
 	
 	@EventHandler
 	public void shift(ArmorShift e) {
@@ -50,17 +48,15 @@ public class Feast implements Listener {
 		List<String> lore = e.getLore();
 		SlotType stype = e.getSlotType();
 		PlayerInventory inv = p.getInventory();
-		if (!(lore.contains(tOne) || lore.contains(tTwo)))
+		if (!(lore.contains(tOne)))
 			return;
 		if (stype == SlotType.ARMOR && inv.getHelmet() != null) {
-			if (lore.contains(tOne) || lore.contains(tTwo)) {
-				p.removePotionEffect(PotionEffectType.HEALTH_BOOST);
+			if (lore.contains(tOne)) {
+				p.removePotionEffect(PotionEffectType.SATURATION);
 			}
 		} else if (stype != SlotType.ARMOR && inv.getHelmet() == null) {
 			if (lore.contains(tOne)) {
-				p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 1000000 * 20, 0));
-			} else if (lore.contains(tTwo)) {
-				p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 1000000 * 20, 1));
+				p.addPotionEffect(new PotionEffect(PotionEffectType.SATURATION, 1000000 * 20, 0));
 			} 
 		}
 	}
@@ -71,15 +67,13 @@ public class Feast implements Listener {
 		List<String> lore = e.getLore();
 		Material m = e.getItem().getType();
 		PlayerInventory inv = p.getInventory();
-		if (!(lore.contains(tOne) || lore.contains(tTwo)))
+		if (!(lore.contains(tOne)))
 			return;
 		if (m == diamondh || m == ironh || m == chainh || m == leatherh) {
 			if (inv.getHelmet() == null) {
 				if (lore.contains(tOne)) {
-					p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 1000000 * 20, 0));
-				} else if (lore.contains(tTwo)) {
-					p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 1000000 * 20, 1));
-				}
+					p.addPotionEffect(new PotionEffect(PotionEffectType.SATURATION, 1000000 * 20, 0));
+				} 
 			}
 		}
 	}
@@ -95,18 +89,16 @@ public class Feast implements Listener {
 			if (e.getCItem() != null && cm == diamondh || cm == ironh || cm == chainh || cm == leatherh) {
 				if (inv.getHelmet() != null && m != null) {
 					List<String> lore = e.getCItem().getItemMeta().getLore();
-					if (lore.contains(tOne) || lore.contains(tTwo)) {
-						p.removePotionEffect(PotionEffectType.HEALTH_BOOST);
+					if (lore.contains(tOne)) {
+						p.removePotionEffect(PotionEffectType.SATURATION);
 					}
 				} 
 			} else if (m == diamondh || m == ironh || m == chainh || m == leatherh) {
 				if (e.getItem() != null) {
 					List<String> lore = e.getItem().getItemMeta().getLore();
 					if (lore.contains(tOne)) {
-						p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 1000000 * 20, 0));
-					} else if (lore.contains(tTwo)) {
-						p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 1000000 * 20, 1));
-					} 
+						p.addPotionEffect(new PotionEffect(PotionEffectType.SATURATION, 1000000 * 20, 0));
+					}  
 				}
 			}
 		} 
