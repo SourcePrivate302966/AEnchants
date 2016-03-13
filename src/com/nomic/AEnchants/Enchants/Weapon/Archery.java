@@ -12,6 +12,12 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 
 public class Archery implements Listener {
+	
+	String one = "&bArchery I";
+	String two = "&eArchery II";
+	
+	String tOne = ChatColor.translateAlternateColorCodes('&', one);
+	String tTwo = ChatColor.translateAlternateColorCodes('&', two);
 
 	@EventHandler(priority = EventPriority.HIGH)
 	public void onPlayerHit(EntityDamageByEntityEvent e) {
@@ -24,16 +30,14 @@ public class Archery implements Listener {
 		if (p.getItemInHand() == null)
 			return;
 		List<String> lore = p.getItemInHand().getItemMeta().getLore();
-		String one = "&bArchery I";
-		String two = "&eArchery II";
 		if (lore == null)
 			return;
 		int chance = (1 + new Random().nextInt(9));
-		if (lore.contains(ChatColor.translateAlternateColorCodes('&', one))) {
+		if (lore.contains(tOne)) {
 			if (chance == 1) {
 				e.setDamage(e.getDamage() * 1.05);
 			}
-		} else if (lore.contains(ChatColor.translateAlternateColorCodes('&', two))) {
+		} else if (lore.contains(tTwo)) {
 			if (chance == 1) {
 				e.setDamage(e.getDamage() * 1.1);
 			}

@@ -12,6 +12,14 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 
 public class Thunderous implements Listener {
+	
+	String one = "&bThunderous I";
+	String two = "&eThunderous II";
+	String three = "&cThunderous III";
+	
+	String tOne = ChatColor.translateAlternateColorCodes('&', one);
+	String tTwo = ChatColor.translateAlternateColorCodes('&', two);
+	String tThree = ChatColor.translateAlternateColorCodes('&', three);
 
 	@EventHandler(priority = EventPriority.HIGH)
 	public void onPlayerHit(EntityDamageByEntityEvent e) {
@@ -23,24 +31,21 @@ public class Thunderous implements Listener {
 		if (p.getItemInHand() == null)
 			return;
 		List<String> lore = p.getItemInHand().getItemMeta().getLore();
-		String one = "&bThunderous I";
-		String two = "&eThunderous II";
-		String three = "&cThunderous III";
 		if (lore == null)
 			return;
 		double health = enemy.getHealth();
-		if (lore.contains(ChatColor.translateAlternateColorCodes('&', one))) {
+		if (lore.contains(tOne)) {
 			int chance = (1 + new Random().nextInt(19));
 			if (chance == 1) {
 				l.getWorld().strikeLightning(l);
 			}
-		} else if (lore.contains(ChatColor.translateAlternateColorCodes('&', two))) {
+		} else if (lore.contains(tTwo)) {
 			int chance = (1 + new Random().nextInt(9));
 			if (chance == 1) {
 				l.getWorld().strikeLightning(l);
 				enemy.setHealth(health - 2);
 			}
-		} else if (lore.contains(ChatColor.translateAlternateColorCodes('&', three))) {
+		} else if (lore.contains(tThree)) {
 			int chance = (1 + new Random().nextInt(6));
 			if (chance == 1) {
 				l.getWorld().strikeLightning(l);

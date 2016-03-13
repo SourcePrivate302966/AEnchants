@@ -34,8 +34,14 @@ public class Blast implements Listener {
 	Material mr = Material.QUARTZ_BLOCK;
 	Material ms = Material.SANDSTONE;
 	Material mt = Material.STAINED_CLAY;
+	
+	String one = "&bBlast I";
+	String two = "&eBlast II";
+	
+	String tOne = ChatColor.translateAlternateColorCodes('&', one);
+	String tTwo = ChatColor.translateAlternateColorCodes('&', two);
 
-	@EventHandler(priority = EventPriority.NORMAL)
+	@EventHandler(priority = EventPriority.HIGHEST)
 	public void blockBreak(BlockBreakEvent e) {
 		Player p = e.getPlayer();
 		if (p.getItemInHand() == null)
@@ -44,8 +50,6 @@ public class Blast implements Listener {
 		Block b = e.getBlock();
 		if (lore == null)
 			return;
-		String one = "&bBlast I";
-		String two = "&eBlast II";
 		float yaw = p.getLocation().getYaw();
 		float pitch = p.getLocation().getPitch();
 		double rot = (yaw - 90) % 360;
@@ -70,7 +74,7 @@ public class Blast implements Listener {
 		Material southe = b.getRelative(BlockFace.SOUTH_EAST).getType();
 		Material northw = b.getRelative(BlockFace.NORTH_WEST).getType();
 		Material southw = b.getRelative(BlockFace.SOUTH_WEST).getType();
-		if (lore.contains(ChatColor.translateAlternateColorCodes('&', one))) {
+		if (lore.contains(tOne)) {
 			if (pitch < 30 && pitch > -30) {
 				if (0 <= rot && rot < 45 || 135 <= rot && rot < 225) {
 					if (down == ma || down == mb || down == mc || down == md || down == me || down == mf || down == mg
@@ -260,7 +264,7 @@ public class Blast implements Listener {
 					b.getRelative(BlockFace.WEST).breakNaturally();
 				}
 			}
-		} else if (lore.contains(ChatColor.translateAlternateColorCodes('&', two))) {
+		} else if (lore.contains(tTwo)) {
 			if (pitch < 30 && pitch > -30) {
 				if (0 <= rot && rot < 45 || 135 <= rot && rot < 225) {
 					if (down == ma || down == mb || down == mc || down == md || down == me || down == mf || down == mg

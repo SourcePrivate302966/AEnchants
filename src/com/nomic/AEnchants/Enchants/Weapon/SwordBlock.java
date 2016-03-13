@@ -11,6 +11,10 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 
 public class SwordBlock implements Listener {
 	
+	String one = "&bSword Block I";
+	
+	String tOne = ChatColor.translateAlternateColorCodes('&', one);
+	
 	@EventHandler(priority = EventPriority.HIGH)
 	public void onAttack(EntityDamageByEntityEvent e) {
 		if (!(e.getEntity() instanceof Player && e.getDamager() instanceof Player))
@@ -19,9 +23,7 @@ public class SwordBlock implements Listener {
 		if (!(p.isBlocking()))
 			return;
 		List<String> lore = p.getItemInHand().getItemMeta().getLore();
-		
-		String one = "&bSword Block I";
-		if (!(lore.contains(ChatColor.translateAlternateColorCodes('&', one))))
+		if (!(lore.contains(tOne)))
 			return;
 		double damage = e.getDamage();
 		p.setLastDamage(damage * 0.95);

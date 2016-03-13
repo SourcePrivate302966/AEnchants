@@ -13,6 +13,12 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 public class LightsOut implements Listener {
+	
+	String one = "&bLights Out I";
+	String two = "&eLights Out II";
+	
+	String tOne = ChatColor.translateAlternateColorCodes('&', one);
+	String tTwo = ChatColor.translateAlternateColorCodes('&', two);
 
 	@EventHandler(priority = EventPriority.HIGH)
 	public void onPlayerHit(EntityDamageByEntityEvent e) {
@@ -23,16 +29,14 @@ public class LightsOut implements Listener {
 		if (p.getItemInHand() == null)
 			return;
 		List<String> lore = p.getItemInHand().getItemMeta().getLore();
-		String one = "&bLights Out I";
-		String two = "&eLights Out II";
 		if (lore == null)
 			return;
-		if (lore.contains(ChatColor.translateAlternateColorCodes('&',one))) {
+		if (lore.contains(tOne)) {
 			int chance = (1 + new Random().nextInt(19));
 			if (chance == 1) {
 				enemy.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, (3 * 20), 0));
 			}
-		} else if (lore.contains(ChatColor.translateAlternateColorCodes('&',two))) {
+		} else if (lore.contains(tTwo)) {
 			int chance = (1 + new Random().nextInt(9));
 			if (chance == 1) {
 				enemy.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, (6 * 20), 0));
