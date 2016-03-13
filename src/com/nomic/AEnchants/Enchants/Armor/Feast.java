@@ -92,7 +92,7 @@ public class Feast implements Listener {
 		Material m = e.getItem().getType();
 		SlotType stype = e.getSlotType();
 		if (stype == SlotType.ARMOR) {
-			if (cm == diamondh || cm == ironh || cm == chainh || cm == leatherh) {
+			if (e.getCItem() != null && cm == diamondh || cm == ironh || cm == chainh || cm == leatherh) {
 				if (inv.getHelmet() != null && m != null) {
 					List<String> lore = e.getCItem().getItemMeta().getLore();
 					if (lore.contains(tOne) || lore.contains(tTwo)) {

@@ -1,4 +1,4 @@
-package com.nomic.AEnchants.Enchants;
+package com.nomic.AEnchants.Enchants.Weapon;
 
 import java.util.List;
 import java.util.Random;

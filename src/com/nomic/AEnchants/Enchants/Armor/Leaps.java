@@ -98,7 +98,7 @@ public class Leaps implements Listener {
 		Material m = e.getItem().getType();
 		SlotType stype = e.getSlotType();
 		if (stype == SlotType.ARMOR) {
-			if (cm == diamondb || cm == ironb || cm == chainb || cm == leatherb) {
+			if (e.getCItem() != null && cm == diamondb || cm == ironb || cm == chainb || cm == leatherb) {
 				if (inv.getBoots() != null && m != null) {
 					List<String> lore = e.getCItem().getItemMeta().getLore();
 					if (lore.contains(tOne) || lore.contains(tTwo) || lore.contains(tThree)) {

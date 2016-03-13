@@ -22,6 +22,8 @@ public class ArmorDragListener implements Listener {
 		SlotType stype = e.getSlotType();
 		if (!(click == ClickType.LEFT || click == ClickType.RIGHT))
 			return;
+		if (e.getCurrentItem() == null)
+			return;
 		Bukkit.getServer().getPluginManager().callEvent(new ArmorDrag(p, item, citem, stype));
 	}
 }

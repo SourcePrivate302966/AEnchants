@@ -125,7 +125,7 @@ public class Replenish implements Listener {
 		Material m = e.getItem().getType();
 		SlotType stype = e.getSlotType();
 		if (stype == SlotType.ARMOR) {
-			if (cm == diamondc || cm == ironc || cm == chainc || cm == leatherc) {
+			if (e.getCItem() != null && cm == diamondc || cm == ironc || cm == chainc || cm == leatherc) {
 				if (inv.getChestplate() != null && m != null) {
 					List<String> lore = e.getCItem().getItemMeta().getLore();
 					if (lore.contains(tOne) || lore.contains(tTwo) || lore.contains(tThree)) {
@@ -143,7 +143,7 @@ public class Replenish implements Listener {
 						p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 1000000 * 20, 1));
 					}
 				}
-			} else if (cm == diamondl || cm == ironl || cm == chainl || cm == leatherl) {
+			} else if (e.getCItem() != null && cm == diamondl || cm == ironl || cm == chainl || cm == leatherl) {
 				if (inv.getLeggings() != null && m != null) {
 					List<String> lore = e.getCItem().getItemMeta().getLore();
 					if (lore.contains(tOne) || lore.contains(tTwo) || lore.contains(tThree)) {
