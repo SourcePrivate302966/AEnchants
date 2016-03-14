@@ -12,6 +12,7 @@ import com.nomic.AEnchants.Enchants.Armor.Fish;
 import com.nomic.AEnchants.Enchants.Armor.HealthBoost;
 import com.nomic.AEnchants.Enchants.Armor.Leaps;
 import com.nomic.AEnchants.Enchants.Armor.Replenish;
+import com.nomic.AEnchants.Enchants.Armor.Retreat;
 import com.nomic.AEnchants.Enchants.Armor.Scoot;
 import com.nomic.AEnchants.Enchants.Weapon.Archery;
 import com.nomic.AEnchants.Enchants.Weapon.Confusion;
@@ -55,5 +56,6 @@ public class Main extends JavaPlugin {
 		pm.registerEvents(new Blaze(), this);
 		pm.registerEvents(new Leaps(), this);
 		pm.registerEvents(new Blast(), this);
+		pm.registerEvents(new Retreat(), this);
 	}
 }

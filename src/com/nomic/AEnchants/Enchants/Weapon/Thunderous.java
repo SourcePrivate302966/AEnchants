@@ -5,6 +5,7 @@ import java.util.Random;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -28,7 +29,7 @@ public class Thunderous implements Listener {
 		Player p = (Player) e.getDamager();
 		Player enemy = (Player) e.getEntity();
 		Location l = enemy.getLocation();
-		if (p.getItemInHand() == null)
+		if (p.getItemInHand().getType() == Material.AIR)
 			return;
 		List<String> lore = p.getItemInHand().getItemMeta().getLore();
 		if (lore == null)

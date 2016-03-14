@@ -3,6 +3,7 @@ package com.nomic.AEnchants.Enchants;
 import java.util.List;
 
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -23,7 +24,7 @@ public class Haste implements Listener {
 	@EventHandler
 	public void onMine(BlockDamageEvent e) {
 		Player p = e.getPlayer();
-		if (p.getItemInHand() == null)
+		if (p.getItemInHand().getType() == Material.AIR)
 			return;
 		List<String> lore = p.getItemInHand().getItemMeta().getLore();
 		if (lore == null)

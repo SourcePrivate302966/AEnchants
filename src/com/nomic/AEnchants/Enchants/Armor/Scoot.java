@@ -101,6 +101,8 @@ public class Scoot implements Listener {
 			if (e.getCItem() != null && cm == diamondb || cm == ironb || cm == chainb || cm == leatherb) {
 				if (inv.getBoots() != null && m != null) {
 					List<String> lore = e.getCItem().getItemMeta().getLore();
+					if (lore == null)
+						return;
 					if (lore.contains(tOne) || lore.contains(tTwo) || lore.contains(tThree)) {
 						p.removePotionEffect(PotionEffectType.SPEED);
 					}
@@ -108,6 +110,8 @@ public class Scoot implements Listener {
 			} else if (m == diamondb || m == ironb || m == chainb || m == leatherb) {
 				if (e.getItem() != null) {
 					List<String> lore = e.getItem().getItemMeta().getLore();
+					if (lore == null)
+						return;
 					if (lore.contains(tOne)) {
 						p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1000000 * 20, 0));
 					} else if (lore.contains(tTwo)) {

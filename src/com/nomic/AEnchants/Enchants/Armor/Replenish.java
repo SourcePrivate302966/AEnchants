@@ -128,6 +128,8 @@ public class Replenish implements Listener {
 			if (e.getCItem() != null && cm == diamondc || cm == ironc || cm == chainc || cm == leatherc) {
 				if (inv.getChestplate() != null && m != null) {
 					List<String> lore = e.getCItem().getItemMeta().getLore();
+					if (lore == null)
+						return;
 					if (lore.contains(tOne) || lore.contains(tTwo) || lore.contains(tThree)) {
 						p.removePotionEffect(PotionEffectType.REGENERATION);
 					}
@@ -135,6 +137,8 @@ public class Replenish implements Listener {
 			} else if (m == diamondc || m == ironc || m == chainc || m == leatherc) {
 				if (e.getItem() != null) {
 					List<String> lore = e.getItem().getItemMeta().getLore();
+					if (lore == null)
+						return;
 					if (lore.contains(tOne)) {
 						p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 1000000 * 20, 0));
 					} else if (lore.contains(tTwo)) {
@@ -146,6 +150,8 @@ public class Replenish implements Listener {
 			} else if (e.getCItem() != null && cm == diamondl || cm == ironl || cm == chainl || cm == leatherl) {
 				if (inv.getLeggings() != null && m != null) {
 					List<String> lore = e.getCItem().getItemMeta().getLore();
+					if (lore == null)
+						return;
 					if (lore.contains(tOne) || lore.contains(tTwo) || lore.contains(tThree)) {
 						p.removePotionEffect(PotionEffectType.REGENERATION);
 					}
@@ -153,6 +159,8 @@ public class Replenish implements Listener {
 			} else if (m == diamondl || m == ironl || m == chainl || m == leatherl) {
 				if (e.getItem() != null) {
 					List<String> lore = e.getItem().getItemMeta().getLore();
+					if (lore == null)
+						return;
 					if (lore.contains(tOne)) {
 						p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 1000000 * 20, 0));
 					} else if (lore.contains(tTwo)) {

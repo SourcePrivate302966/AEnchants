@@ -3,6 +3,7 @@ package com.nomic.AEnchants.Enchants;
 import java.util.List;
 
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -34,7 +35,7 @@ public class Experience implements Listener {
 	public void onMine(BlockBreakEvent e) {
 		Player p = e.getPlayer();
 		int exp = e.getExpToDrop();
-		if (p.getItemInHand() == null)
+		if (p.getItemInHand().getType() == Material.AIR)
 			return;
 		List<String> lore = p.getItemInHand().getItemMeta().getLore();
 		if (lore == null)

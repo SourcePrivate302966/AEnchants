@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -26,7 +27,7 @@ public class LightsOut implements Listener {
 			return;
 		Player p = (Player) e.getDamager();
 		Player enemy = (Player) e.getEntity();
-		if (p.getItemInHand() == null)
+		if (p.getItemInHand().getType() == Material.AIR)
 			return;
 		List<String> lore = p.getItemInHand().getItemMeta().getLore();
 		if (lore == null)

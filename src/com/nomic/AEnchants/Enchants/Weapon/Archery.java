@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -27,7 +28,7 @@ public class Archery implements Listener {
 		if (!(a.getShooter() instanceof Player))
 			return;
 		Player p = (Player) a.getShooter();
-		if (p.getItemInHand() == null)
+		if (p.getItemInHand().getType() == Material.AIR)
 			return;
 		List<String> lore = p.getItemInHand().getItemMeta().getLore();
 		if (lore == null)

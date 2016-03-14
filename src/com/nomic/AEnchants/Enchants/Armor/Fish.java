@@ -89,6 +89,8 @@ public class Fish implements Listener {
 			if (e.getCItem() != null && cm == diamondh || cm == ironh || cm == chainh || cm == leatherh) {
 				if (inv.getHelmet() != null && m != null) {
 					List<String> lore = e.getCItem().getItemMeta().getLore();
+					if (lore == null)
+						return;
 					if (lore.contains(tOne)) {
 						p.removePotionEffect(PotionEffectType.WATER_BREATHING);
 					}
@@ -96,6 +98,8 @@ public class Fish implements Listener {
 			} else if (m == diamondh || m == ironh || m == chainh || m == leatherh) {
 				if (e.getItem() != null) {
 					List<String> lore = e.getItem().getItemMeta().getLore();
+					if (lore == null)
+						return;
 					if (lore.contains(tOne)) {
 						p.addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, 1000000 * 20, 0));
 					}  

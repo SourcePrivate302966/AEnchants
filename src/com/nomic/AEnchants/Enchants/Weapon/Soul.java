@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -25,6 +26,8 @@ public class Soul implements Listener {
 		if (!(p instanceof Player))
 			return;
 		Player enemy = (Player) e.getEntity();
+		if (p.getItemInHand().getType() == Material.AIR)
+			return;
 		List<String> lore = p.getItemInHand().getItemMeta().getLore();
 		if (lore == null)
 			return;

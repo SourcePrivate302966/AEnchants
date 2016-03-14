@@ -108,6 +108,8 @@ public class Blaze implements Listener {
 			if (e.getCItem() != null && cm == diamondc || cm == ironc || cm == chainc || cm == leatherc) {
 				if (inv.getChestplate() != null && m != null) {
 					List<String> lore = e.getCItem().getItemMeta().getLore();
+					if (lore == null)
+						return;
 					if (lore.contains(tOne)) {
 						p.removePotionEffect(PotionEffectType.FIRE_RESISTANCE);
 					}
@@ -115,6 +117,8 @@ public class Blaze implements Listener {
 			} else if (m == diamondc || m == ironc || m == chainc || m == leatherc) {
 				if (e.getItem() != null) {
 					List<String> lore = e.getItem().getItemMeta().getLore();
+					if (lore == null)
+						return;
 					if (lore.contains(tOne)) {
 						p.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 1000000 * 20, 0));
 					}  
@@ -122,6 +126,8 @@ public class Blaze implements Listener {
 			} else if (e.getCItem() != null && cm == diamondl || cm == ironl || cm == chainl || cm == leatherl) {
 				if (inv.getLeggings() != null && m != null) {
 					List<String> lore = e.getCItem().getItemMeta().getLore();
+					if (lore == null)
+						return;
 					if (lore.contains(tOne)) {
 						p.removePotionEffect(PotionEffectType.FIRE_RESISTANCE);
 					}
@@ -129,6 +135,8 @@ public class Blaze implements Listener {
 			} else if (m == diamondl || m == ironl || m == chainl || m == leatherl) {
 				if (e.getItem() != null) {
 					List<String> lore = e.getItem().getItemMeta().getLore();
+					if (lore == null)
+						return;
 					if (lore.contains(tOne)) {
 						p.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 1000000 * 20, 0));
 					}  
