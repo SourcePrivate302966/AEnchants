@@ -38,17 +38,23 @@ public class Retreat implements Listener {
 			if (llore.contains(tOne)) {
 				int chance = (1 + new Random().nextInt(19));
 				if (chance == 1) {
-					p.setVelocity(new Vector(0, 8, 0));
+					e.setCancelled(true);
+					p.setVelocity(new Vector(0, 1.4, 0));
+					p.setFallDistance(-9.5F);
 				}
 			} else if (llore.contains(tTwo)) {
 				int chance = (1 + new Random().nextInt(9));
 				if (chance == 1) {
-					p.setVelocity(new Vector(0, 12, 0));
+					e.setCancelled(true);
+					p.setVelocity(new Vector(0, 1.7, 0));
+					p.setFallDistance(-14F);
 				}
 			} else if (llore.contains(tThree)) {
 				int chance = (1 + new Random().nextInt(6));
 				if (chance == 1) {
-					p.setVelocity(new Vector(0, 18, 0));
+					e.setCancelled(true);
+					p.setVelocity(new Vector(0, 2, 0));
+					p.setFallDistance(-18.0F);
 				}
 			}
 		}

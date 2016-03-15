@@ -38,6 +38,9 @@ public class Experience implements Listener {
 		if (p.getItemInHand().getType() == Material.AIR)
 			return;
 		List<String> lore = p.getItemInHand().getItemMeta().getLore();
+		if (config.getBoolean("enableExperienceEnchant", false)) {
+			return;
+		}
 		if (lore == null)
 			return;
 		if (lore.contains(tOne)) {
@@ -46,8 +49,6 @@ public class Experience implements Listener {
 			e.setExpToDrop(exp/2);
 		} else if (lore.contains(tThree)) {
 			e.setExpToDrop(exp);
-		} else if (config.getBoolean("enableExperienceEnchant", true)) {
-			e.setExpToDrop(0);
-		}
+		} 
 	}
 }
