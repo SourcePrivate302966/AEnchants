@@ -6,15 +6,21 @@ import org.bukkit.plugin.java.JavaPlugin;
 import com.nomic.AEnchants.Enchants.Blast;
 import com.nomic.AEnchants.Enchants.Haste;
 import com.nomic.AEnchants.Enchants.ObsidianDestroyer;
+import com.nomic.AEnchants.Enchants.Armor.Arc;
 import com.nomic.AEnchants.Enchants.Armor.Blaze;
 import com.nomic.AEnchants.Enchants.Armor.Bump;
 import com.nomic.AEnchants.Enchants.Armor.Feast;
 import com.nomic.AEnchants.Enchants.Armor.Fish;
 import com.nomic.AEnchants.Enchants.Armor.HealthBoost;
+import com.nomic.AEnchants.Enchants.Armor.Implode;
 import com.nomic.AEnchants.Enchants.Armor.Leaps;
+import com.nomic.AEnchants.Enchants.Armor.Reborn;
 import com.nomic.AEnchants.Enchants.Armor.Replenish;
 import com.nomic.AEnchants.Enchants.Armor.Retreat;
 import com.nomic.AEnchants.Enchants.Armor.Scoot;
+import com.nomic.AEnchants.Enchants.Armor.Tipsy;
+import com.nomic.AEnchants.Enchants.Armor.Vanish;
+import com.nomic.AEnchants.Enchants.Armor.Weary;
 import com.nomic.AEnchants.Enchants.Weapon.Archery;
 import com.nomic.AEnchants.Enchants.Weapon.Confusion;
 import com.nomic.AEnchants.Enchants.Weapon.Life;
@@ -59,5 +65,11 @@ public class Main extends JavaPlugin {
 		pm.registerEvents(new Blast(), this);
 		pm.registerEvents(new Retreat(), this);
 		pm.registerEvents(new Bump(), this);
+		pm.registerEvents(new Reborn(), this);
+		pm.registerEvents(new Vanish(), this);
+		pm.registerEvents(new Arc(), this);
+		pm.registerEvents(new Weary(), this);
+		pm.registerEvents(new Tipsy(), this);
+		pm.registerEvents(new Implode(), this);
 	}
 }

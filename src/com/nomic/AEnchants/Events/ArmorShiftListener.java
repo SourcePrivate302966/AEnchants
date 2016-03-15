@@ -3,6 +3,7 @@ package com.nomic.AEnchants.Events;
 import java.util.List;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -21,7 +22,7 @@ public class ArmorShiftListener implements Listener {
 		ItemStack item = e.getCurrentItem();
 		ClickType click = e.getClick();
 		SlotType stype = e.getSlotType();
-		if (item == null)
+		if (item.getType() == Material.AIR)
 			return;
 		if (!(click == ClickType.SHIFT_LEFT || click == ClickType.SHIFT_RIGHT))
 			return;
