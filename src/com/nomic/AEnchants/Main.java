@@ -7,6 +7,7 @@ import com.nomic.AEnchants.Enchants.Blast;
 import com.nomic.AEnchants.Enchants.Haste;
 import com.nomic.AEnchants.Enchants.ObsidianDestroyer;
 import com.nomic.AEnchants.Enchants.Armor.Blaze;
+import com.nomic.AEnchants.Enchants.Armor.Bump;
 import com.nomic.AEnchants.Enchants.Armor.Feast;
 import com.nomic.AEnchants.Enchants.Armor.Fish;
 import com.nomic.AEnchants.Enchants.Armor.HealthBoost;
@@ -57,5 +58,6 @@ public class Main extends JavaPlugin {
 		pm.registerEvents(new Leaps(), this);
 		pm.registerEvents(new Blast(), this);
 		pm.registerEvents(new Retreat(), this);
+		pm.registerEvents(new Bump(), this);
 	}
 }
