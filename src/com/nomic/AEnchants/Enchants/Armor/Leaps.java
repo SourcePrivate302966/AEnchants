@@ -51,6 +51,9 @@ public class Leaps implements Listener {
 		Player p = e.getPlayer();
 		List<String> lore = e.getLore();
 		SlotType stype = e.getSlotType();
+		Material m = e.getItem().getType();
+		if (m == Material.ENCHANTED_BOOK)
+			return;
 		PlayerInventory inv = p.getInventory();
 		if (!(lore.contains(tOne) || lore.contains(tTwo) || lore.contains(tThree)))
 			return;
@@ -74,6 +77,8 @@ public class Leaps implements Listener {
 		Player p = e.getPlayer();
 		List<String> lore = e.getLore();
 		Material m = e.getItem().getType();
+		if (m == Material.ENCHANTED_BOOK)
+			return;
 		PlayerInventory inv = p.getInventory();
 		if (!(lore.contains(tOne) || lore.contains(tTwo) || lore.contains(tThree)))
 			return;

@@ -1,9 +1,12 @@
 # AEnchants Config by Nomic
 # More options coming very soon.
 # Change the title used at the top of enchant signs.
+# Change message sent after clicking an enchant sign.
+# For enchant sign message, use {tier} and {enchant} variables.
 # Enable if experience from ores is only given with experience enchant.
 # Enable which books are given from the enchant signs.
-signTitle: "&1AEnchants"
+signTitle: '&1AEnchants'
+signUseMessage: '&c&lAEnchants &8>> &bYou just purchased a &d{tier} &bAEnchant and got yourself a &e{enchant} &bEnchanted Book.'
 enabledExperienceEnchant: true
 enabledBooks:
   enabledTierOnes:

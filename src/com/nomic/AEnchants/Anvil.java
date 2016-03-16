@@ -32,7 +32,9 @@ public class Anvil implements Listener {
 		ItemStack current = e.getCurrentItem();
 		ItemStack cursor = e.getCursor();
 		if (click == ClickType.LEFT || click == ClickType.RIGHT) {
-			if (current.getType() == Material.AIR && cursor.getType() != Material.AIR) {
+			if (current.getType() == Material.AIR)
+				return;
+			if (cursor.getType() != Material.AIR) {
 				if (!(stype == SlotType.CRAFTING && inv == InventoryType.ANVIL))
 					return;
 				AnvilInventory anvil = (AnvilInventory) e.getInventory();

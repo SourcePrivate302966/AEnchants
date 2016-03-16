@@ -48,6 +48,8 @@ public class Blaze implements Listener {
 		List<String> lore = e.getLore();
 		SlotType stype = e.getSlotType();
 		Material m = e.getItem().getType();
+		if (m == Material.ENCHANTED_BOOK)
+			return;
 		PlayerInventory inv = p.getInventory();
 		if (!(lore.contains(tOne)))
 			return;
@@ -79,6 +81,8 @@ public class Blaze implements Listener {
 		Player p = e.getPlayer();
 		List<String> lore = e.getLore();
 		Material m = e.getItem().getType();
+		if (m == Material.ENCHANTED_BOOK)
+			return;
 		PlayerInventory inv = p.getInventory();
 		if (!(lore.contains(tOne)))
 			return;
@@ -103,6 +107,8 @@ public class Blaze implements Listener {
 		PlayerInventory inv = p.getInventory();
 		Material cm = e.getCItem().getType();
 		Material m = e.getItem().getType();
+		if (m == Material.ENCHANTED_BOOK)
+			return;
 		SlotType stype = e.getSlotType();
 		if (stype == SlotType.ARMOR) {
 			if (e.getCItem() != null && cm == diamondc || cm == ironc || cm == chainc || cm == leatherc) {
