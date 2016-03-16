@@ -24,12 +24,9 @@ public class ClickSign implements Listener {
 		plugin = pl;
 	}
 	
-	String title = plugin.getConfig().getString("signTitle");
 	String one = "Tier 1";
 	String two = "Tier 2";
 	String three = "Tier 3";
-	
-	String aenchants = ChatColor.translateAlternateColorCodes('&', title);
 	
 	String arc = "Arc";
 	String usedarc = "&bArc I";
@@ -269,6 +266,8 @@ public class ClickSign implements Listener {
 			return;
 		if (!(e.getClickedBlock().getState() instanceof Sign))
 			return;
+		String title = plugin.getConfig().getString("signTitle");
+		String aenchants = ChatColor.translateAlternateColorCodes('&', title);
 		Player p = e.getPlayer();
 		PlayerInventory inv = p.getInventory();
 		Sign sign = (Sign) e.getClickedBlock().getState();
