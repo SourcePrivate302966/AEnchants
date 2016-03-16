@@ -236,7 +236,7 @@ public class ClickSign implements Listener {
 		ConfigurationSection config = plugin.getConfig().getConfigurationSection("enabledBooks");
 		String msg = plugin.getConfig().getString("signUseMessage");
 		String sendmsg = ChatColor.translateAlternateColorCodes('&', msg);
-		String notenoughmsg = plugin.getConfig().getString("signNotEnoughLevelsMessage");
+		String notenoughmsg = plugin.getConfig().getString("notEnoughLevelsMessage");
 		String notenoughsendmsg = ChatColor.translateAlternateColorCodes('&', notenoughmsg);
 		if (!(sign.getLine(0).contains(aenchants)))
 			return;

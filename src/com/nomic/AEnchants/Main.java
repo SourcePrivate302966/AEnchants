@@ -75,7 +75,7 @@ public class Main extends JavaPlugin {
 		pm.registerEvents(new Implode(), this);
 		pm.registerEvents(new Sunlight(), this);
 		pm.registerEvents(new ClickSign(this), this);
-		pm.registerEvents(new Anvil(), this);
+		pm.registerEvents(new Anvil(this), this);
 	}
 	
 	private void registerConfig() {
