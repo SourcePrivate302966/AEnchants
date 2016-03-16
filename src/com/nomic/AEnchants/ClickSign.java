@@ -236,14 +236,17 @@ public class ClickSign implements Listener {
 		ConfigurationSection config = plugin.getConfig().getConfigurationSection("enabledBooks");
 		String msg = plugin.getConfig().getString("signUseMessage");
 		String sendmsg = ChatColor.translateAlternateColorCodes('&', msg);
+		String notenoughmsg = plugin.getConfig().getString("signNotEnoughLevelsMessage");
+		String notenoughsendmsg = ChatColor.translateAlternateColorCodes('&', notenoughmsg);
 		if (!(sign.getLine(0).contains(aenchants)))
 			return;
 		ItemStack book = new ItemStack(Material.ENCHANTED_BOOK);
 		ItemMeta meta = book.getItemMeta();
-		int levels = Integer.parseInt(sign.getLine(2).replaceAll(" Levels", ""));
+		String reqlevels = sign.getLine(2).replaceAll(" Levels", "");
+		int levels = Integer.parseInt(reqlevels);
 		int pLevel = p.getLevel();
 		if (pLevel < levels) {
-			p.sendMessage(ChatColor.RED + "You don't have enough levels.");
+			p.sendMessage(notenoughsendmsg.replace("{levels}", reqlevels));
 			return;
 		}
 		if (sign.getLine(1).contains(one)) {

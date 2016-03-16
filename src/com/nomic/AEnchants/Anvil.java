@@ -212,7 +212,7 @@ public class Anvil implements Listener {
 	String usedobsidiandestroyer3 = "&cObsidian Destroyer III";
 	String obsidiandestroyerE3 = ChatColor.translateAlternateColorCodes('&', usedobsidiandestroyer3);
 
-	String req = "&c&lAEnchants &8>> &bRequires at least &e%levels &blevels.";
+	String req = "&c&lAEnchants &8>> &cRequires at least &e{levels} &clevels.";
 	String reqmsg = ChatColor.translateAlternateColorCodes('&', req);
 
 	@EventHandler
@@ -242,7 +242,7 @@ public class Anvil implements Listener {
 				if (cursor.getType() == book && item1.getType() == book) {
 					List<String> lore = cursor.getItemMeta().getLore();
 					if (plevel < 4) {
-						p.sendMessage(reqmsg.replace("%levels", "4"));
+						p.sendMessage(reqmsg.replace("{levels}", "4"));
 						return;
 					} else if (plevel >= 4) {
 						if (lore1.contains(beastE) && lore.contains(beastE)) {
