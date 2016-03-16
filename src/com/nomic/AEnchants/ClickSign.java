@@ -31,10 +31,6 @@ public class ClickSign implements Listener {
 	String arc = "Arc";
 	String usedarc = "&bArc I";
 	String arcE = ChatColor.translateAlternateColorCodes('&', usedarc);
-	String usedarc2 = "&eArc II";
-	String arcE2 = ChatColor.translateAlternateColorCodes('&', usedarc2);
-	String usedarc3 = "&cArc III";
-	String arcE3 = ChatColor.translateAlternateColorCodes('&', usedarc3);
 
 	String beast = "Beast";
 	String usedbeast = "&bBeast I";
@@ -47,10 +43,6 @@ public class ClickSign implements Listener {
 	String blaze = "Blaze";
 	String usedblaze = "&bBlaze I";
 	String blazeE = ChatColor.translateAlternateColorCodes('&', usedblaze);
-	String usedblaze2 = "&eBlaze II";
-	String blazeE2 = ChatColor.translateAlternateColorCodes('&', usedblaze2);
-	String usedblaze3 = "&cBlaze III";
-	String blazeE3 = ChatColor.translateAlternateColorCodes('&', usedblaze3);
 
 	String bump = "Bump";
 	String usedbump = "&bBump I";
@@ -63,26 +55,16 @@ public class ClickSign implements Listener {
 	String feast = "Feast";
 	String usedfeast = "&bFeast I";
 	String feastE = ChatColor.translateAlternateColorCodes('&', usedfeast);
-	String usedfeast2 = "&eFeast II";
-	String feastE2 = ChatColor.translateAlternateColorCodes('&', usedfeast2);
-	String usedfeast3 = "&cFeast III";
-	String feastE3 = ChatColor.translateAlternateColorCodes('&', usedfeast3);
 
 	String fish = "Fish";
 	String usedfish = "&bFish I";
 	String fishE = ChatColor.translateAlternateColorCodes('&', usedfish);
-	String usedfish2 = "&eFish II";
-	String fishE2 = ChatColor.translateAlternateColorCodes('&', usedfish2);
-	String usedfish3 = "&cFish III";
-	String fishE3 = ChatColor.translateAlternateColorCodes('&', usedfish3);
 
 	String healthboost = "Health Boost";
 	String usedhealthboost = "&bHealth Boost I";
 	String healthboostE = ChatColor.translateAlternateColorCodes('&', usedhealthboost);
 	String usedhealthboost2 = "&eHealth Boost II";
 	String healthboostE2 = ChatColor.translateAlternateColorCodes('&', usedhealthboost2);
-	String usedhealthboost3 = "&cHealth Boost III";
-	String healthboostE3 = ChatColor.translateAlternateColorCodes('&', usedhealthboost3);
 
 	String implode = "Implode";
 	String usedimplode = "&bImplode I";
@@ -135,10 +117,6 @@ public class ClickSign implements Listener {
 	String sunlight = "Sunlight";
 	String usedsunlight = "&bSunlight I";
 	String sunlightE = ChatColor.translateAlternateColorCodes('&', usedsunlight);
-	String usedsunlight2 = "&eSunlight II";
-	String sunlightE2 = ChatColor.translateAlternateColorCodes('&', usedsunlight2);
-	String usedsunlight3 = "&cSunlight III";
-	String sunlightE3 = ChatColor.translateAlternateColorCodes('&', usedsunlight3);
 
 	String tipsy = "Tipsy";
 	String usedtipsy = "&bTipsy I";
@@ -169,24 +147,18 @@ public class ClickSign implements Listener {
 	String archeryE = ChatColor.translateAlternateColorCodes('&', usedarchery);
 	String usedarchery2 = "&eArchery II";
 	String archeryE2 = ChatColor.translateAlternateColorCodes('&', usedarchery2);
-	String usedarchery3 = "&cArchery III";
-	String archeryE3 = ChatColor.translateAlternateColorCodes('&', usedarchery3);
 
 	String confusion = "Confusion";
 	String usedconfusion = "&bConfusion I";
 	String confusionE = ChatColor.translateAlternateColorCodes('&', usedconfusion);
 	String usedconfusion2 = "&eConfusion II";
 	String confusionE2 = ChatColor.translateAlternateColorCodes('&', usedconfusion2);
-	String usedconfusion3 = "&cConfusion III";
-	String confusionE3 = ChatColor.translateAlternateColorCodes('&', usedconfusion3);
 
 	String life = "Life";
 	String usedlife = "&bLife I";
 	String lifeE = ChatColor.translateAlternateColorCodes('&', usedlife);
 	String usedlife2 = "&eLife II";
 	String lifeE2 = ChatColor.translateAlternateColorCodes('&', usedlife2);
-	String usedlife3 = "&cLife III";
-	String lifeE3 = ChatColor.translateAlternateColorCodes('&', usedlife3);
 
 	String lightning = "Lightning";
 	String usedlightning = "&bLightning I";
@@ -201,24 +173,16 @@ public class ClickSign implements Listener {
 	String lightsoutE = ChatColor.translateAlternateColorCodes('&', usedlightsout);
 	String usedlightsout2 = "&eLights Out II";
 	String lightsoutE2 = ChatColor.translateAlternateColorCodes('&', usedlightsout2);
-	String usedlightsout3 = "&cLights Out III";
-	String lightsoutE3 = ChatColor.translateAlternateColorCodes('&', usedlightsout3);
 
 	String soul = "Soul";
 	String usedsoul = "&bSoul I";
 	String soulE = ChatColor.translateAlternateColorCodes('&', usedsoul);
 	String usedsoul2 = "&eSoul II";
 	String soulE2 = ChatColor.translateAlternateColorCodes('&', usedsoul2);
-	String usedsoul3 = "&cSoul III";
-	String soulE3 = ChatColor.translateAlternateColorCodes('&', usedsoul3);
 
 	String swordblock = "Sword Block";
 	String usedswordblock = "&bSword Block I";
 	String swordblockE = ChatColor.translateAlternateColorCodes('&', usedswordblock);
-	String usedswordblock2 = "&eSword Block II";
-	String swordblockE2 = ChatColor.translateAlternateColorCodes('&', usedswordblock2);
-	String usedswordblock3 = "&cSword Block III";
-	String swordblockE3 = ChatColor.translateAlternateColorCodes('&', usedswordblock3);
 
 	String thunderous = "Thunderous";
 	String usedthunderous = "&bThunderous I";
@@ -233,8 +197,6 @@ public class ClickSign implements Listener {
 	String blastE = ChatColor.translateAlternateColorCodes('&', usedblast);
 	String usedblast2 = "&eBlast II";
 	String blastE2 = ChatColor.translateAlternateColorCodes('&', usedblast2);
-	String usedblast3 = "&cBlast III";
-	String blastE3 = ChatColor.translateAlternateColorCodes('&', usedblast3);
 
 	String experience = "Experience";
 	String usedexperience = "&bExperience I";
@@ -441,244 +403,209 @@ public class ClickSign implements Listener {
 			Random random = new Random();
 			int i = random.nextInt(config.getStringList("enabledTierTwos").size());
 			ArrayList<String> enchants = (ArrayList<String>) config.getStringList("enabledTierTwos");
-			if (enchants.get(i).equals(arc)) {
-				meta.setLore(Arrays.asList(arcE2));
-				book.setItemMeta(meta);
-				inv.addItem(book);
-			} else if (enchants.get(i).equals(beast)) {
+			if (enchants.get(i).equals(beast)) {
 				meta.setLore(Arrays.asList(beastE2));
 				book.setItemMeta(meta);
 				inv.addItem(book);
-			} else if (enchants.get(i).equals(blaze)) {
-				meta.setLore(Arrays.asList(blazeE2));
-				book.setItemMeta(meta);
-				inv.addItem(book);
+				p.sendMessage(sendmsg.replace("{tier}", two).replace("{enchant}", usedbeast2.replace("&e", "")));
 			} else if (enchants.get(i).equals(bump)) {
 				meta.setLore(Arrays.asList(bumpE2));
 				book.setItemMeta(meta);
 				inv.addItem(book);
-			} else if (enchants.get(i).equals(feast)) {
-				meta.setLore(Arrays.asList(feastE2));
-				book.setItemMeta(meta);
-				inv.addItem(book);
-			} else if (enchants.get(i).equals(fish)) {
-				meta.setLore(Arrays.asList(fishE2));
-				book.setItemMeta(meta);
-				inv.addItem(book);
+				p.sendMessage(sendmsg.replace("{tier}", two).replace("{enchant}", usedbump2.replace("&e", "")));
 			} else if (enchants.get(i).equals(healthboost)) {
 				meta.setLore(Arrays.asList(healthboostE2));
 				book.setItemMeta(meta);
 				inv.addItem(book);
+				p.sendMessage(sendmsg.replace("{tier}", two).replace("{enchant}", usedhealthboost2.replace("&e", "")));
 			} else if (enchants.get(i).equals(implode)) {
 				meta.setLore(Arrays.asList(implodeE2));
 				book.setItemMeta(meta);
 				inv.addItem(book);
+				p.sendMessage(sendmsg.replace("{tier}", two).replace("{enchant}", usedimplode2.replace("&e", "")));
 			} else if (enchants.get(i).equals(leaps)) {
 				meta.setLore(Arrays.asList(leapsE2));
 				book.setItemMeta(meta);
 				inv.addItem(book);
+				p.sendMessage(sendmsg.replace("{tier}", two).replace("{enchant}", usedleaps2.replace("&e", "")));
 			} else if (enchants.get(i).equals(reborn)) {
 				meta.setLore(Arrays.asList(rebornE2));
 				book.setItemMeta(meta);
 				inv.addItem(book);
+				p.sendMessage(sendmsg.replace("{tier}", two).replace("{enchant}", usedreborn2.replace("&e", "")));
 			} else if (enchants.get(i).equals(replenish)) {
 				meta.setLore(Arrays.asList(replenishE2));
 				book.setItemMeta(meta);
 				inv.addItem(book);
+				p.sendMessage(sendmsg.replace("{tier}", two).replace("{enchant}", usedreplenish2.replace("&e", "")));
 			} else if (enchants.get(i).equals(retreat)) {
 				meta.setLore(Arrays.asList(retreatE2));
 				book.setItemMeta(meta);
 				inv.addItem(book);
+				p.sendMessage(sendmsg.replace("{tier}", two).replace("{enchant}", usedretreat2.replace("&e", "")));
 			} else if (enchants.get(i).equals(scoot)) {
 				meta.setLore(Arrays.asList(scootE2));
 				book.setItemMeta(meta);
 				inv.addItem(book);
-			} else if (enchants.get(i).equals(sunlight)) {
-				meta.setLore(Arrays.asList(sunlightE2));
-				book.setItemMeta(meta);
-				inv.addItem(book);
+				p.sendMessage(sendmsg.replace("{tier}", two).replace("{enchant}", usedscoot2.replace("&e", "")));
 			} else if (enchants.get(i).equals(tipsy)) {
 				meta.setLore(Arrays.asList(tipsyE2));
 				book.setItemMeta(meta);
 				inv.addItem(book);
+				p.sendMessage(sendmsg.replace("{tier}", two).replace("{enchant}", usedtipsy2.replace("&e", "")));
 			} else if (enchants.get(i).equals(vanish)) {
 				meta.setLore(Arrays.asList(vanishE2));
 				book.setItemMeta(meta);
 				inv.addItem(book);
+				p.sendMessage(sendmsg.replace("{tier}", two).replace("{enchant}", usedvanish2.replace("&e", "")));
 			} else if (enchants.get(i).equals(weary)) {
 				meta.setLore(Arrays.asList(wearyE2));
 				book.setItemMeta(meta);
 				inv.addItem(book);
+				p.sendMessage(sendmsg.replace("{tier}", two).replace("{enchant}", usedweary2.replace("&e", "")));
 			} else if (enchants.get(i).equals(archery)) {
 				meta.setLore(Arrays.asList(archeryE2));
 				book.setItemMeta(meta);
 				inv.addItem(book);
+				p.sendMessage(sendmsg.replace("{tier}", two).replace("{enchant}", usedarchery2.replace("&e", "")));
 			} else if (enchants.get(i).equals(confusion)) {
 				meta.setLore(Arrays.asList(confusionE2));
 				book.setItemMeta(meta);
 				inv.addItem(book);
+				p.sendMessage(sendmsg.replace("{tier}", two).replace("{enchant}", usedconfusion2.replace("&e", "")));
 			} else if (enchants.get(i).equals(life)) {
 				meta.setLore(Arrays.asList(lifeE2));
 				book.setItemMeta(meta);
 				inv.addItem(book);
+				p.sendMessage(sendmsg.replace("{tier}", two).replace("{enchant}", usedlife2.replace("&e", "")));
 			} else if (enchants.get(i).equals(lightning)) {
 				meta.setLore(Arrays.asList(lightningE2));
 				book.setItemMeta(meta);
 				inv.addItem(book);
+				p.sendMessage(sendmsg.replace("{tier}", two).replace("{enchant}", usedlightning2.replace("&e", "")));
 			} else if (enchants.get(i).equals(lightsout)) {
 				meta.setLore(Arrays.asList(lightsoutE2));
 				book.setItemMeta(meta);
 				inv.addItem(book);
+				p.sendMessage(sendmsg.replace("{tier}", two).replace("{enchant}", usedlightsout2.replace("&e", "")));
 			} else if (enchants.get(i).equals(soul)) {
 				meta.setLore(Arrays.asList(soulE2));
 				book.setItemMeta(meta);
 				inv.addItem(book);
-			} else if (enchants.get(i).equals(swordblock)) {
-				meta.setLore(Arrays.asList(swordblockE2));
-				book.setItemMeta(meta);
-				inv.addItem(book);
+				p.sendMessage(sendmsg.replace("{tier}", two).replace("{enchant}", usedsoul2.replace("&e", "")));
 			} else if (enchants.get(i).equals(thunderous)) {
 				meta.setLore(Arrays.asList(thunderousE2));
 				book.setItemMeta(meta);
 				inv.addItem(book);
+				p.sendMessage(sendmsg.replace("{tier}", two).replace("{enchant}", usedthunderous2.replace("&e", "")));
 			} else if (enchants.get(i).equals(blast)) {
 				meta.setLore(Arrays.asList(blastE2));
 				book.setItemMeta(meta);
 				inv.addItem(book);
+				p.sendMessage(sendmsg.replace("{tier}", two).replace("{enchant}", usedblast2.replace("&e", "")));
 			} else if (enchants.get(i).equals(experience)) {
 				meta.setLore(Arrays.asList(experienceE2));
 				book.setItemMeta(meta);
 				inv.addItem(book);
+				p.sendMessage(sendmsg.replace("{tier}", two).replace("{enchant}", usedexperience2.replace("&e", "")));
 			} else if (enchants.get(i).equals(haste)) {
 				meta.setLore(Arrays.asList(hasteE2));
 				book.setItemMeta(meta);
 				inv.addItem(book);
+				p.sendMessage(sendmsg.replace("{tier}", two).replace("{enchant}", usedhaste2.replace("&e", "")));
 			} else if (enchants.get(i).equals(obsidiandestroyer)) {
 				meta.setLore(Arrays.asList(obsidiandestroyerE2));
 				book.setItemMeta(meta);
 				inv.addItem(book);
+				p.sendMessage(
+						sendmsg.replace("{tier}", two).replace("{enchant}", usedobsidiandestroyer2.replace("&e", "")));
 			}
 		} else if (sign.getLine(1).contains(three)) {
 			p.setLevel(pLevel - levels);
 			Random random = new Random();
 			int i = random.nextInt(config.getStringList("enabledTierThrees").size());
 			ArrayList<String> enchants = (ArrayList<String>) config.getStringList("enabledTierThrees");
-			if (enchants.get(i).equals(arc)) {
-				meta.setLore(Arrays.asList(arcE3));
-				book.setItemMeta(meta);
-				inv.addItem(book);
-			} else if (enchants.get(i).equals(beast)) {
+			if (enchants.get(i).equals(beast)) {
 				meta.setLore(Arrays.asList(beastE3));
 				book.setItemMeta(meta);
 				inv.addItem(book);
-			} else if (enchants.get(i).equals(blaze)) {
-				meta.setLore(Arrays.asList(blazeE3));
-				book.setItemMeta(meta);
-				inv.addItem(book);
+				p.sendMessage(sendmsg.replace("{tier}", three).replace("{enchant}", usedbeast3.replace("&c", "")));
 			} else if (enchants.get(i).equals(bump)) {
 				meta.setLore(Arrays.asList(bumpE3));
 				book.setItemMeta(meta);
 				inv.addItem(book);
-			} else if (enchants.get(i).equals(feast)) {
-				meta.setLore(Arrays.asList(feastE3));
-				book.setItemMeta(meta);
-				inv.addItem(book);
-			} else if (enchants.get(i).equals(fish)) {
-				meta.setLore(Arrays.asList(fishE3));
-				book.setItemMeta(meta);
-				inv.addItem(book);
-			} else if (enchants.get(i).equals(healthboost)) {
-				meta.setLore(Arrays.asList(healthboostE3));
-				book.setItemMeta(meta);
-				inv.addItem(book);
+				p.sendMessage(sendmsg.replace("{tier}", three).replace("{enchant}", usedbump3.replace("&c", "")));
 			} else if (enchants.get(i).equals(implode)) {
 				meta.setLore(Arrays.asList(implodeE3));
 				book.setItemMeta(meta);
 				inv.addItem(book);
+				p.sendMessage(sendmsg.replace("{tier}", three).replace("{enchant}", usedimplode3.replace("&c", "")));
 			} else if (enchants.get(i).equals(leaps)) {
 				meta.setLore(Arrays.asList(leapsE3));
 				book.setItemMeta(meta);
 				inv.addItem(book);
+				p.sendMessage(sendmsg.replace("{tier}", three).replace("{enchant}", usedleaps3.replace("&c", "")));
 			} else if (enchants.get(i).equals(reborn)) {
 				meta.setLore(Arrays.asList(rebornE3));
 				book.setItemMeta(meta);
 				inv.addItem(book);
+				p.sendMessage(sendmsg.replace("{tier}", three).replace("{enchant}", usedreborn3.replace("&c", "")));
 			} else if (enchants.get(i).equals(replenish)) {
 				meta.setLore(Arrays.asList(replenishE3));
 				book.setItemMeta(meta);
 				inv.addItem(book);
+				p.sendMessage(sendmsg.replace("{tier}", three).replace("{enchant}", usedreplenish3.replace("&c", "")));
 			} else if (enchants.get(i).equals(retreat)) {
 				meta.setLore(Arrays.asList(retreatE3));
 				book.setItemMeta(meta);
 				inv.addItem(book);
+				p.sendMessage(sendmsg.replace("{tier}", three).replace("{enchant}", usedretreat3.replace("&c", "")));
 			} else if (enchants.get(i).equals(scoot)) {
 				meta.setLore(Arrays.asList(scootE3));
 				book.setItemMeta(meta);
 				inv.addItem(book);
-			} else if (enchants.get(i).equals(sunlight)) {
-				meta.setLore(Arrays.asList(sunlightE3));
-				book.setItemMeta(meta);
-				inv.addItem(book);
+				p.sendMessage(sendmsg.replace("{tier}", three).replace("{enchant}", usedscoot3.replace("&c", "")));
 			} else if (enchants.get(i).equals(tipsy)) {
 				meta.setLore(Arrays.asList(tipsyE3));
 				book.setItemMeta(meta);
 				inv.addItem(book);
+				p.sendMessage(sendmsg.replace("{tier}", three).replace("{enchant}", usedtipsy3.replace("&c", "")));
 			} else if (enchants.get(i).equals(vanish)) {
 				meta.setLore(Arrays.asList(vanishE3));
 				book.setItemMeta(meta);
 				inv.addItem(book);
+				p.sendMessage(sendmsg.replace("{tier}", three).replace("{enchant}", usedvanish3.replace("&c", "")));
 			} else if (enchants.get(i).equals(weary)) {
 				meta.setLore(Arrays.asList(wearyE3));
 				book.setItemMeta(meta);
 				inv.addItem(book);
-			} else if (enchants.get(i).equals(archery)) {
-				meta.setLore(Arrays.asList(archeryE3));
-				book.setItemMeta(meta);
-				inv.addItem(book);
-			} else if (enchants.get(i).equals(confusion)) {
-				meta.setLore(Arrays.asList(confusionE3));
-				book.setItemMeta(meta);
-				inv.addItem(book);
-			} else if (enchants.get(i).equals(life)) {
-				meta.setLore(Arrays.asList(lifeE3));
-				book.setItemMeta(meta);
-				inv.addItem(book);
+				p.sendMessage(sendmsg.replace("{tier}", three).replace("{enchant}", usedweary3.replace("&c", "")));
 			} else if (enchants.get(i).equals(lightning)) {
 				meta.setLore(Arrays.asList(lightningE3));
 				book.setItemMeta(meta);
 				inv.addItem(book);
-			} else if (enchants.get(i).equals(lightsout)) {
-				meta.setLore(Arrays.asList(lightsoutE3));
-				book.setItemMeta(meta);
-				inv.addItem(book);
-			} else if (enchants.get(i).equals(soul)) {
-				meta.setLore(Arrays.asList(soulE3));
-				book.setItemMeta(meta);
-				inv.addItem(book);
-			} else if (enchants.get(i).equals(swordblock)) {
-				meta.setLore(Arrays.asList(swordblockE3));
-				book.setItemMeta(meta);
-				inv.addItem(book);
+				p.sendMessage(sendmsg.replace("{tier}", three).replace("{enchant}", usedlightning3.replace("&c", "")));
 			} else if (enchants.get(i).equals(thunderous)) {
 				meta.setLore(Arrays.asList(thunderousE3));
 				book.setItemMeta(meta);
 				inv.addItem(book);
-			} else if (enchants.get(i).equals(blast)) {
-				meta.setLore(Arrays.asList(blastE3));
-				book.setItemMeta(meta);
-				inv.addItem(book);
+				p.sendMessage(sendmsg.replace("{tier}", three).replace("{enchant}", usedthunderous3.replace("&c", "")));
 			} else if (enchants.get(i).equals(experience)) {
 				meta.setLore(Arrays.asList(experienceE3));
 				book.setItemMeta(meta);
 				inv.addItem(book);
+				p.sendMessage(sendmsg.replace("{tier}", three).replace("{enchant}", usedexperience3.replace("&c", "")));
 			} else if (enchants.get(i).equals(haste)) {
 				meta.setLore(Arrays.asList(hasteE3));
 				book.setItemMeta(meta);
 				inv.addItem(book);
+				p.sendMessage(sendmsg.replace("{tier}", three).replace("{enchant}", usedhaste3.replace("&c", "")));
 			} else if (enchants.get(i).equals(obsidiandestroyer)) {
 				meta.setLore(Arrays.asList(obsidiandestroyerE3));
 				book.setItemMeta(meta);
 				inv.addItem(book);
+				p.sendMessage(sendmsg.replace("{tier}", three).replace("{enchant}",
+						usedobsidiandestroyer3.replace("&c", "")));
 			}
 		}
 	}

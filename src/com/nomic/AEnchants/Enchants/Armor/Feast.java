@@ -6,8 +6,11 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryType.SlotType;
+import org.bukkit.event.player.PlayerItemBreakEvent;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
@@ -113,5 +116,15 @@ public class Feast implements Listener {
 				}
 			}
 		} 
+	}
+	
+	@EventHandler(priority = EventPriority.HIGHEST)
+	public void onbreak(PlayerItemBreakEvent e) {
+		Player p = e.getPlayer();
+		ItemStack item = e.getBrokenItem();
+		List<String> lore = item.getItemMeta().getLore();
+		if (!(lore.contains(tOne)))
+			return;
+		p.removePotionEffect(PotionEffectType.SATURATION);
 	}
 }
