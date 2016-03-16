@@ -18,6 +18,7 @@ import com.nomic.AEnchants.Enchants.Armor.Reborn;
 import com.nomic.AEnchants.Enchants.Armor.Replenish;
 import com.nomic.AEnchants.Enchants.Armor.Retreat;
 import com.nomic.AEnchants.Enchants.Armor.Scoot;
+import com.nomic.AEnchants.Enchants.Armor.Sunlight;
 import com.nomic.AEnchants.Enchants.Armor.Tipsy;
 import com.nomic.AEnchants.Enchants.Armor.Vanish;
 import com.nomic.AEnchants.Enchants.Armor.Weary;
@@ -37,6 +38,7 @@ public class Main extends JavaPlugin {
 	
 	public void onEnable() {
 		registerEvents();
+		registerConfig();
 		
 	}
 	public void registerEvents() {
@@ -71,5 +73,12 @@ public class Main extends JavaPlugin {
 		pm.registerEvents(new Weary(), this);
 		pm.registerEvents(new Tipsy(), this);
 		pm.registerEvents(new Implode(), this);
+		pm.registerEvents(new Sunlight(), this);
+		pm.registerEvents(new ClickSign(this), this);
+	}
+	
+	private void registerConfig() {
+		getConfig().options().copyDefaults(true);
+		saveConfig();
 	}
 }

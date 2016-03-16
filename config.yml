@@ -1,3 +1,76 @@
 # AEnchants Config by Nomic
 # More options coming very soon.
+# Change the title used at the top of enchant signs.
+# Enable if experience from ores is only given with experience enchant.
+# Enable which books are given from the enchant signs.
+signTitle: "&1AEnchants"
 enabledExperienceEnchant: true
+enabledBooks:
+  enabledTierOnes:
+  - Arc
+  - Blaze
+  - Bump
+  - Feast
+  - Fish
+  - Health Boost
+  - Implode
+  - Leaps
+  - Reborn
+  - Replenish
+  - Retreat
+  - Scoot
+  - Sunlight
+  - Tipsy
+  - Vanish
+  - Weary
+  - Archery
+  - Confusion
+  - Life
+  - Lightning
+  - Lights Out
+  - Soul
+  - Sword Block
+  - Thunderous
+  - Blast
+  - Experience
+  - Haste
+  - Obsidian Destroyer
+  enabledTierTwos:
+  - Bump
+  - Health Boost
+  - Implode
+  - Leaps
+  - Reborn
+  - Replenish
+  - Retreat
+  - Scoot
+  - Tipsy
+  - Vanish
+  - Weary
+  - Archery
+  - Confusion
+  - Life
+  - Lightning
+  - Lights Out
+  - Soul
+  - Thunderous
+  - Blast
+  - Experience
+  - Haste
+  - Obsidian Destroyer
+  enabledTierThrees:
+  - Bump
+  - Implode
+  - Leaps
+  - Reborn
+  - Replenish
+  - Retreat
+  - Scoot
+  - Tipsy
+  - Vanish
+  - Weary
+  - Lightning
+  - Thunderous
+  - Experience
+  - Haste
+  - Obsidian Destroyer

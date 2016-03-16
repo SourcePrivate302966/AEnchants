@@ -19,6 +19,8 @@ public class ArmorShiftListener implements Listener {
 		if (!(e.getWhoClicked() instanceof Player))
 			return;
 		Player p = (Player) e.getWhoClicked();
+		if (e.getCurrentItem() == null)
+			return;
 		ItemStack item = e.getCurrentItem();
 		ClickType click = e.getClick();
 		SlotType stype = e.getSlotType();
