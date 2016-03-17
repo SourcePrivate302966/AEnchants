@@ -39,6 +39,8 @@ enabledBooks:
   - Experience
   - Haste
   - Obsidian Destroyer
+  - Anti Fog
+  - Thief
   enabledTierTwos:
   - Bump
   - Health Boost
@@ -62,6 +64,7 @@ enabledBooks:
   - Experience
   - Haste
   - Obsidian Destroyer
+  - Thief
   enabledTierThrees:
   - Bump
   - Implode
@@ -78,3 +81,4 @@ enabledBooks:
   - Experience
   - Haste
   - Obsidian Destroyer
+  - Thief

@@ -39,18 +39,30 @@ public class Tipsy implements Listener {
 				if (chance == 1) {
 					enemy.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 2 * 20, 0));
 					enemy.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_DIGGING, 2 * 20, 0));
+					int newchance = (1 + new Random().nextInt(9));
+					if (newchance == 1) {
+						enemy.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, (2 * 20), 0));
+					}
 				}
 			} else if (clore.contains(tTwo)) {
 				int chance = (1 + new Random().nextInt(9));
 				if (chance == 1) {
 					enemy.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 3 * 20, 0));
 					enemy.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_DIGGING, 3 * 20, 0));
+					int newchance = (1 + new Random().nextInt(9));
+					if (newchance == 1) {
+						enemy.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, (3 * 20), 0));
+					}
 				}
 			} else if (clore.contains(tThree)) {
 				int chance = (1 + new Random().nextInt(6));
 				if (chance == 1) {
 					enemy.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 6 * 20, 0));
 					enemy.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_DIGGING, 6 * 20, 0));
+					int newchance = (1 + new Random().nextInt(9));
+					if (newchance == 1) {
+						enemy.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, (6 * 20), 0));
+					}
 				}
 			}
 		} else if (inv.getLeggings() != null && llore != null) {
@@ -59,18 +71,30 @@ public class Tipsy implements Listener {
 				if (chance == 1) {
 					enemy.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 2 * 20, 0));
 					enemy.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_DIGGING, 2 * 20, 0));
+					int newchance = (1 + new Random().nextInt(9));
+					if (newchance == 1) {
+						enemy.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, (2 * 20), 0));
+					}
 				}
 			} else if (llore.contains(tTwo)) {
 				int chance = (1 + new Random().nextInt(9));
 				if (chance == 1) {
 					enemy.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 3 * 20, 0));
 					enemy.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_DIGGING, 3 * 20, 0));
+					int newchance = (1 + new Random().nextInt(9));
+					if (newchance == 1) {
+						enemy.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, (3 * 20), 0));
+					}
 				}
 			} else if (llore.contains(tThree)) {
 				int chance = (1 + new Random().nextInt(6));
 				if (chance == 1) {
 					enemy.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 6 * 20, 0));
 					enemy.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_DIGGING, 6 * 20, 0));
+					int newchance = (1 + new Random().nextInt(9));
+					if (newchance == 1) {
+						enemy.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, (6 * 20), 0));
+					}
 				}
 			}
 		} else if (inv.getBoots() != null && blore != null) {
@@ -79,18 +103,30 @@ public class Tipsy implements Listener {
 				if (chance == 1) {
 					enemy.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 2 * 20, 0));
 					enemy.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_DIGGING, 2 * 20, 0));
+					int newchance = (1 + new Random().nextInt(9));
+					if (newchance == 1) {
+						enemy.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, (2 * 20), 0));
+					}
 				}
 			} else if (blore.contains(tTwo)) {
 				int chance = (1 + new Random().nextInt(9));
 				if (chance == 1) {
 					enemy.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 3 * 20, 0));
 					enemy.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_DIGGING, 3 * 20, 0));
+					int newchance = (1 + new Random().nextInt(9));
+					if (newchance == 1) {
+						enemy.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, (3 * 20), 0));
+					}
 				}
 			} else if (blore.contains(tThree)) {
 				int chance = (1 + new Random().nextInt(6));
 				if (chance == 1) {
 					enemy.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 6 * 20, 0));
 					enemy.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_DIGGING, 6 * 20, 0));
+					int newchance = (1 + new Random().nextInt(9));
+					if (newchance == 1) {
+						enemy.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, (3 * 20), 0));
+					}
 				}
 			}
 		}

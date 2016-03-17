@@ -24,11 +24,6 @@ public class Anvil implements Listener {
 		plugin = pl;
 	}
 
-	String arc = "Arc";
-	String usedarc = "&bArc I";
-	String arcE = ChatColor.translateAlternateColorCodes('&', usedarc);
-
-	String beast = "Beast";
 	String usedbeast = "&bBeast I";
 	String beastE = ChatColor.translateAlternateColorCodes('&', usedbeast);
 	String usedbeast2 = "&eBeast II";
@@ -36,11 +31,6 @@ public class Anvil implements Listener {
 	String usedbeast3 = "&cBeast III";
 	String beastE3 = ChatColor.translateAlternateColorCodes('&', usedbeast3);
 
-	String blaze = "Blaze";
-	String usedblaze = "&bBlaze I";
-	String blazeE = ChatColor.translateAlternateColorCodes('&', usedblaze);
-
-	String bump = "Bump";
 	String usedbump = "&bBump I";
 	String bumpE = ChatColor.translateAlternateColorCodes('&', usedbump);
 	String usedbump2 = "&eBump II";
@@ -48,21 +38,11 @@ public class Anvil implements Listener {
 	String usedbump3 = "&cBump III";
 	String bumpE3 = ChatColor.translateAlternateColorCodes('&', usedbump3);
 
-	String feast = "Feast";
-	String usedfeast = "&bFeast I";
-	String feastE = ChatColor.translateAlternateColorCodes('&', usedfeast);
-
-	String fish = "Fish";
-	String usedfish = "&bFish I";
-	String fishE = ChatColor.translateAlternateColorCodes('&', usedfish);
-
-	String healthboost = "Health Boost";
 	String usedhealthboost = "&bHealth Boost I";
 	String healthboostE = ChatColor.translateAlternateColorCodes('&', usedhealthboost);
 	String usedhealthboost2 = "&eHealth Boost II";
 	String healthboostE2 = ChatColor.translateAlternateColorCodes('&', usedhealthboost2);
 
-	String implode = "Implode";
 	String usedimplode = "&bImplode I";
 	String implodeE = ChatColor.translateAlternateColorCodes('&', usedimplode);
 	String usedimplode2 = "&eImplode II";
@@ -70,7 +50,6 @@ public class Anvil implements Listener {
 	String usedimplode3 = "&cImplode III";
 	String implodeE3 = ChatColor.translateAlternateColorCodes('&', usedimplode3);
 
-	String leaps = "Leaps";
 	String usedleaps = "&bLeaps I";
 	String leapsE = ChatColor.translateAlternateColorCodes('&', usedleaps);
 	String usedleaps2 = "&eLeaps II";
@@ -78,7 +57,6 @@ public class Anvil implements Listener {
 	String usedleaps3 = "&cLeaps III";
 	String leapsE3 = ChatColor.translateAlternateColorCodes('&', usedleaps3);
 
-	String reborn = "Reborn";
 	String usedreborn = "&bReborn I";
 	String rebornE = ChatColor.translateAlternateColorCodes('&', usedreborn);
 	String usedreborn2 = "&eReborn II";
@@ -86,7 +64,6 @@ public class Anvil implements Listener {
 	String usedreborn3 = "&cReborn III";
 	String rebornE3 = ChatColor.translateAlternateColorCodes('&', usedreborn3);
 
-	String replenish = "Replenish";
 	String usedreplenish = "&bReplenish I";
 	String replenishE = ChatColor.translateAlternateColorCodes('&', usedreplenish);
 	String usedreplenish2 = "&eReplenish II";
@@ -94,7 +71,6 @@ public class Anvil implements Listener {
 	String usedreplenish3 = "&cReplenish III";
 	String replenishE3 = ChatColor.translateAlternateColorCodes('&', usedreplenish3);
 
-	String retreat = "Arc";
 	String usedretreat = "&bRetreat I";
 	String retreatE = ChatColor.translateAlternateColorCodes('&', usedretreat);
 	String usedretreat2 = "&eRetreat II";
@@ -102,7 +78,6 @@ public class Anvil implements Listener {
 	String usedretreat3 = "&cRetreat III";
 	String retreatE3 = ChatColor.translateAlternateColorCodes('&', usedretreat3);
 
-	String scoot = "Scoot";
 	String usedscoot = "&bScoot I";
 	String scootE = ChatColor.translateAlternateColorCodes('&', usedscoot);
 	String usedscoot2 = "&eScoot II";
@@ -110,11 +85,6 @@ public class Anvil implements Listener {
 	String usedscoot3 = "&cScoot III";
 	String scootE3 = ChatColor.translateAlternateColorCodes('&', usedscoot3);
 
-	String sunlight = "Sunlight";
-	String usedsunlight = "&bSunlight I";
-	String sunlightE = ChatColor.translateAlternateColorCodes('&', usedsunlight);
-
-	String tipsy = "Tipsy";
 	String usedtipsy = "&bTipsy I";
 	String tipsyE = ChatColor.translateAlternateColorCodes('&', usedtipsy);
 	String usedtipsy2 = "&eTipsy II";
@@ -122,7 +92,6 @@ public class Anvil implements Listener {
 	String usedtipsy3 = "&cTipsy III";
 	String tipsyE3 = ChatColor.translateAlternateColorCodes('&', usedtipsy3);
 
-	String vanish = "Vanish";
 	String usedvanish = "&bVanish I";
 	String vanishE = ChatColor.translateAlternateColorCodes('&', usedvanish);
 	String usedvanish2 = "&eVanish II";
@@ -130,7 +99,6 @@ public class Anvil implements Listener {
 	String usedvanish3 = "&cVanish III";
 	String vanishE3 = ChatColor.translateAlternateColorCodes('&', usedvanish3);
 
-	String weary = "Weary";
 	String usedweary = "&bWeary I";
 	String wearyE = ChatColor.translateAlternateColorCodes('&', usedweary);
 	String usedweary2 = "&eWeary II";
@@ -138,25 +106,21 @@ public class Anvil implements Listener {
 	String usedweary3 = "&cWeary III";
 	String wearyE3 = ChatColor.translateAlternateColorCodes('&', usedweary3);
 
-	String archery = "Archery";
 	String usedarchery = "&bArchery I";
 	String archeryE = ChatColor.translateAlternateColorCodes('&', usedarchery);
 	String usedarchery2 = "&eArchery II";
 	String archeryE2 = ChatColor.translateAlternateColorCodes('&', usedarchery2);
 
-	String confusion = "Confusion";
 	String usedconfusion = "&bConfusion I";
 	String confusionE = ChatColor.translateAlternateColorCodes('&', usedconfusion);
 	String usedconfusion2 = "&eConfusion II";
 	String confusionE2 = ChatColor.translateAlternateColorCodes('&', usedconfusion2);
 
-	String life = "Life";
 	String usedlife = "&bLife I";
 	String lifeE = ChatColor.translateAlternateColorCodes('&', usedlife);
 	String usedlife2 = "&eLife II";
 	String lifeE2 = ChatColor.translateAlternateColorCodes('&', usedlife2);
 
-	String lightning = "Lightning";
 	String usedlightning = "&bLightning I";
 	String lightningE = ChatColor.translateAlternateColorCodes('&', usedlightning);
 	String usedlightning2 = "&eLightning II";
@@ -164,23 +128,16 @@ public class Anvil implements Listener {
 	String usedlightning3 = "&cLightning III";
 	String lightningE3 = ChatColor.translateAlternateColorCodes('&', usedlightning3);
 
-	String lightsout = "Lights Out";
 	String usedlightsout = "&bLights Out I";
 	String lightsoutE = ChatColor.translateAlternateColorCodes('&', usedlightsout);
 	String usedlightsout2 = "&eLights Out II";
 	String lightsoutE2 = ChatColor.translateAlternateColorCodes('&', usedlightsout2);
 
-	String soul = "Soul";
 	String usedsoul = "&bSoul I";
 	String soulE = ChatColor.translateAlternateColorCodes('&', usedsoul);
 	String usedsoul2 = "&eSoul II";
 	String soulE2 = ChatColor.translateAlternateColorCodes('&', usedsoul2);
 
-	String swordblock = "Sword Block";
-	String usedswordblock = "&bSword Block I";
-	String swordblockE = ChatColor.translateAlternateColorCodes('&', usedswordblock);
-
-	String thunderous = "Thunderous";
 	String usedthunderous = "&bThunderous I";
 	String thunderousE = ChatColor.translateAlternateColorCodes('&', usedthunderous);
 	String usedthunderous2 = "&eThunderous II";
@@ -188,13 +145,11 @@ public class Anvil implements Listener {
 	String usedthunderous3 = "&cThunderous III";
 	String thunderousE3 = ChatColor.translateAlternateColorCodes('&', usedthunderous3);
 
-	String blast = "Blast";
 	String usedblast = "&bBlast I";
 	String blastE = ChatColor.translateAlternateColorCodes('&', usedblast);
 	String usedblast2 = "&eBlast II";
 	String blastE2 = ChatColor.translateAlternateColorCodes('&', usedblast2);
 
-	String experience = "Experience";
 	String usedexperience = "&bExperience I";
 	String experienceE = ChatColor.translateAlternateColorCodes('&', usedexperience);
 	String usedexperience2 = "&eExperience II";
@@ -202,7 +157,6 @@ public class Anvil implements Listener {
 	String usedexperience3 = "&cExperience III";
 	String experienceE3 = ChatColor.translateAlternateColorCodes('&', usedexperience3);
 
-	String haste = "Haste";
 	String usedhaste = "&bHaste I";
 	String hasteE = ChatColor.translateAlternateColorCodes('&', usedhaste);
 	String usedhaste2 = "&eHaste II";
@@ -210,13 +164,19 @@ public class Anvil implements Listener {
 	String usedhaste3 = "&cHaste III";
 	String hasteE3 = ChatColor.translateAlternateColorCodes('&', usedhaste3);
 
-	String obsidiandestroyer = "Obsidian Destroyer";
 	String usedobsidiandestroyer = "&bObsidian Destroyer I";
 	String obsidiandestroyerE = ChatColor.translateAlternateColorCodes('&', usedobsidiandestroyer);
 	String usedobsidiandestroyer2 = "&eObsidian Destroyer II";
 	String obsidiandestroyerE2 = ChatColor.translateAlternateColorCodes('&', usedobsidiandestroyer2);
 	String usedobsidiandestroyer3 = "&cObsidian Destroyer III";
 	String obsidiandestroyerE3 = ChatColor.translateAlternateColorCodes('&', usedobsidiandestroyer3);
+	
+	String usedthief = "&bThief I";
+	String thiefE = ChatColor.translateAlternateColorCodes('&', usedthief);
+	String usedthief2 = "&eThief II";
+	String thiefE2 = ChatColor.translateAlternateColorCodes('&', usedthief2);
+	String usedthief3 = "&cThief III";
+	String thiefE3 = ChatColor.translateAlternateColorCodes('&', usedthief3);
 
 	@EventHandler
 	public void onCombine(InventoryClickEvent e) {
@@ -436,6 +396,14 @@ public class Anvil implements Listener {
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
 							p.setLevel(plevel - bookCost);
+						} else if (lore1.contains(thiefE) && lore.contains(thiefE)) {
+							anvil.clear();
+							p.setItemOnCursor(clear);
+							p.closeInventory();
+							meta.setLore(Arrays.asList(thiefE2));
+							result.setItemMeta(meta);
+							p.getInventory().addItem(result);
+							p.setLevel(plevel - bookCost);
 						} else if (lore1.contains(beastE2) && lore.contains(beastE2)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -561,6 +529,14 @@ public class Anvil implements Listener {
 							p.setItemOnCursor(clear);
 							p.closeInventory();
 							meta.setLore(Arrays.asList(obsidiandestroyerE3));
+							result.setItemMeta(meta);
+							p.getInventory().addItem(result);
+							p.setLevel(plevel - bookCost);
+						} else if (lore1.contains(thiefE2) && lore.contains(thiefE2)) {
+							anvil.clear();
+							p.setItemOnCursor(clear);
+							p.closeInventory();
+							meta.setLore(Arrays.asList(thiefE3));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
 							p.setLevel(plevel - bookCost);
@@ -759,6 +735,14 @@ public class Anvil implements Listener {
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
 							p.setLevel(plevel - bookCost);
+						} else if (lore2.contains(thiefE) && lore.contains(thiefE)) {
+							anvil.clear();
+							p.setItemOnCursor(clear);
+							p.closeInventory();
+							meta.setLore(Arrays.asList(thiefE2));
+							result.setItemMeta(meta);
+							p.getInventory().addItem(result);
+							p.setLevel(plevel - bookCost);
 						} else if (lore2.contains(beastE2) && lore.contains(beastE2)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -884,6 +868,14 @@ public class Anvil implements Listener {
 							p.setItemOnCursor(clear);
 							p.closeInventory();
 							meta.setLore(Arrays.asList(obsidiandestroyerE3));
+							result.setItemMeta(meta);
+							p.getInventory().addItem(result);
+							p.setLevel(plevel - bookCost);
+						} else if (lore2.contains(thiefE2) && lore.contains(thiefE2)) {
+							anvil.clear();
+							p.setItemOnCursor(clear);
+							p.closeInventory();
+							meta.setLore(Arrays.asList(thiefE3));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
 							p.setLevel(plevel - bookCost);

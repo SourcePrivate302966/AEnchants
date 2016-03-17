@@ -221,6 +221,18 @@ public class ClickSign implements Listener {
 	String obsidiandestroyerE2 = ChatColor.translateAlternateColorCodes('&', usedobsidiandestroyer2);
 	String usedobsidiandestroyer3 = "&cObsidian Destroyer III";
 	String obsidiandestroyerE3 = ChatColor.translateAlternateColorCodes('&', usedobsidiandestroyer3);
+	
+	String thief = "Thief";
+	String usedthief = "&bThief I";
+	String thiefE = ChatColor.translateAlternateColorCodes('&', usedthief);
+	String usedthief2 = "&eThief II";
+	String thiefE2 = ChatColor.translateAlternateColorCodes('&', usedthief2);
+	String usedthief3 = "&cThief III";
+	String thiefE3 = ChatColor.translateAlternateColorCodes('&', usedthief3);
+	
+	String antifog = "Anti Fog";
+	String usedantifog = "&bAnti Fog I";
+	String antifogE = ChatColor.translateAlternateColorCodes('&', usedantifog);
 
 	@EventHandler
 	public void onClick(PlayerInteractEvent e) {
@@ -400,6 +412,16 @@ public class ClickSign implements Listener {
 				inv.addItem(book);
 				p.sendMessage(
 						sendmsg.replace("{tier}", one).replace("{enchant}", usedobsidiandestroyer.replace("&b", "")));
+			} else if (enchants.get(i).equals(antifog)) {
+				meta.setLore(Arrays.asList(antifogE));
+				book.setItemMeta(meta);
+				inv.addItem(book);
+				p.sendMessage(sendmsg.replace("{tier}", one).replace("{enchant}", usedantifog.replace("&b", "")));
+			} else if (enchants.get(i).equals(thief)) {
+				meta.setLore(Arrays.asList(thiefE));
+				book.setItemMeta(meta);
+				inv.addItem(book);
+				p.sendMessage(sendmsg.replace("{tier}", one).replace("{enchant}", usedthief.replace("&b", "")));
 			}
 		} else if (sign.getLine(1).contains(two)) {
 			p.setLevel(pLevel - levels);
@@ -522,6 +544,11 @@ public class ClickSign implements Listener {
 				inv.addItem(book);
 				p.sendMessage(
 						sendmsg.replace("{tier}", two).replace("{enchant}", usedobsidiandestroyer2.replace("&e", "")));
+			} else if (enchants.get(i).equals(thief)) {
+				meta.setLore(Arrays.asList(thiefE2));
+				book.setItemMeta(meta);
+				inv.addItem(book);
+				p.sendMessage(sendmsg.replace("{tier}", two).replace("{enchant}", usedthief2.replace("&e", "")));
 			}
 		} else if (sign.getLine(1).contains(three)) {
 			p.setLevel(pLevel - levels);
@@ -609,6 +636,11 @@ public class ClickSign implements Listener {
 				inv.addItem(book);
 				p.sendMessage(sendmsg.replace("{tier}", three).replace("{enchant}",
 						usedobsidiandestroyer3.replace("&c", "")));
+			} else if (enchants.get(i).equals(thief)) {
+				meta.setLore(Arrays.asList(thiefE3));
+				book.setItemMeta(meta);
+				inv.addItem(book);
+				p.sendMessage(sendmsg.replace("{tier}", three).replace("{enchant}", usedthief3.replace("&c", "")));
 			}
 		}
 	}

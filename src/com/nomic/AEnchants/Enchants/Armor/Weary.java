@@ -37,51 +37,51 @@ public class Weary implements Listener {
 			if (clore.contains(tOne)) {
 				int chance = (1 + new Random().nextInt(19));
 				if (chance == 1) {
-					enemy.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 2 * 20, 0));
+					enemy.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_DIGGING, 2 * 20, 0));
 				}
 			} else if (clore.contains(tTwo)) {
 				int chance = (1 + new Random().nextInt(9));
 				if (chance == 1) {
-					enemy.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 3 * 20, 0));
+					enemy.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_DIGGING, 3 * 20, 0));
 				}
 			} else if (clore.contains(tThree)) {
 				int chance = (1 + new Random().nextInt(6));
 				if (chance == 1) {
-					enemy.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 6 * 20, 0));
+					enemy.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_DIGGING, 6 * 20, 0));
 				}
 			}
 		} else if (inv.getLeggings() != null && llore != null) {
 			if (llore.contains(tOne)) {
 				int chance = (1 + new Random().nextInt(19));
 				if (chance == 1) {
-					enemy.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 2 * 20, 0));
+					enemy.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_DIGGING, 2 * 20, 0));
 				}
 			} else if (llore.contains(tTwo)) {
 				int chance = (1 + new Random().nextInt(9));
 				if (chance == 1) {
-					enemy.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 3 * 20, 0));
+					enemy.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_DIGGING, 3 * 20, 0));
 				}
 			} else if (llore.contains(tThree)) {
 				int chance = (1 + new Random().nextInt(6));
 				if (chance == 1) {
-					enemy.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 6 * 20, 0));
+					enemy.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_DIGGING, 6 * 20, 0));
 				}
 			}
 		} else if (inv.getBoots() != null && blore != null) {
 			if (blore.contains(tOne)) {
 				int chance = (1 + new Random().nextInt(19));
 				if (chance == 1) {
-					enemy.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 2 * 20, 0));
+					enemy.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_DIGGING, 2 * 20, 0));
 				}
 			} else if (blore.contains(tTwo)) {
 				int chance = (1 + new Random().nextInt(9));
 				if (chance == 1) {
-					enemy.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 3 * 20, 0));
+					enemy.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_DIGGING, 3 * 20, 0));
 				}
 			} else if (blore.contains(tThree)) {
 				int chance = (1 + new Random().nextInt(6));
 				if (chance == 1) {
-					enemy.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 6 * 20, 0));
+					enemy.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_DIGGING, 6 * 20, 0));
 				}
 			}
 		}

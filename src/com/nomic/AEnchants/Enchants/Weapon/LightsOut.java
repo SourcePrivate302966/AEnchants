@@ -10,6 +10,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
@@ -20,6 +21,9 @@ public class LightsOut implements Listener {
 	
 	String tOne = ChatColor.translateAlternateColorCodes('&', one);
 	String tTwo = ChatColor.translateAlternateColorCodes('&', two);
+	
+	String anti = "&bAnti Fog I";
+	String tAnti = ChatColor.translateAlternateColorCodes('&', anti);
 
 	@EventHandler(priority = EventPriority.HIGH)
 	public void onPlayerHit(EntityDamageByEntityEvent e) {
@@ -31,6 +35,14 @@ public class LightsOut implements Listener {
 			return;
 		List<String> lore = p.getItemInHand().getItemMeta().getLore();
 		if (lore == null)
+			return;
+		PlayerInventory inv = enemy.getInventory();
+		List<String> hlore = inv.getHelmet().getItemMeta().getLore();
+		List<String> clore = inv.getChestplate().getItemMeta().getLore();
+		List<String> llore = inv.getLeggings().getItemMeta().getLore();
+		List<String> blore = inv.getBoots().getItemMeta().getLore();
+		if (hlore.contains(tAnti) || clore.contains(tAnti) || llore.contains(tAnti)
+				|| blore.contains(tAnti))
 			return;
 		if (lore.contains(tOne)) {
 			int chance = (1 + new Random().nextInt(19));

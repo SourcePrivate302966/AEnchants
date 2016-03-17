@@ -14,14 +14,17 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 public class Vanish implements Listener {
-	
+
 	String one = "&bVanish I";
 	String two = "&eVanish II";
 	String three = "&cVanish III";
-	
+
 	String tOne = ChatColor.translateAlternateColorCodes('&', one);
 	String tTwo = ChatColor.translateAlternateColorCodes('&', two);
 	String tThree = ChatColor.translateAlternateColorCodes('&', three);
+
+	String anti = "&bAnti Fog I";
+	String tAnti = ChatColor.translateAlternateColorCodes('&', anti);
 
 	@EventHandler(priority = EventPriority.HIGH)
 	public void onPlayerHit(EntityDamageByEntityEvent e) {
@@ -30,6 +33,7 @@ public class Vanish implements Listener {
 		Player p = (Player) e.getEntity();
 		Player enemy = (Player) e.getDamager();
 		PlayerInventory inv = p.getInventory();
+		List<String> hlore = inv.getHelmet().getItemMeta().getLore();
 		List<String> clore = inv.getChestplate().getItemMeta().getLore();
 		List<String> llore = inv.getLeggings().getItemMeta().getLore();
 		List<String> blore = inv.getBoots().getItemMeta().getLore();
@@ -40,51 +44,87 @@ public class Vanish implements Listener {
 			if (clore.contains(tOne)) {
 				int chance = (1 + new Random().nextInt(19));
 				if (chance == 1) {
-					enemy.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 2 * 20, 0));
+					enemy.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 2 * 20, 0));
+					if (!(hlore.contains(tAnti) || clore.contains(tAnti) || llore.contains(tAnti)
+							|| blore.contains(tAnti))) {
+						enemy.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 2 * 20, 0));
+					}
 				}
 			} else if (clore.contains(tTwo)) {
 				int chance = (1 + new Random().nextInt(9));
 				if (chance == 1) {
-					enemy.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 3 * 20, 0));
+					enemy.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 3 * 20, 0));
+					if (!(hlore.contains(tAnti) || clore.contains(tAnti) || llore.contains(tAnti)
+							|| blore.contains(tAnti))) {
+						enemy.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 3 * 20, 0));
+					}
 				}
 			} else if (clore.contains(tThree)) {
 				int chance = (1 + new Random().nextInt(6));
 				if (chance == 1) {
-					enemy.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 6 * 20, 0));
+					enemy.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 6 * 20, 0));
+					if (!(hlore.contains(tAnti) || clore.contains(tAnti) || llore.contains(tAnti)
+							|| blore.contains(tAnti))) {
+						enemy.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 6 * 20, 0));
+					}
 				}
 			}
 		} else if (inv.getLeggings() != null && llore != null) {
 			if (llore.contains(tOne)) {
 				int chance = (1 + new Random().nextInt(19));
 				if (chance == 1) {
-					enemy.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 2 * 20, 0));
+					enemy.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 2 * 20, 0));
+					if (!(hlore.contains(tAnti) || clore.contains(tAnti) || llore.contains(tAnti)
+							|| blore.contains(tAnti))) {
+						enemy.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 2 * 20, 0));
+					}
 				}
 			} else if (llore.contains(tTwo)) {
 				int chance = (1 + new Random().nextInt(9));
 				if (chance == 1) {
-					enemy.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 3 * 20, 0));
+					enemy.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 3 * 20, 0));
+					if (!(hlore.contains(tAnti) || clore.contains(tAnti) || llore.contains(tAnti)
+							|| blore.contains(tAnti))) {
+						enemy.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 3 * 20, 0));
+					}
 				}
 			} else if (llore.contains(tThree)) {
 				int chance = (1 + new Random().nextInt(6));
 				if (chance == 1) {
-					enemy.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 6 * 20, 0));
+					enemy.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 6 * 20, 0));
+					if (!(hlore.contains(tAnti) || clore.contains(tAnti) || llore.contains(tAnti)
+							|| blore.contains(tAnti))) {
+						enemy.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 6 * 20, 0));
+					}
 				}
 			}
 		} else if (inv.getBoots() != null && blore != null) {
 			if (blore.contains(tOne)) {
 				int chance = (1 + new Random().nextInt(19));
 				if (chance == 1) {
-					enemy.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 2 * 20, 0));
+					enemy.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 2 * 20, 0));
+					if (!(hlore.contains(tAnti) || clore.contains(tAnti) || llore.contains(tAnti)
+							|| blore.contains(tAnti))) {
+						enemy.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 2 * 20, 0));
+					}
 				}
 			} else if (blore.contains(tTwo)) {
 				int chance = (1 + new Random().nextInt(9));
 				if (chance == 1) {
-					enemy.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 3 * 20, 0));;
+					enemy.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 3 * 20, 0));
+					if (!(hlore.contains(tAnti) || clore.contains(tAnti) || llore.contains(tAnti)
+							|| blore.contains(tAnti))) {
+						enemy.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 3 * 20, 0));
+					}
 				}
 			} else if (blore.contains(tThree)) {
 				int chance = (1 + new Random().nextInt(6));
 				if (chance == 1) {
-					enemy.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 6 * 20, 0));
+					enemy.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 6 * 20, 0));
+					if (!(hlore.contains(tAnti) || clore.contains(tAnti) || llore.contains(tAnti)
+							|| blore.contains(tAnti))) {
+						enemy.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 6 * 20, 0));
+					}
 				}
 			}
 		}
