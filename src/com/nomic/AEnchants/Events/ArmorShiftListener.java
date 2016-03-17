@@ -10,6 +10,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryType.SlotType;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 public class ArmorShiftListener implements Listener {
@@ -24,6 +25,7 @@ public class ArmorShiftListener implements Listener {
 		ItemStack item = e.getCurrentItem();
 		ClickType click = e.getClick();
 		SlotType stype = e.getSlotType();
+		Inventory inv = e.getInventory();
 		if (item.getType() == Material.AIR)
 			return;
 		if (!(click == ClickType.SHIFT_LEFT || click == ClickType.SHIFT_RIGHT))
@@ -31,6 +33,6 @@ public class ArmorShiftListener implements Listener {
 		List<String> lore = item.getItemMeta().getLore();
 		if (lore == null)
 			return;
-		Bukkit.getServer().getPluginManager().callEvent(new ArmorShift(p, item, lore, stype));
+		Bukkit.getServer().getPluginManager().callEvent(new ArmorShift(p, item, lore, stype, inv));
 	}
 }

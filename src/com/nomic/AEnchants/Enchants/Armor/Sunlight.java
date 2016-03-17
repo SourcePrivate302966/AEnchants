@@ -8,6 +8,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.InventoryAction;
+import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.event.inventory.InventoryType.SlotType;
 import org.bukkit.event.player.PlayerItemBreakEvent;
 import org.bukkit.inventory.ItemStack;
@@ -52,6 +55,9 @@ public class Sunlight implements Listener {
 		SlotType stype = e.getSlotType();
 		Material m = e.getItem().getType();
 		if (m == Material.ENCHANTED_BOOK)
+			return;
+		InventoryType invt = e.getInventory().getType();
+		if (!(invt == InventoryType.PLAYER || invt == InventoryType.CRAFTING))
 			return;
 		PlayerInventory inv = p.getInventory();
 		if (!(lore.contains(tOne)))
@@ -126,5 +132,22 @@ public class Sunlight implements Listener {
 		if (!(lore.contains(tOne)))
 			return;
 		p.removePotionEffect(PotionEffectType.NIGHT_VISION);
+	}
+	
+	@EventHandler(priority = EventPriority.HIGH)
+	public void drop(InventoryClickEvent e) {
+		if (!(e.getWhoClicked() instanceof Player))
+			return;
+		Player p = (Player) e.getWhoClicked();
+		ItemStack item = e.getCurrentItem();
+		InventoryAction a = e.getAction();
+		if (item.getType() == Material.AIR)
+			return;
+		List<String> lore = item.getItemMeta().getLore();
+		if (!(lore.contains(tOne)))
+			return;
+		if (a == InventoryAction.DROP_ALL_SLOT || a == InventoryAction.DROP_ONE_SLOT) {
+			p.removePotionEffect(PotionEffectType.NIGHT_VISION);
+		}
 	}
 }

@@ -218,9 +218,6 @@ public class Anvil implements Listener {
 	String usedobsidiandestroyer3 = "&cObsidian Destroyer III";
 	String obsidiandestroyerE3 = ChatColor.translateAlternateColorCodes('&', usedobsidiandestroyer3);
 
-	String req = plugin.getConfig().getString("notEnoughLevelsMessage");
-	String reqmsg = ChatColor.translateAlternateColorCodes('&', req);
-
 	@EventHandler
 	public void onCombine(InventoryClickEvent e) {
 		if (!(e.getWhoClicked() instanceof Player))
@@ -231,7 +228,10 @@ public class Anvil implements Listener {
 		SlotType stype = e.getSlotType();
 		InventoryType inv = e.getInventory().getType();
 		ItemStack cursor = e.getCursor();
+		String req = plugin.getConfig().getString("notEnoughLevelsMessage");
+		String reqmsg = ChatColor.translateAlternateColorCodes('&', req);
 		int bookCost = plugin.getConfig().getInt("bookCombineCost");
+		p.sendMessage("" + bookCost);
 		if (click == ClickType.LEFT || click == ClickType.RIGHT) {
 			if (!(stype == SlotType.CRAFTING && inv == InventoryType.ANVIL))
 				return;
@@ -248,10 +248,10 @@ public class Anvil implements Listener {
 				List<String> lore1 = item1.getItemMeta().getLore();
 				if (cursor.getType() == book && item1.getType() == book) {
 					List<String> lore = cursor.getItemMeta().getLore();
-					if (plevel < bookCost) {
-						p.sendMessage(reqmsg.replace("{levels}", "" + bookCost));
+					if (plevel < 4) {
+						p.sendMessage(reqmsg.replace("{levels}", "4"));
 						return;
-					} else if (plevel >= bookCost) {
+					} else if (plevel >= 4) {
 						if (lore1.contains(beastE) && lore.contains(beastE)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -259,7 +259,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(beastE2));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore1.contains(bumpE) && lore.contains(bumpE)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -267,7 +267,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(bumpE2));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore1.contains(healthboostE) && lore.contains(healthboostE)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -275,7 +275,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(healthboostE2));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore1.contains(implodeE) && lore.contains(implodeE)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -283,7 +283,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(implodeE2));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore1.contains(leapsE) && lore.contains(leapsE)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -291,7 +291,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(leapsE2));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore1.contains(rebornE) && lore.contains(rebornE)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -299,7 +299,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(rebornE2));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore1.contains(replenishE) && lore.contains(replenishE)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -307,7 +307,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(replenishE2));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore1.contains(retreatE) && lore.contains(retreatE)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -315,7 +315,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(retreatE2));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore1.contains(scootE) && lore.contains(scootE)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -323,7 +323,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(scootE2));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore1.contains(tipsyE) && lore.contains(tipsyE)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -331,7 +331,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(tipsyE2));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore1.contains(vanishE) && lore.contains(vanishE)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -339,7 +339,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(vanishE2));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore1.contains(wearyE) && lore.contains(wearyE)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -347,7 +347,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(wearyE2));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore1.contains(archeryE) && lore.contains(archeryE)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -355,7 +355,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(archeryE2));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore1.contains(confusionE) && lore.contains(confusionE)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -363,7 +363,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(confusionE2));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore1.contains(lifeE) && lore.contains(lifeE)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -371,7 +371,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(lifeE2));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore1.contains(lightningE) && lore.contains(lightningE)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -379,7 +379,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(lightningE2));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore1.contains(lightsoutE) && lore.contains(lightsoutE)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -387,7 +387,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(lightsoutE2));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore1.contains(soulE) && lore.contains(soulE)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -395,7 +395,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(soulE2));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore1.contains(thunderousE) && lore.contains(thunderousE)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -403,7 +403,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(thunderousE2));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore1.contains(blastE) && lore.contains(blastE)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -411,7 +411,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(blastE2));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore1.contains(experienceE) && lore.contains(experienceE)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -419,7 +419,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(experienceE2));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore1.contains(hasteE) && lore.contains(hasteE)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -427,7 +427,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(hasteE2));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore1.contains(obsidiandestroyerE) && lore.contains(obsidiandestroyerE)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -435,7 +435,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(obsidiandestroyerE2));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore1.contains(beastE2) && lore.contains(beastE2)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -443,7 +443,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(beastE3));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore1.contains(bumpE2) && lore.contains(bumpE2)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -451,7 +451,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(bumpE3));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore1.contains(implodeE2) && lore.contains(implodeE2)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -459,7 +459,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(implodeE3));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore1.contains(leapsE2) && lore.contains(leapsE2)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -467,7 +467,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(leapsE3));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore1.contains(rebornE2) && lore.contains(rebornE2)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -475,7 +475,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(rebornE3));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore1.contains(replenishE2) && lore.contains(replenishE2)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -483,7 +483,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(replenishE3));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore1.contains(retreatE2) && lore.contains(retreatE2)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -491,7 +491,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(retreatE3));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore1.contains(scootE2) && lore.contains(scootE2)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -499,7 +499,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(scootE3));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore1.contains(tipsyE2) && lore.contains(tipsyE2)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -507,7 +507,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(tipsyE3));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore1.contains(vanishE2) && lore.contains(vanishE2)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -515,7 +515,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(vanishE3));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore1.contains(wearyE2) && lore.contains(wearyE2)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -523,7 +523,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(wearyE3));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore1.contains(lightningE2) && lore.contains(lightningE2)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -531,7 +531,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(lightningE3));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore1.contains(thunderousE2) && lore.contains(thunderousE2)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -539,7 +539,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(thunderousE3));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore1.contains(experienceE2) && lore.contains(experienceE2)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -547,7 +547,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(experienceE3));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore1.contains(hasteE2) && lore.contains(hasteE2)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -555,7 +555,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(hasteE3));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore1.contains(obsidiandestroyerE2) && lore.contains(obsidiandestroyerE2)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -563,7 +563,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(obsidiandestroyerE3));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						}
 					}
 				}
@@ -571,10 +571,10 @@ public class Anvil implements Listener {
 				List<String> lore2 = item2.getItemMeta().getLore();
 				if (cursor.getType() == book) {
 					List<String> lore = cursor.getItemMeta().getLore();
-					if (plevel < bookCost) {
+					if (plevel < 4) {
 						p.sendMessage(reqmsg.replace("%levels", "4"));
 						return;
-					} else if (plevel >= bookCost) {
+					} else if (plevel >= 4) {
 						if (lore2.contains(beastE) && lore.contains(beastE)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -582,7 +582,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(beastE2));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore2.contains(bumpE) && lore.contains(bumpE)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -590,7 +590,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(bumpE2));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore2.contains(healthboostE) && lore.contains(healthboostE)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -598,7 +598,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(healthboostE2));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore2.contains(implodeE) && lore.contains(implodeE)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -606,7 +606,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(implodeE2));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore2.contains(leapsE) && lore.contains(leapsE)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -614,7 +614,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(leapsE2));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore2.contains(rebornE) && lore.contains(rebornE)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -622,7 +622,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(rebornE2));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore2.contains(replenishE) && lore.contains(replenishE)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -630,7 +630,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(replenishE2));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore2.contains(retreatE) && lore.contains(retreatE)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -638,7 +638,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(retreatE2));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore2.contains(scootE) && lore.contains(scootE)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -646,7 +646,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(scootE2));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore2.contains(tipsyE) && lore.contains(tipsyE)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -654,7 +654,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(tipsyE2));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore2.contains(vanishE) && lore.contains(vanishE)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -662,7 +662,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(vanishE2));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore2.contains(wearyE) && lore.contains(wearyE)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -670,7 +670,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(wearyE2));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore2.contains(archeryE) && lore.contains(archeryE)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -678,7 +678,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(archeryE2));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore2.contains(confusionE) && lore.contains(confusionE)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -686,7 +686,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(confusionE2));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore2.contains(lifeE) && lore.contains(lifeE)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -694,7 +694,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(lifeE2));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore2.contains(lightningE) && lore.contains(lightningE)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -702,7 +702,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(lightningE2));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore2.contains(lightsoutE) && lore.contains(lightsoutE)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -710,7 +710,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(lightsoutE2));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore2.contains(soulE) && lore.contains(soulE)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -718,7 +718,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(soulE2));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore2.contains(thunderousE) && lore.contains(thunderousE)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -726,7 +726,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(thunderousE2));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore2.contains(blastE) && lore.contains(blastE)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -734,7 +734,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(blastE2));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore2.contains(experienceE) && lore.contains(experienceE)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -742,7 +742,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(experienceE2));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore2.contains(hasteE) && lore.contains(hasteE)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -750,7 +750,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(hasteE2));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore2.contains(obsidiandestroyerE) && lore.contains(obsidiandestroyerE)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -758,7 +758,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(obsidiandestroyerE2));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore2.contains(beastE2) && lore.contains(beastE2)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -766,7 +766,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(beastE3));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore2.contains(bumpE2) && lore.contains(bumpE2)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -774,7 +774,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(bumpE3));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore2.contains(implodeE2) && lore.contains(implodeE2)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -782,7 +782,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(implodeE3));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore2.contains(leapsE2) && lore.contains(leapsE2)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -790,7 +790,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(leapsE3));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore2.contains(rebornE2) && lore.contains(rebornE2)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -798,7 +798,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(rebornE3));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore2.contains(replenishE2) && lore.contains(replenishE2)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -806,7 +806,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(replenishE3));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore2.contains(retreatE2) && lore.contains(retreatE2)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -814,7 +814,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(retreatE3));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore2.contains(scootE2) && lore.contains(scootE2)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -822,7 +822,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(scootE3));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore2.contains(tipsyE2) && lore.contains(tipsyE2)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -830,7 +830,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(tipsyE3));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore2.contains(vanishE2) && lore.contains(vanishE2)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -838,7 +838,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(vanishE3));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore2.contains(wearyE2) && lore.contains(wearyE2)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -846,7 +846,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(wearyE3));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore2.contains(lightningE2) && lore.contains(lightningE2)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -854,7 +854,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(lightningE3));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore2.contains(thunderousE2) && lore.contains(thunderousE2)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -862,7 +862,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(thunderousE3));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore2.contains(experienceE2) && lore.contains(experienceE2)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -870,7 +870,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(experienceE3));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore2.contains(hasteE2) && lore.contains(hasteE2)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -878,7 +878,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(hasteE3));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						} else if (lore2.contains(obsidiandestroyerE2) && lore.contains(obsidiandestroyerE2)) {
 							anvil.clear();
 							p.setItemOnCursor(clear);
@@ -886,7 +886,7 @@ public class Anvil implements Listener {
 							meta.setLore(Arrays.asList(obsidiandestroyerE3));
 							result.setItemMeta(meta);
 							p.getInventory().addItem(result);
-							p.setLevel(plevel - bookCost);
+							p.setLevel(plevel - 4);
 						}
 					}
 				}
