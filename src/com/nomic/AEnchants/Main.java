@@ -29,6 +29,7 @@ import com.nomic.AEnchants.Enchants.Weapon.Lightning;
 import com.nomic.AEnchants.Enchants.Weapon.LightsOut;
 import com.nomic.AEnchants.Enchants.Weapon.Soul;
 import com.nomic.AEnchants.Enchants.Weapon.SwordBlock;
+import com.nomic.AEnchants.Enchants.Weapon.Thief;
 import com.nomic.AEnchants.Enchants.Weapon.Thunderous;
 import com.nomic.AEnchants.Events.ArmorDragListener;
 import com.nomic.AEnchants.Events.ArmorHotbarListener;
@@ -73,6 +74,7 @@ public class Main extends JavaPlugin {
 		pm.registerEvents(new Weary(), this);
 		pm.registerEvents(new Tipsy(), this);
 		pm.registerEvents(new Implode(), this);
+		pm.registerEvents(new Thief(), this);
 		pm.registerEvents(new Sunlight(), this);
 		pm.registerEvents(new ClickSign(this), this);
 		pm.registerEvents(new Anvil(this), this);
