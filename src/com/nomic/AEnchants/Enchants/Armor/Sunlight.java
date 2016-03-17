@@ -141,7 +141,7 @@ public class Sunlight implements Listener {
 		Player p = (Player) e.getWhoClicked();
 		ItemStack item = e.getCurrentItem();
 		InventoryAction a = e.getAction();
-		if (item.getType() == Material.AIR)
+		if (e.getCurrentItem() == null || e.getCurrentItem().getType() == Material.AIR)
 			return;
 		List<String> lore = item.getItemMeta().getLore();
 		if (!(lore.contains(tOne)))
