@@ -33,7 +33,9 @@ public class Implode implements Listener {
 		List<String> clore = inv.getChestplate().getItemMeta().getLore();
 		List<String> llore = inv.getLeggings().getItemMeta().getLore();
 		List<String> blore = inv.getBoots().getItemMeta().getLore();
-		if (inv.getChestplate() != null && clore != null) {
+		if (inv.getChestplate() != null) {
+			if (clore == null)
+				return;
 			if (clore.contains(tOne)) {
 				Creeper c = (Creeper) l.getWorld().spawnEntity(l, EntityType.CREEPER);
 				c.setTarget(p);
@@ -47,7 +49,9 @@ public class Implode implements Listener {
 				c.setPowered(true);
 				c.setTarget(p);
 			}
-		} else if (inv.getLeggings() != null && llore != null) {
+		} else if (inv.getLeggings() != null) {
+			if (llore == null)
+				return;
 			if (clore.contains(tOne)) {
 				Creeper c = (Creeper) l.getWorld().spawnEntity(l, EntityType.CREEPER);
 				c.setTarget(p);
@@ -61,7 +65,9 @@ public class Implode implements Listener {
 				c.setPowered(true);
 				c.setTarget(p);
 			}
-		} else if (inv.getBoots() != null && blore != null) {
+		} else if (inv.getBoots() != null) {
+			if (blore == null)
+				return;
 			if (clore.contains(tOne)) {
 				Creeper c = (Creeper) l.getWorld().spawnEntity(l, EntityType.CREEPER);
 				c.setTarget(p);

@@ -40,7 +40,9 @@ public class Vanish implements Listener {
 		double health = p.getHealth();
 		if (!(health <= 6))
 			return;
-		if (inv.getChestplate() != null && clore != null) {
+		if (inv.getChestplate() != null) {
+			if (clore == null)
+				return;
 			if (clore.contains(tOne)) {
 				int chance = (1 + new Random().nextInt(19));
 				if (chance == 1) {
@@ -69,7 +71,9 @@ public class Vanish implements Listener {
 					}
 				}
 			}
-		} else if (inv.getLeggings() != null && llore != null) {
+		} else if (inv.getLeggings() != null) {
+			if (llore == null)
+				return;
 			if (llore.contains(tOne)) {
 				int chance = (1 + new Random().nextInt(19));
 				if (chance == 1) {
@@ -98,7 +102,9 @@ public class Vanish implements Listener {
 					}
 				}
 			}
-		} else if (inv.getBoots() != null && blore != null) {
+		} else if (inv.getBoots() != null) {
+			if (blore == null)
+				return;
 			if (blore.contains(tOne)) {
 				int chance = (1 + new Random().nextInt(19));
 				if (chance == 1) {
