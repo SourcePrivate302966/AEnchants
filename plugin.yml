@@ -1,3 +1,6 @@
 main: com.nomic.AEnchants.Main
 version: 1.0
 name: AEnchants
+commands:
+  aenchants:
+    description: Used for reloading config changes.

@@ -4,11 +4,21 @@
 # For enchant sign message, use {tier} and {enchant} variables.
 # Enable if experience from ores is only given with experience enchant.
 # Enable which books are given from the enchant signs.
+# Decide what pieces books can be applied to.
+# Pieces: Helmet, Chestplate, Leggings, Boots, Sword, Axe, Pickaxe, Shovel.
 signTitle: '&1AEnchants'
 signUseMessage: '&c&lAEnchants &8>> &bYou just purchased a &d{tier} &bAEnchant and got yourself a &e{enchant} &bEnchanted Book.'
-notEnoughLevelsMessage: '&c&lAEnchants &8>> &cRequires at least &7{levels}&c levels.'
+notEnoughLevelsMessage: '&c&lAEnchants &8>> &eRequires at least &7{levels}&e levels.'
+tooManyEnchantsMessage: '&c&lAEnchants &8>> &eItem has maximum number of enchants.'
+fullInvMessage: '&c&lAEnchants &8>> &eInventory is full.'
+addEnchantMessage: '&c&lAEnchants &8>> &bYou just applied &e{enchant} &bto an item.'
+combineBookMessage: '&c&lAEnchants &8>> &bYou just made a &e{book} &bEnchanted Book.'
 enabledExperienceEnchant: true
 bookCombineCost: 4
+tierOneApplyCost: 8
+tierTwoApplyCost: 10
+tierThreeApplyCost: 12
+enchantLimit: 5
 enabledBooks:
   enabledTierOnes:
   - Arc
@@ -41,6 +51,7 @@ enabledBooks:
   - Obsidian Destroyer
   - Anti Fog
   - Thief
+  - Toughness
   enabledTierTwos:
   - Bump
   - Health Boost
@@ -65,6 +76,7 @@ enabledBooks:
   - Haste
   - Obsidian Destroyer
   - Thief
+  - Toughness
   enabledTierThrees:
   - Bump
   - Implode
@@ -82,3 +94,72 @@ enabledBooks:
   - Haste
   - Obsidian Destroyer
   - Thief
+  - Toughness
+appliablePieces:
+  Arc:
+  - Chestplate
+  - Leggings
+  Blaze:
+  - Chestplate
+  - Leggings
+  Bump:
+  - Chestplate
+  - Leggings
+  Feast:
+  - Helmet
+  - Chestplate
+  - Leggings
+  Fish:
+  - Helmet
+  HealthBoost:
+  - Helmet
+  Implode:
+  - Chestplate
+  - Leggings
+  Leaps:
+  - Boots
+  Reborn:
+  - Chestplate
+  - Leggings
+  - Boots
+  Replenish:
+  - Chestplate
+  - Leggings
+  Retreat:
+  - Chestplate
+  - Leggings
+  - Boots
+  Scoot:
+  - Boots
+  Sunlight:
+  - Helmet
+  Tipsy:
+  - Chestplate
+  - Leggings
+  Vanish:
+  - Chestplate
+  - Leggings
+  Weary:
+  - Chestplate
+  - Leggings
+  Confusion:
+  - Sword
+  Life:
+  - Sword
+  LightsOut:
+  - Sword
+  Soul:
+  - Sword
+  SwordBlock:
+  - Sword
+  Thunderous:
+  - Sword
+  Haste:
+  - Pickaxe
+  AntiFog:
+  - Helmet
+  Toughness:
+  - Helmet
+  - Chestplate
+  - Leggings
+  - Boots

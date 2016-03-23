@@ -29,65 +29,92 @@ public class Bump implements Listener {
 		Player p = (Player) e.getEntity();
 		Player enemy = (Player) e.getDamager();
 		PlayerInventory inv = p.getInventory();
-		Vector d = enemy.getLocation().getDirection();
+		List<String> hlore = inv.getHelmet().getItemMeta().getLore();
 		List<String> clore = inv.getChestplate().getItemMeta().getLore();
 		List<String> llore = inv.getLeggings().getItemMeta().getLore();
 		List<String> blore = inv.getBoots().getItemMeta().getLore();
+		Vector d = enemy.getLocation().getDirection();
 		if (inv.getChestplate() != null) {
-			if (clore == null)
-				return;
 			if (clore.contains(tOne)) {
-				int chance = (1 + new Random().nextInt(19));
+				int chance = (1 + new Random().nextInt(24));
 				if (chance == 1) {
 					enemy.setVelocity(d.multiply(-1));
+					return;
 				}
 			} else if (clore.contains(tTwo)) {
-				int chance = (1 + new Random().nextInt(9));
+				int chance = (1 + new Random().nextInt(19));
 				if (chance == 1) {
 					enemy.setVelocity(d.multiply(-1.5));
+					return;
 				}
 			} else if (clore.contains(tThree)) {
-				int chance = (1 + new Random().nextInt(6));
+				int chance = (1 + new Random().nextInt(14));
 				if (chance == 1) {
 					enemy.setVelocity(d.multiply(-2));
+					return;
 				}
 			}
-		} else if (inv.getLeggings() != null) {
-			if (llore == null)
-				return;
+		}  
+		if (inv.getLeggings() != null) {
 			if (llore.contains(tOne)) {
-				int chance = (1 + new Random().nextInt(19));
+				int chance = (1 + new Random().nextInt(24));
 				if (chance == 1) {
 					enemy.setVelocity(d.multiply(-1));
+					return;
 				}
 			} else if (llore.contains(tTwo)) {
-				int chance = (1 + new Random().nextInt(9));
-				if (chance == 1) {
-					enemy.setVelocity(d.multiply(-1.5));
-				}
-			} else if (llore.contains(tThree)) {
-				int chance = (1 + new Random().nextInt(6));
-				if (chance == 1) {
-					enemy.setVelocity(d.multiply(-2));
-				}
-			}
-		} else if (inv.getBoots() != null) {
-			if (blore == null)
-				return;
-			if (blore.contains(tOne)) {
 				int chance = (1 + new Random().nextInt(19));
 				if (chance == 1) {
-					enemy.setVelocity(d.multiply(-1));
-				}
-			} else if (blore.contains(tTwo)) {
-				int chance = (1 + new Random().nextInt(9));
-				if (chance == 1) {
 					enemy.setVelocity(d.multiply(-1.5));
+					return;
 				}
-			} else if (blore.contains(tThree)) {
-				int chance = (1 + new Random().nextInt(6));
+			} else if (llore.contains(tThree)) {
+				int chance = (1 + new Random().nextInt(14));
 				if (chance == 1) {
 					enemy.setVelocity(d.multiply(-2));
+					return;
+				}
+			}
+		}  
+		if (inv.getBoots() != null) {
+			if (blore.contains(tOne)) {
+				int chance = (1 + new Random().nextInt(24));
+				if (chance == 1) {
+					enemy.setVelocity(d.multiply(-1));
+					return;
+				}
+			} else if (blore.contains(tTwo)) {
+				int chance = (1 + new Random().nextInt(19));
+				if (chance == 1) {
+					enemy.setVelocity(d.multiply(-1.5));
+					return;
+				}
+			} else if (blore.contains(tThree)) {
+				int chance = (1 + new Random().nextInt(14));
+				if (chance == 1) {
+					enemy.setVelocity(d.multiply(-2));
+					return;
+				}
+			}
+		} 
+		if (inv.getHelmet() != null) {
+			if (hlore.contains(tOne)) {
+				int chance = (1 + new Random().nextInt(24));
+				if (chance == 1) {
+					enemy.setVelocity(d.multiply(-1));
+					return;
+				}
+			} else if (hlore.contains(tTwo)) {
+				int chance = (1 + new Random().nextInt(19));
+				if (chance == 1) {
+					enemy.setVelocity(d.multiply(-1.5));
+					return;
+				}
+			} else if (hlore.contains(tThree)) {
+				int chance = (1 + new Random().nextInt(14));
+				if (chance == 1) {
+					enemy.setVelocity(d.multiply(-2));
+					return;
 				}
 			}
 		} 

@@ -35,12 +35,12 @@ public class Confusion implements Listener {
 		if (lore.contains(tOne)) {
 			int chance = (1 + new Random().nextInt(19));
 			if (chance == 1) {
-				enemy.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, (3 * 20), 0));
+				enemy.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, (8 * 20), 8));
 			}
 		} else if (lore.contains(tTwo)) {
 			int chance = (1 + new Random().nextInt(9));
 			if (chance == 1) {
-				enemy.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, (6 * 20), 0));
+				enemy.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, (10 * 20), 8));
 			}
 		}
 	}

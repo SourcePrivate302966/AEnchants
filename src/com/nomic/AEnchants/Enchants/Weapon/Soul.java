@@ -10,11 +10,12 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+
 public class Soul implements Listener {
-	
+
 	String one = "&bSoul I";
 	String two = "&eSoul II";
-	
+
 	String tOne = ChatColor.translateAlternateColorCodes('&', one);
 	String tTwo = ChatColor.translateAlternateColorCodes('&', two);
 
@@ -32,17 +33,28 @@ public class Soul implements Listener {
 		if (lore == null)
 			return;
 		double health = p.getHealth();
+		double maxhealth = p.getMaxHealth();
 		double ehealth = enemy.getHealth();
 		int chance = (1 + new Random().nextInt(9));
 		if (lore.contains(tOne)) {
 			if (chance == 1) {
-				p.setHealth(health + 1);
 				enemy.setHealth(ehealth - 1);
+				if (health == maxhealth)
+					return;
+				if (health <= maxhealth - 1) {
+					p.setHealth(health + 1);
+				}
 			}
 		} else if (lore.contains(tTwo)) {
 			if (chance == 1) {
-				p.setHealth(health + 2);
 				enemy.setHealth(ehealth - 2);
+				if (health == maxhealth)
+					return;
+				if (health == maxhealth - 1) {
+					p.setHealth(health + 1);
+				} else if (health <= maxhealth - 2) {
+					p.setHealth(health + 2);
+				}
 			}
 		}
 	}

@@ -98,7 +98,7 @@ public class ClickSign implements Listener {
 	String usedreplenish3 = "&cReplenish III";
 	String replenishE3 = ChatColor.translateAlternateColorCodes('&', usedreplenish3);
 
-	String retreat = "Arc";
+	String retreat = "Retreat";
 	String usedretreat = "&bRetreat I";
 	String retreatE = ChatColor.translateAlternateColorCodes('&', usedretreat);
 	String usedretreat2 = "&eRetreat II";
@@ -230,6 +230,14 @@ public class ClickSign implements Listener {
 	String usedthief3 = "&cThief III";
 	String thiefE3 = ChatColor.translateAlternateColorCodes('&', usedthief3);
 	
+	String toughness = "Toughness";
+	String usedtoughness = "&bToughness I";
+	String toughnessE = ChatColor.translateAlternateColorCodes('&', usedtoughness);
+	String usedtoughness2 = "&eToughness II";
+	String toughnessE2 = ChatColor.translateAlternateColorCodes('&', usedtoughness2);
+	String usedtoughness3 = "&cToughness III";
+	String toughnessE3 = ChatColor.translateAlternateColorCodes('&', usedtoughness3);
+	
 	String antifog = "Anti Fog";
 	String usedantifog = "&bAnti Fog I";
 	String antifogE = ChatColor.translateAlternateColorCodes('&', usedantifog);
@@ -250,8 +258,14 @@ public class ClickSign implements Listener {
 		String sendmsg = ChatColor.translateAlternateColorCodes('&', msg);
 		String notenoughmsg = plugin.getConfig().getString("notEnoughLevelsMessage");
 		String notenoughsendmsg = ChatColor.translateAlternateColorCodes('&', notenoughmsg);
+		String fullinv = plugin.getConfig().getString("fullInvMessage");
+		String fullinvmsg = ChatColor.translateAlternateColorCodes('&', fullinv);
 		if (!(sign.getLine(0).contains(aenchants)))
 			return;
+		if (inv.firstEmpty() == -1) {
+			p.sendMessage(fullinvmsg);
+			return;
+		}
 		ItemStack book = new ItemStack(Material.ENCHANTED_BOOK);
 		ItemMeta meta = book.getItemMeta();
 		String reqlevels = sign.getLine(2).replaceAll(" Levels", "");
@@ -422,6 +436,11 @@ public class ClickSign implements Listener {
 				book.setItemMeta(meta);
 				inv.addItem(book);
 				p.sendMessage(sendmsg.replace("{tier}", one).replace("{enchant}", usedthief.replace("&b", "")));
+			} else if (enchants.get(i).equals(toughness)) {
+				meta.setLore(Arrays.asList(toughnessE));
+				book.setItemMeta(meta);
+				inv.addItem(book);
+				p.sendMessage(sendmsg.replace("{tier}", one).replace("{enchant}", usedtoughness.replace("&b", "")));
 			}
 		} else if (sign.getLine(1).contains(two)) {
 			p.setLevel(pLevel - levels);
@@ -549,6 +568,11 @@ public class ClickSign implements Listener {
 				book.setItemMeta(meta);
 				inv.addItem(book);
 				p.sendMessage(sendmsg.replace("{tier}", two).replace("{enchant}", usedthief2.replace("&e", "")));
+			} else if (enchants.get(i).equals(toughness)) {
+				meta.setLore(Arrays.asList(toughnessE2));
+				book.setItemMeta(meta);
+				inv.addItem(book);
+				p.sendMessage(sendmsg.replace("{tier}", two).replace("{enchant}", usedtoughness2.replace("&e", "")));
 			}
 		} else if (sign.getLine(1).contains(three)) {
 			p.setLevel(pLevel - levels);
@@ -641,6 +665,11 @@ public class ClickSign implements Listener {
 				book.setItemMeta(meta);
 				inv.addItem(book);
 				p.sendMessage(sendmsg.replace("{tier}", three).replace("{enchant}", usedthief3.replace("&c", "")));
+			} else if (enchants.get(i).equals(toughness)) {
+				meta.setLore(Arrays.asList(toughnessE3));
+				book.setItemMeta(meta);
+				inv.addItem(book);
+				p.sendMessage(sendmsg.replace("{tier}", three).replace("{enchant}", usedtoughness3.replace("&c", "")));
 			}
 		}
 	}

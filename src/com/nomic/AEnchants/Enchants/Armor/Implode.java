@@ -1,6 +1,7 @@
 package com.nomic.AEnchants.Enchants.Armor;
 
 import java.util.List;
+import java.util.Random;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -29,58 +30,118 @@ public class Implode implements Listener {
 			return;
 		Player p = (Player) e.getEntity();
 		PlayerInventory inv = p.getInventory();
-		Location l = p.getLocation();
+		List<String> hlore = inv.getHelmet().getItemMeta().getLore();
 		List<String> clore = inv.getChestplate().getItemMeta().getLore();
 		List<String> llore = inv.getLeggings().getItemMeta().getLore();
 		List<String> blore = inv.getBoots().getItemMeta().getLore();
+		Location l = p.getLocation();
 		if (inv.getChestplate() != null) {
-			if (clore == null)
-				return;
 			if (clore.contains(tOne)) {
-				Creeper c = (Creeper) l.getWorld().spawnEntity(l, EntityType.CREEPER);
-				c.setTarget(p);
+				int chance = (1 + new Random().nextInt(19));
+				if (chance == 1) {
+					Creeper c = (Creeper) l.getWorld().spawnEntity(l, EntityType.CREEPER);
+					c.setTarget(p);
+					return;
+				}
 			} else if (clore.contains(tTwo)) {
-				Creeper c = (Creeper) l.getWorld().spawnEntity(l, EntityType.CREEPER);
-				Creeper c2 = (Creeper) l.getWorld().spawnEntity(l, EntityType.CREEPER);
-				c.setTarget(p);
-				c2.setTarget(p);
+				int chance = (1 + new Random().nextInt(9));
+				if (chance == 1) {
+					Creeper c = (Creeper) l.getWorld().spawnEntity(l, EntityType.CREEPER);
+					Creeper c2 = (Creeper) l.getWorld().spawnEntity(l, EntityType.CREEPER);
+					c.setTarget(p);
+					c2.setTarget(p);
+					return;
+				}
 			} else if (clore.contains(tThree)) {
-				Creeper c = (Creeper) l.getWorld().spawnEntity(l, EntityType.CREEPER);
-				c.setPowered(true);
-				c.setTarget(p);
+				int chance = (1 + new Random().nextInt(6));
+				if (chance == 1) {
+					Creeper c = (Creeper) l.getWorld().spawnEntity(l, EntityType.CREEPER);
+					c.setPowered(true);
+					c.setTarget(p);
+					return;
+				}
 			}
-		} else if (inv.getLeggings() != null) {
-			if (llore == null)
-				return;
-			if (clore.contains(tOne)) {
-				Creeper c = (Creeper) l.getWorld().spawnEntity(l, EntityType.CREEPER);
-				c.setTarget(p);
-			} else if (clore.contains(tTwo)) {
-				Creeper c = (Creeper) l.getWorld().spawnEntity(l, EntityType.CREEPER);
-				Creeper c2 = (Creeper) l.getWorld().spawnEntity(l, EntityType.CREEPER);
-				c.setTarget(p);
-				c2.setTarget(p);
-			} else if (clore.contains(tThree)) {
-				Creeper c = (Creeper) l.getWorld().spawnEntity(l, EntityType.CREEPER);
-				c.setPowered(true);
-				c.setTarget(p);
-			}
-		} else if (inv.getBoots() != null) {
-			if (blore == null)
-				return;
-			if (clore.contains(tOne)) {
-				Creeper c = (Creeper) l.getWorld().spawnEntity(l, EntityType.CREEPER);
-				c.setTarget(p);
-			} else if (clore.contains(tTwo)) {
-				Creeper c = (Creeper) l.getWorld().spawnEntity(l, EntityType.CREEPER);
-				Creeper c2 = (Creeper) l.getWorld().spawnEntity(l, EntityType.CREEPER);
-				c.setTarget(p);
-				c2.setTarget(p);
-			} else if (clore.contains(tThree)) {
-				Creeper c = (Creeper) l.getWorld().spawnEntity(l, EntityType.CREEPER);
-				c.setPowered(true);
-				c.setTarget(p);
+		} 
+		if (inv.getLeggings() != null) {
+			if (llore.contains(tOne)) {
+				int chance = (1 + new Random().nextInt(19));
+				if (chance == 1) {
+					Creeper c = (Creeper) l.getWorld().spawnEntity(l, EntityType.CREEPER);
+					c.setTarget(p);
+					return;
+				}
+			} else if (llore.contains(tTwo)) {
+				int chance = (1 + new Random().nextInt(9));
+				if (chance == 1) {
+					Creeper c = (Creeper) l.getWorld().spawnEntity(l, EntityType.CREEPER);
+					Creeper c2 = (Creeper) l.getWorld().spawnEntity(l, EntityType.CREEPER);
+					c.setTarget(p);
+					c2.setTarget(p);
+					return;
+				}
+			} else if (llore.contains(tThree)) {
+				int chance = (1 + new Random().nextInt(6));
+				if (chance == 1) {
+					Creeper c = (Creeper) l.getWorld().spawnEntity(l, EntityType.CREEPER);
+					c.setPowered(true);
+					c.setTarget(p);
+					return;
+				}
 			}
 		}
+		if (inv.getBoots() != null) {
+			if (blore.contains(tOne)) {
+				int chance = (1 + new Random().nextInt(19));
+				if (chance == 1) {
+					Creeper c = (Creeper) l.getWorld().spawnEntity(l, EntityType.CREEPER);
+					c.setTarget(p);
+					return;
+				}
+			} else if (blore.contains(tTwo)) {
+				int chance = (1 + new Random().nextInt(9));
+				if (chance == 1) {
+					Creeper c = (Creeper) l.getWorld().spawnEntity(l, EntityType.CREEPER);
+					Creeper c2 = (Creeper) l.getWorld().spawnEntity(l, EntityType.CREEPER);
+					c.setTarget(p);
+					c2.setTarget(p);
+					return;
+				}
+			} else if (blore.contains(tThree)) {
+				int chance = (1 + new Random().nextInt(6));
+				if (chance == 1) {
+					Creeper c = (Creeper) l.getWorld().spawnEntity(l, EntityType.CREEPER);
+					c.setPowered(true);
+					c.setTarget(p);
+					return;
+				}
+			}
+		}
+		if (inv.getHelmet() != null) {
+			if (hlore.contains(tOne)) {
+				int chance = (1 + new Random().nextInt(19));
+				if (chance == 1) {
+					Creeper c = (Creeper) l.getWorld().spawnEntity(l, EntityType.CREEPER);
+					c.setTarget(p);
+					return;
+				}
+			} else if (hlore.contains(tTwo)) {
+				int chance = (1 + new Random().nextInt(9));
+				if (chance == 1) {
+					Creeper c = (Creeper) l.getWorld().spawnEntity(l, EntityType.CREEPER);
+					Creeper c2 = (Creeper) l.getWorld().spawnEntity(l, EntityType.CREEPER);
+					c.setTarget(p);
+					c2.setTarget(p);
+					return;
+				}
+			} else if (hlore.contains(tThree)) {
+				int chance = (1 + new Random().nextInt(6));
+				if (chance == 1) {
+					Creeper c = (Creeper) l.getWorld().spawnEntity(l, EntityType.CREEPER);
+					c.setPowered(true);
+					c.setTarget(p);
+					return;
+				}
+			}
+		} 
 	}
 }

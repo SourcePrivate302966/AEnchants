@@ -25,41 +25,51 @@ public class Arc implements Listener {
 		Player p = (Player) e.getEntity();
 		Player enemy = (Player) e.getDamager();
 		PlayerInventory inv = p.getInventory();
-		Location l = enemy.getLocation();
+		List<String> hlore = inv.getHelmet().getItemMeta().getLore();
 		List<String> clore = inv.getChestplate().getItemMeta().getLore();
 		List<String> llore = inv.getLeggings().getItemMeta().getLore();
 		List<String> blore = inv.getBoots().getItemMeta().getLore();
+		Location l = enemy.getLocation();
 		double health = enemy.getHealth();
 		if (inv.getChestplate() != null) {
-			if (clore == null)
-				return;
 			if (clore.contains(tOne)) {
 				int chance = (1 + new Random().nextInt(19));
 				if (chance == 1) {
 					l.getWorld().strikeLightning(l);
 					enemy.setHealth(health - 1);
+					return;
 				}
-			} 
-		} else if (inv.getLeggings() != null) {
-			if (llore == null)
-				return;
+			}
+		}
+		if (inv.getLeggings() != null) {
 			if (llore.contains(tOne)) {
 				int chance = (1 + new Random().nextInt(19));
 				if (chance == 1) {
 					l.getWorld().strikeLightning(l);
-					enemy.setHealth(health - 2);
+					enemy.setHealth(health - 1);
+					return;
 				}
-			} 
-		} else if (inv.getBoots() != null) {
-			if (blore == null)
-				return;
+			}
+		}
+		if (inv.getBoots() != null) {
 			if (blore.contains(tOne)) {
 				int chance = (1 + new Random().nextInt(19));
 				if (chance == 1) {
 					l.getWorld().strikeLightning(l);
-					enemy.setHealth(health - 4);
+					enemy.setHealth(health - 1);
+					return;
 				}
 			}
-		} 
+		}
+		if (inv.getHelmet() != null) {
+			if (hlore.contains(tOne)) {
+				int chance = (1 + new Random().nextInt(19));
+				if (chance == 1) {
+					l.getWorld().strikeLightning(l);
+					enemy.setHealth(health - 1);
+					return;
+				}
+			}
+		}
 	}
 }

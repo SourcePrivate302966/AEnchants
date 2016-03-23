@@ -36,14 +36,31 @@ public class LightsOut implements Listener {
 		List<String> lore = p.getItemInHand().getItemMeta().getLore();
 		if (lore == null)
 			return;
-		PlayerInventory inv = enemy.getInventory();
-		List<String> hlore = inv.getHelmet().getItemMeta().getLore();
-		List<String> clore = inv.getChestplate().getItemMeta().getLore();
-		List<String> llore = inv.getLeggings().getItemMeta().getLore();
-		List<String> blore = inv.getBoots().getItemMeta().getLore();
-		if (hlore.contains(tAnti) || clore.contains(tAnti) || llore.contains(tAnti)
-				|| blore.contains(tAnti))
-			return;
+		PlayerInventory einv = enemy.getInventory();
+		List<String> ehlore = einv.getHelmet().getItemMeta().getLore();
+		List<String> eclore = einv.getChestplate().getItemMeta().getLore();
+		List<String> ellore = einv.getLeggings().getItemMeta().getLore();
+		List<String> eblore = einv.getBoots().getItemMeta().getLore();
+		if (einv.getHelmet() != null) {
+			if (ehlore.contains(tAnti)) {
+				return;
+			}
+		} 
+		if (einv.getChestplate() != null) {
+			if (eclore.contains(tAnti)) {
+				return;
+			}
+		} 
+		if (einv.getLeggings() != null) {
+			if (ellore.contains(tAnti)) {
+				return;
+			}
+		} 
+		if (einv.getBoots() != null) {
+			if (eblore.contains(tAnti)) {
+				return;
+			}
+		}
 		if (lore.contains(tOne)) {
 			int chance = (1 + new Random().nextInt(19));
 			if (chance == 1) {

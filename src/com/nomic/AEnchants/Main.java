@@ -3,6 +3,10 @@ package com.nomic.AEnchants;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import com.nomic.AEnchants.AnvilUse.Apply1;
+import com.nomic.AEnchants.AnvilUse.Apply2;
+import com.nomic.AEnchants.AnvilUse.Apply3;
+import com.nomic.AEnchants.AnvilUse.Combine;
 import com.nomic.AEnchants.Enchants.Blast;
 import com.nomic.AEnchants.Enchants.Haste;
 import com.nomic.AEnchants.Enchants.ObsidianDestroyer;
@@ -20,6 +24,7 @@ import com.nomic.AEnchants.Enchants.Armor.Retreat;
 import com.nomic.AEnchants.Enchants.Armor.Scoot;
 import com.nomic.AEnchants.Enchants.Armor.Sunlight;
 import com.nomic.AEnchants.Enchants.Armor.Tipsy;
+import com.nomic.AEnchants.Enchants.Armor.Toughness;
 import com.nomic.AEnchants.Enchants.Armor.Vanish;
 import com.nomic.AEnchants.Enchants.Armor.Weary;
 import com.nomic.AEnchants.Enchants.Weapon.Archery;
@@ -31,6 +36,10 @@ import com.nomic.AEnchants.Enchants.Weapon.Soul;
 import com.nomic.AEnchants.Enchants.Weapon.SwordBlock;
 import com.nomic.AEnchants.Enchants.Weapon.Thief;
 import com.nomic.AEnchants.Enchants.Weapon.Thunderous;
+import com.nomic.AEnchants.Events.AnvilApply1Listener;
+import com.nomic.AEnchants.Events.AnvilApply2Listener;
+import com.nomic.AEnchants.Events.AnvilApply3Listener;
+import com.nomic.AEnchants.Events.AnvilCombineListener;
 import com.nomic.AEnchants.Events.ArmorDragListener;
 import com.nomic.AEnchants.Events.ArmorHotbarListener;
 import com.nomic.AEnchants.Events.ArmorShiftListener;
@@ -39,6 +48,7 @@ public class Main extends JavaPlugin {
 	
 	public void onEnable() {
 		registerEvents();
+		registerCommands();
 		registerConfig();
 		
 	}
@@ -48,6 +58,10 @@ public class Main extends JavaPlugin {
 		pm.registerEvents(new ArmorShiftListener(), this);
 		pm.registerEvents(new ArmorHotbarListener(), this);
 		pm.registerEvents(new ArmorDragListener(), this);
+		pm.registerEvents(new AnvilCombineListener(this), this);
+		pm.registerEvents(new AnvilApply1Listener(this), this);
+		pm.registerEvents(new AnvilApply2Listener(this), this);
+		pm.registerEvents(new AnvilApply3Listener(this), this);
 		pm.registerEvents(new Haste(), this);
 		pm.registerEvents(new Lightning(), this);
 		pm.registerEvents(new Life(), this);
@@ -75,9 +89,18 @@ public class Main extends JavaPlugin {
 		pm.registerEvents(new Tipsy(), this);
 		pm.registerEvents(new Implode(), this);
 		pm.registerEvents(new Thief(), this);
+		pm.registerEvents(new Toughness(), this);
 		pm.registerEvents(new Sunlight(), this);
 		pm.registerEvents(new ClickSign(this), this);
-		pm.registerEvents(new Anvil(this), this);
+		pm.registerEvents(new Combine(this), this);
+		pm.registerEvents(new Apply1(this), this);
+		pm.registerEvents(new Apply2(this), this);
+		pm.registerEvents(new Apply3(this), this);
+		pm.registerEvents(new CreateSign(this), this);
+	}
+	
+	public void registerCommands() {
+		getCommand("aenchants").setExecutor(new CmdReload(this));
 	}
 	
 	private void registerConfig() {

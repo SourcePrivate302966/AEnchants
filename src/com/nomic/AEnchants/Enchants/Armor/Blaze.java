@@ -82,6 +82,26 @@ public class Blaze implements Listener {
 					p.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 1000000 * 20, 0));
 				} 
 			}
+		} else if (m == diamondb || m == ironb || m == chainb || m == leatherb) {
+			if (stype == SlotType.ARMOR && inv.getBoots() != null) {
+				if (lore.contains(tOne)) {
+					p.removePotionEffect(PotionEffectType.FIRE_RESISTANCE);
+				}
+			} else if (stype != SlotType.ARMOR && inv.getBoots() == null) {
+				if (lore.contains(tOne)) {
+					p.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 1000000 * 20, 0));
+				} 
+			}
+		} else if (m == diamondh || m == ironh || m == chainh || m == leatherh) {
+			if (stype == SlotType.ARMOR && inv.getHelmet() != null) {
+				if (lore.contains(tOne)) {
+					p.removePotionEffect(PotionEffectType.FIRE_RESISTANCE);
+				}
+			} else if (stype != SlotType.ARMOR && inv.getHelmet() == null) {
+				if (lore.contains(tOne)) {
+					p.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 1000000 * 20, 0));
+				} 
+			}
 		}
 	}
 	
@@ -103,6 +123,18 @@ public class Blaze implements Listener {
 			}
 		} else if (m == diamondl || m == ironl || m == chainl || m == leatherl) {
 			if (inv.getLeggings() == null) {
+				if (lore.contains(tOne)) {
+					p.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 1000000 * 20, 0));
+				} 
+			}
+		} else if (m == diamondb || m == ironb || m == chainb || m == leatherb) {
+			if (inv.getBoots() == null) {
+				if (lore.contains(tOne)) {
+					p.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 1000000 * 20, 0));
+				} 
+			}
+		} else if (m == diamondh || m == ironh || m == chainh || m == leatherh) {
+			if (inv.getHelmet() == null) {
 				if (lore.contains(tOne)) {
 					p.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 1000000 * 20, 0));
 				} 
@@ -156,6 +188,42 @@ public class Blaze implements Listener {
 						p.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 1000000 * 20, 0));
 					}  
 				}
+			} else if (e.getCItem() != null && cm == diamondb || cm == ironb || cm == chainb || cm == leatherb) {
+				if (inv.getBoots() != null && m != null) {
+					List<String> lore = e.getCItem().getItemMeta().getLore();
+					if (lore == null)
+						return;
+					if (lore.contains(tOne)) {
+						p.removePotionEffect(PotionEffectType.FIRE_RESISTANCE);
+					}
+				} 
+			} else if (m == diamondb || m == ironb || m == chainb || m == leatherb) {
+				if (e.getItem() != null) {
+					List<String> lore = e.getItem().getItemMeta().getLore();
+					if (lore == null)
+						return;
+					if (lore.contains(tOne)) {
+						p.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 1000000 * 20, 0));
+					}  
+				}
+			} else if (e.getCItem() != null && cm == diamondh || cm == ironh || cm == chainh || cm == leatherh) {
+				if (inv.getHelmet() != null && m != null) {
+					List<String> lore = e.getCItem().getItemMeta().getLore();
+					if (lore == null)
+						return;
+					if (lore.contains(tOne)) {
+						p.removePotionEffect(PotionEffectType.FIRE_RESISTANCE);
+					}
+				} 
+			} else if (m == diamondh || m == ironh || m == chainh || m == leatherh) {
+				if (e.getItem() != null) {
+					List<String> lore = e.getItem().getItemMeta().getLore();
+					if (lore == null)
+						return;
+					if (lore.contains(tOne)) {
+						p.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 1000000 * 20, 0));
+					}  
+				}
 			}
 		} 
 	}
@@ -179,7 +247,11 @@ public class Blaze implements Listener {
 		InventoryAction a = e.getAction();
 		if (e.getCurrentItem() == null || e.getCurrentItem().getType() == Material.AIR)
 			return;
+		if (e.getSlotType() != SlotType.ARMOR)
+			return;
 		List<String> lore = item.getItemMeta().getLore();
+		if (lore == null)
+			return;
 		if (!(lore.contains(tOne)))
 			return;
 		if (a == InventoryAction.DROP_ALL_SLOT || a == InventoryAction.DROP_ONE_SLOT) {

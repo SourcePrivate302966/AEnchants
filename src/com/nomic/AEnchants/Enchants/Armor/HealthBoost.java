@@ -59,21 +59,59 @@ public class HealthBoost implements Listener {
 		if (m == Material.ENCHANTED_BOOK)
 			return;
 		PlayerInventory inv = p.getInventory();
-		if (!(lore.contains(tOne)))
+		if (!(lore.contains(tOne) || lore.contains(tTwo)))
 			return;
 		InventoryType invt = e.getInventory().getType();
 		if (!(invt == InventoryType.PLAYER || invt == InventoryType.CRAFTING))
 			return;
-		if (stype == SlotType.ARMOR && inv.getHelmet() != null) {
-			if (lore.contains(tOne) || lore.contains(tTwo)) {
-				p.removePotionEffect(PotionEffectType.HEALTH_BOOST);
+		if (m == diamondc || m == ironc || m == chainc || m == leatherc) {
+			if (stype == SlotType.ARMOR && inv.getChestplate() != null) {
+				if (lore.contains(tOne) || lore.contains(tTwo)) {
+					p.removePotionEffect(PotionEffectType.HEALTH_BOOST);
+				}
+			} else if (stype != SlotType.ARMOR && inv.getChestplate() == null) {
+				if (lore.contains(tOne)) {
+					p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 1000000 * 20, 0));
+				} else if (lore.contains(tTwo)) {
+					p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 1000000 * 20, 1));
+				}
 			}
-		} else if (stype != SlotType.ARMOR && inv.getHelmet() == null) {
-			if (lore.contains(tOne)) {
-				p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 1000000 * 20, 0));
-			} else if (lore.contains(tTwo)) {
-				p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 1000000 * 20, 1));
-			} 
+		} else if (m == diamondl || m == ironl || m == chainl || m == leatherl) {
+			if (stype == SlotType.ARMOR && inv.getLeggings() != null) {
+				if (lore.contains(tOne) || lore.contains(tTwo)) {
+					p.removePotionEffect(PotionEffectType.HEALTH_BOOST);
+				}
+			} else if (stype != SlotType.ARMOR && inv.getLeggings() == null) {
+				if (lore.contains(tOne)) {
+					p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 1000000 * 20, 0));
+				} else if (lore.contains(tTwo)) {
+					p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 1000000 * 20, 1));
+				}
+			}
+		} else if (m == diamondb || m == ironb || m == chainb || m == leatherb) {
+			if (stype == SlotType.ARMOR && inv.getBoots() != null) {
+				if (lore.contains(tOne) || lore.contains(tTwo)) {
+					p.removePotionEffect(PotionEffectType.HEALTH_BOOST);
+				}
+			} else if (stype != SlotType.ARMOR && inv.getBoots() == null) {
+				if (lore.contains(tOne)) {
+					p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 1000000 * 20, 0));
+				} else if (lore.contains(tTwo)) {
+					p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 1000000 * 20, 1));
+				}
+			}
+		} else if (m == diamondh || m == ironh || m == chainh || m == leatherh) {
+			if (stype == SlotType.ARMOR && inv.getHelmet() != null) {
+				if (lore.contains(tOne) || lore.contains(tTwo)) {
+					p.removePotionEffect(PotionEffectType.HEALTH_BOOST);
+				}
+			} else if (stype != SlotType.ARMOR && inv.getHelmet() == null) {
+				if (lore.contains(tOne)) {
+					p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 1000000 * 20, 0));
+				} else if (lore.contains(tTwo)) {
+					p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 1000000 * 20, 1));
+				}
+			}
 		}
 	}
 	
@@ -89,6 +127,30 @@ public class HealthBoost implements Listener {
 			return;
 		if (m == diamondh || m == ironh || m == chainh || m == leatherh) {
 			if (inv.getHelmet() == null) {
+				if (lore.contains(tOne)) {
+					p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 1000000 * 20, 0));
+				} else if (lore.contains(tTwo)) {
+					p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 1000000 * 20, 1));
+				}
+			}
+		} else if (m == diamondc || m == ironc || m == chainc || m == leatherc) {
+			if (inv.getChestplate() == null) {
+				if (lore.contains(tOne)) {
+					p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 1000000 * 20, 0));
+				} else if (lore.contains(tTwo)) {
+					p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 1000000 * 20, 1));
+				}
+			}
+		} else if (m == diamondl || m == ironl || m == chainl || m == leatherl) {
+			if (inv.getLeggings() == null) {
+				if (lore.contains(tOne)) {
+					p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 1000000 * 20, 0));
+				} else if (lore.contains(tTwo)) {
+					p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 1000000 * 20, 1));
+				}
+			}
+		} else if (m == diamondb || m == ironb || m == chainb || m == leatherb) {
+			if (inv.getBoots() == null) {
 				if (lore.contains(tOne)) {
 					p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 1000000 * 20, 0));
 				} else if (lore.contains(tTwo)) {
@@ -128,6 +190,66 @@ public class HealthBoost implements Listener {
 						p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 1000000 * 20, 1));
 					} 
 				}
+			} else if (e.getCItem() != null && cm == diamondc || cm == ironc || cm == chainc || cm == leatherc) {
+				if (inv.getChestplate() != null && m != null) {
+					List<String> lore = e.getCItem().getItemMeta().getLore();
+					if (lore == null)
+						return;
+					if (lore.contains(tOne) || lore.contains(tTwo)) {
+						p.removePotionEffect(PotionEffectType.HEALTH_BOOST);
+					}
+				} 
+			} else if (m == diamondc || m == ironc || m == chainc || m == leatherc) {
+				if (e.getItem() != null) {
+					List<String> lore = e.getItem().getItemMeta().getLore();
+					if (lore == null)
+						return;
+					if (lore.contains(tOne)) {
+						p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 1000000 * 20, 0));
+					} else if (lore.contains(tTwo)) {
+						p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 1000000 * 20, 1));
+					} 
+				}
+			} else if (e.getCItem() != null && cm == diamondl || cm == ironl || cm == chainl || cm == leatherl) {
+				if (inv.getLeggings() != null && m != null) {
+					List<String> lore = e.getCItem().getItemMeta().getLore();
+					if (lore == null)
+						return;
+					if (lore.contains(tOne) || lore.contains(tTwo)) {
+						p.removePotionEffect(PotionEffectType.HEALTH_BOOST);
+					}
+				} 
+			} else if (m == diamondl || m == ironl || m == chainl || m == leatherl) {
+				if (e.getItem() != null) {
+					List<String> lore = e.getItem().getItemMeta().getLore();
+					if (lore == null)
+						return;
+					if (lore.contains(tOne)) {
+						p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 1000000 * 20, 0));
+					} else if (lore.contains(tTwo)) {
+						p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 1000000 * 20, 1));
+					} 
+				}
+			} else if (e.getCItem() != null && cm == diamondb || cm == ironb || cm == chainb || cm == leatherb) {
+				if (inv.getBoots() != null && m != null) {
+					List<String> lore = e.getCItem().getItemMeta().getLore();
+					if (lore == null)
+						return;
+					if (lore.contains(tOne) || lore.contains(tTwo)) {
+						p.removePotionEffect(PotionEffectType.HEALTH_BOOST);
+					}
+				} 
+			} else if (m == diamondb || m == ironb || m == chainb || m == leatherb) {
+				if (e.getItem() != null) {
+					List<String> lore = e.getItem().getItemMeta().getLore();
+					if (lore == null)
+						return;
+					if (lore.contains(tOne)) {
+						p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 1000000 * 20, 0));
+					} else if (lore.contains(tTwo)) {
+						p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 1000000 * 20, 1));
+					} 
+				}
 			}
 		} 
 	}
@@ -151,7 +273,11 @@ public class HealthBoost implements Listener {
 		InventoryAction a = e.getAction();
 		if (e.getCurrentItem() == null || e.getCurrentItem().getType() == Material.AIR)
 			return;
+		if (e.getSlotType() != SlotType.ARMOR)
+			return;
 		List<String> lore = item.getItemMeta().getLore();
+		if (lore == null)
+			return;
 		if (!(lore.contains(tOne) || lore.contains(tTwo)))
 			return;
 		if (a == InventoryAction.DROP_ALL_SLOT || a == InventoryAction.DROP_ONE_SLOT) {

@@ -36,21 +36,21 @@ public class Thunderous implements Listener {
 			return;
 		double health = enemy.getHealth();
 		if (lore.contains(tOne)) {
-			int chance = (1 + new Random().nextInt(19));
+			int chance = (1 + new Random().nextInt(65));
 			if (chance == 1) {
 				l.getWorld().strikeLightning(l);
 			}
 		} else if (lore.contains(tTwo)) {
-			int chance = (1 + new Random().nextInt(9));
+			int chance = (1 + new Random().nextInt(32));
+			if (chance == 1) {
+				l.getWorld().strikeLightning(l);
+				enemy.setHealth(health - 1);
+			}
+		} else if (lore.contains(tThree)) {
+			int chance = (1 + new Random().nextInt(19));
 			if (chance == 1) {
 				l.getWorld().strikeLightning(l);
 				enemy.setHealth(health - 2);
-			}
-		} else if (lore.contains(tThree)) {
-			int chance = (1 + new Random().nextInt(6));
-			if (chance == 1) {
-				l.getWorld().strikeLightning(l);
-				enemy.setHealth(health - 4);
 			}
 		}
 	}
