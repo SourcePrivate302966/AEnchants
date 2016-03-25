@@ -35,7 +35,7 @@ public class Soul implements Listener {
 		double health = p.getHealth();
 		double maxhealth = p.getMaxHealth();
 		double ehealth = enemy.getHealth();
-		int chance = (1 + new Random().nextInt(9));
+		int chance = (1 + new Random().nextInt(19));
 		if (lore.contains(tOne)) {
 			if (chance == 1) {
 				enemy.setHealth(ehealth - 1);

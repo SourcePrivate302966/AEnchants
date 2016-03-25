@@ -62,12 +62,12 @@ public class LightsOut implements Listener {
 			}
 		}
 		if (lore.contains(tOne)) {
-			int chance = (1 + new Random().nextInt(19));
+			int chance = (1 + new Random().nextInt(24));
 			if (chance == 1) {
 				enemy.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, (3 * 20), 0));
 			}
 		} else if (lore.contains(tTwo)) {
-			int chance = (1 + new Random().nextInt(9));
+			int chance = (1 + new Random().nextInt(19));
 			if (chance == 1) {
 				enemy.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, (6 * 20), 0));
 			}

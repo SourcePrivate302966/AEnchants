@@ -33,7 +33,7 @@ public class Life implements Listener {
 		double maxhealth = p.getMaxHealth();
 		if (health == maxhealth)
 			return;
-		int chance = (1 + new Random().nextInt(9));
+		int chance = (1 + new Random().nextInt(19));
 		if (lore.contains(tOne)) {
 			if (chance == 1) {
 				if (health <= maxhealth - 1) {
