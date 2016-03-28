@@ -5,6 +5,7 @@ import java.util.List;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -26,102 +27,6 @@ public class AnvilApply1Listener implements Listener {
 		plugin = pl;
 	}
 
-	String usedarc = "&bArc I";
-	String arcE = ChatColor.translateAlternateColorCodes('&', usedarc);
-
-	String usedbeast = "&bBeast I";
-	String beastE = ChatColor.translateAlternateColorCodes('&', usedbeast);
-
-	String usedblaze = "&bBlaze I";
-	String blazeE = ChatColor.translateAlternateColorCodes('&', usedblaze);
-
-	String usedbump = "&bBump I";
-	String bumpE = ChatColor.translateAlternateColorCodes('&', usedbump);
-
-	String usedfeast = "&bFeast I";
-	String feastE = ChatColor.translateAlternateColorCodes('&', usedfeast);
-
-	String usedfish = "&bFish I";
-	String fishE = ChatColor.translateAlternateColorCodes('&', usedfish);
-
-	String usedhealthboost = "&bHealth Boost I";
-	String healthboostE = ChatColor.translateAlternateColorCodes('&', usedhealthboost);
-
-	String usedimplode = "&bImplode I";
-	String implodeE = ChatColor.translateAlternateColorCodes('&', usedimplode);
-
-	String usedleaps = "&bLeaps I";
-	String leapsE = ChatColor.translateAlternateColorCodes('&', usedleaps);
-
-	String usedreborn = "&bReborn I";
-	String rebornE = ChatColor.translateAlternateColorCodes('&', usedreborn);
-
-	String usedreplenish = "&bReplenish I";
-	String replenishE = ChatColor.translateAlternateColorCodes('&', usedreplenish);
-
-	String usedretreat = "&bRetreat I";
-	String retreatE = ChatColor.translateAlternateColorCodes('&', usedretreat);
-
-	String usedscoot = "&bScoot I";
-	String scootE = ChatColor.translateAlternateColorCodes('&', usedscoot);
-
-	String usedsunlight = "&bSunlight I";
-	String sunlightE = ChatColor.translateAlternateColorCodes('&', usedsunlight);
-
-	String usedtipsy = "&bTipsy I";
-	String tipsyE = ChatColor.translateAlternateColorCodes('&', usedtipsy);
-
-	String usedvanish = "&bVanish I";
-	String vanishE = ChatColor.translateAlternateColorCodes('&', usedvanish);
-
-	String usedweary = "&bWeary I";
-	String wearyE = ChatColor.translateAlternateColorCodes('&', usedweary);
-
-	String usedarchery = "&bArchery I";
-	String archeryE = ChatColor.translateAlternateColorCodes('&', usedarchery);
-
-	String usedconfusion = "&bConfusion I";
-	String confusionE = ChatColor.translateAlternateColorCodes('&', usedconfusion);
-
-	String usedlife = "&bLife I";
-	String lifeE = ChatColor.translateAlternateColorCodes('&', usedlife);
-
-	String usedlightning = "&bLightning I";
-	String lightningE = ChatColor.translateAlternateColorCodes('&', usedlightning);
-
-	String usedlightsout = "&bLights Out I";
-	String lightsoutE = ChatColor.translateAlternateColorCodes('&', usedlightsout);
-
-	String usedsoul = "&bSoul I";
-	String soulE = ChatColor.translateAlternateColorCodes('&', usedsoul);
-
-	String usedswordblock = "&bSword Block I";
-	String swordblockE = ChatColor.translateAlternateColorCodes('&', usedswordblock);
-
-	String usedthunderous = "&bThunderous I";
-	String thunderousE = ChatColor.translateAlternateColorCodes('&', usedthunderous);
-
-	String usedblast = "&bBlast I";
-	String blastE = ChatColor.translateAlternateColorCodes('&', usedblast);
-
-	String usedexperience = "&bExperience I";
-	String experienceE = ChatColor.translateAlternateColorCodes('&', usedexperience);
-
-	String usedhaste = "&bHaste I";
-	String hasteE = ChatColor.translateAlternateColorCodes('&', usedhaste);
-
-	String usedobsidiandestroyer = "&bObsidian Destroyer I";
-	String obsidiandestroyerE = ChatColor.translateAlternateColorCodes('&', usedobsidiandestroyer);
-
-	String usedthief = "&bThief I";
-	String thiefE = ChatColor.translateAlternateColorCodes('&', usedthief);
-
-	String usedtoughness = "&bToughness I";
-	String toughnessE = ChatColor.translateAlternateColorCodes('&', usedtoughness);
-
-	String usedantifog = "&bAnti Fog I";
-	String antifogE = ChatColor.translateAlternateColorCodes('&', usedantifog);
-
 	@EventHandler
 	public void onCombine(InventoryClickEvent e) {
 		if (!(e.getWhoClicked() instanceof Player))
@@ -132,6 +37,105 @@ public class AnvilApply1Listener implements Listener {
 		SlotType stype = e.getSlotType();
 		InventoryType inv = e.getInventory().getType();
 		ItemStack cursor = e.getCursor();
+		
+        ConfigurationSection names = plugin.getConfig().getConfigurationSection("enchantNames");
+		
+		String usedarc = names.getConfigurationSection("Arc").getString("one");
+		String arcE = ChatColor.translateAlternateColorCodes('&', usedarc);
+
+		String usedbeast = names.getConfigurationSection("Beast").getString("one");
+		String beastE = ChatColor.translateAlternateColorCodes('&', usedbeast);
+
+		String usedblaze = names.getConfigurationSection("Blaze").getString("one");
+		String blazeE = ChatColor.translateAlternateColorCodes('&', usedblaze);
+
+		String usedbump = names.getConfigurationSection("Bump").getString("one");
+		String bumpE = ChatColor.translateAlternateColorCodes('&', usedbump);
+
+		String usedfeast = names.getConfigurationSection("Feast").getString("one");
+		String feastE = ChatColor.translateAlternateColorCodes('&', usedfeast);
+
+		String usedfish = names.getConfigurationSection("Fish").getString("one");
+		String fishE = ChatColor.translateAlternateColorCodes('&', usedfish);
+
+		String usedhealthboost = names.getConfigurationSection("HealthBoost").getString("one");
+		String healthboostE = ChatColor.translateAlternateColorCodes('&', usedhealthboost);
+
+		String usedimplode = names.getConfigurationSection("Implode").getString("one");
+		String implodeE = ChatColor.translateAlternateColorCodes('&', usedimplode);
+
+		String usedleaps = names.getConfigurationSection("Leaps").getString("one");
+		String leapsE = ChatColor.translateAlternateColorCodes('&', usedleaps);
+
+		String usedreborn = names.getConfigurationSection("Reborn").getString("one");
+		String rebornE = ChatColor.translateAlternateColorCodes('&', usedreborn);
+
+		String usedreplenish = names.getConfigurationSection("Replenish").getString("one");
+		String replenishE = ChatColor.translateAlternateColorCodes('&', usedreplenish);
+
+		String usedretreat = names.getConfigurationSection("Retreat").getString("one");
+		String retreatE = ChatColor.translateAlternateColorCodes('&', usedretreat);
+
+		String usedscoot = names.getConfigurationSection("Scoot").getString("one");
+		String scootE = ChatColor.translateAlternateColorCodes('&', usedscoot);
+
+		String usedsunlight = names.getConfigurationSection("Sunlight").getString("one");
+		String sunlightE = ChatColor.translateAlternateColorCodes('&', usedsunlight);
+
+		String usedtipsy = names.getConfigurationSection("Tipsy").getString("one");
+		String tipsyE = ChatColor.translateAlternateColorCodes('&', usedtipsy);
+
+		String usedvanish = names.getConfigurationSection("Vanish").getString("one");
+		String vanishE = ChatColor.translateAlternateColorCodes('&', usedvanish);
+
+		String usedweary = names.getConfigurationSection("Weary").getString("one");
+		String wearyE = ChatColor.translateAlternateColorCodes('&', usedweary);
+
+		String usedarchery = names.getConfigurationSection("Archery").getString("one");
+		String archeryE = ChatColor.translateAlternateColorCodes('&', usedarchery);
+
+		String usedconfusion = names.getConfigurationSection("Confusion").getString("one");
+		String confusionE = ChatColor.translateAlternateColorCodes('&', usedconfusion);
+
+		String usedlife = names.getConfigurationSection("Life").getString("one");
+		String lifeE = ChatColor.translateAlternateColorCodes('&', usedlife);
+
+		String usedlightning = names.getConfigurationSection("Lightning").getString("one");
+		String lightningE = ChatColor.translateAlternateColorCodes('&', usedlightning);
+
+		String usedlightsout = names.getConfigurationSection("LightsOut").getString("one");
+		String lightsoutE = ChatColor.translateAlternateColorCodes('&', usedlightsout);
+
+		String usedsoul = names.getConfigurationSection("Soul").getString("one");
+		String soulE = ChatColor.translateAlternateColorCodes('&', usedsoul);
+
+		String usedswordblock = names.getConfigurationSection("SwordBlock").getString("one");
+		String swordblockE = ChatColor.translateAlternateColorCodes('&', usedswordblock);
+
+		String usedthunderous = names.getConfigurationSection("Thunderous").getString("one");
+		String thunderousE = ChatColor.translateAlternateColorCodes('&', usedthunderous);
+
+		String usedblast = names.getConfigurationSection("Blast").getString("one");
+		String blastE = ChatColor.translateAlternateColorCodes('&', usedblast);
+
+		String usedexperience = names.getConfigurationSection("Experience").getString("one");
+		String experienceE = ChatColor.translateAlternateColorCodes('&', usedexperience);
+
+		String usedhaste = names.getConfigurationSection("Haste").getString("one");
+		String hasteE = ChatColor.translateAlternateColorCodes('&', usedhaste);
+
+		String usedobsidiandestroyer = names.getConfigurationSection("ObsidianDestroyer").getString("one");
+		String obsidiandestroyerE = ChatColor.translateAlternateColorCodes('&', usedobsidiandestroyer);
+
+		String usedthief = names.getConfigurationSection("Thief").getString("one");
+		String thiefE = ChatColor.translateAlternateColorCodes('&', usedthief);
+
+		String usedtoughness = names.getConfigurationSection("Toughness").getString("one");
+		String toughnessE = ChatColor.translateAlternateColorCodes('&', usedtoughness);
+
+		String usedantifog = names.getConfigurationSection("AntiFog").getString("one");
+		String antifogE = ChatColor.translateAlternateColorCodes('&', usedantifog);
+		
 		String req = plugin.getConfig().getString("notEnoughLevelsMessage");
 		String reqmsg = ChatColor.translateAlternateColorCodes('&', req);
 		int oneCost = plugin.getConfig().getInt("tierOneApplyCost");
@@ -148,7 +152,8 @@ public class AnvilApply1Listener implements Listener {
 			String fullinv = plugin.getConfig().getString("fullInvMessage");
 			String fullinvmsg = ChatColor.translateAlternateColorCodes('&', fullinv);
 			if (p.getInventory().firstEmpty() == -1) {
-				p.sendMessage(fullinvmsg);
+				if (!(fullinvmsg.equals("none")))
+					p.sendMessage(fullinvmsg);
 				return;
 			}
 			if (slot == 1 && item1 != null) {
@@ -172,7 +177,8 @@ public class AnvilApply1Listener implements Listener {
 							|| lore.contains(fishE) || lore.contains(swordblockE) || lore.contains(sunlightE)
 							|| lore.contains(antifogE) || lore.contains(toughnessE)) {
 						if (plevel < oneCost) {
-							p.sendMessage(reqmsg.replace("{levels}", cost1));
+							if (!(reqmsg.equals("none")))
+								p.sendMessage(reqmsg.replace("{levels}", cost1));
 							return;
 						} else if (plevel >= oneCost) {
 							Bukkit.getServer().getPluginManager().callEvent(

@@ -54,7 +54,8 @@ public class AnvilCombineListener implements Listener {
 			String fullinv = plugin.getConfig().getString("fullInvMessage");
 			String fullinvmsg = ChatColor.translateAlternateColorCodes('&', fullinv);
 			if (p.getInventory().firstEmpty() == -1) {
-				p.sendMessage(fullinvmsg);
+				if (!(fullinvmsg.equals("none")))
+					p.sendMessage(fullinvmsg);
 				return;
 			}
 			if (slot == 1 && item1 != null) {
@@ -62,11 +63,12 @@ public class AnvilCombineListener implements Listener {
 				if (cursor.getType() == book && item1.getType() == book) {
 					List<String> lore = cursor.getItemMeta().getLore();
 					if (plevel < bookCost) {
-						p.sendMessage(reqmsg.replace("{levels}", bcost));
+						if (!(reqmsg.equals("none")))
+							p.sendMessage(reqmsg.replace("{levels}", bcost));
 						return;
 					} else if (plevel >= bookCost) {
-						Bukkit.getServer().getPluginManager()
-								.callEvent(new AnvilCombine(p, result, meta, anvil, lore1, lore, clear, bookCost, plevel));
+						Bukkit.getServer().getPluginManager().callEvent(
+								new AnvilCombine(p, result, meta, anvil, lore1, lore, clear, bookCost, plevel));
 					}
 				}
 			}

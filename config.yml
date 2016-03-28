@@ -163,3 +163,111 @@ appliablePieces:
   - Chestplate
   - Leggings
   - Boots
+enchantNames:
+  Arc:
+    one: '&bArc I'
+  AntiFog:
+    one: '&bAnti Fog I'
+  Beast:
+    one: '&bBeast I'
+    two: '&eBeast II'
+    three: '&cBeast III'
+  Blaze:
+    one: '&bBlaze I'
+  Bump:
+    one: '&bBump I'
+    two: '&eBump II'
+    three: '&cBump III'
+  Feast:
+    one: '&bFeast I'
+  Fish:
+    one: '&bFish I'
+  HealthBoost:
+    one: '&bHealth Boost I'
+    two: '&eHealth Boost II'
+  Implode:
+    one: '&bImplode I'
+    two: '&eImplode II'
+    three: '&cImplode III'
+  Leaps:
+    one: '&bLeaps I'
+    two: '&eLeaps II'
+    three: '&cLeaps III'
+  Reborn:
+    one: '&bReborn I'
+    two: '&eReborn II'
+    three: '&cReborn III'
+  Replenish:
+    one: '&bReplenish I'
+    two: '&eReplenish II'
+    three: '&cReplenish III'
+  Retreat:
+    one: '&bRetreat I'
+    two: '&eRetreat II'
+    three: '&cRetreat III'
+  Scoot:
+    one: '&bScoot I'
+    two: '&eScoot II'
+    three: '&cScoot III'
+  Sunlight:
+    one: '&bSunlight I'
+  Tipsy:
+    one: '&bTipsy I'
+    two: '&eTipsy II'
+    three: '&cTipsy III'
+  Toughness:
+    one: '&bToughness I'
+    two: '&eToughness II'
+    three: '&cToughness III'
+  Vanish:
+    one: '&bVanish I'
+    two: '&eVanish II'
+    three: '&cVanish III'
+  Weary:
+    one: '&bWeary I'
+    two: '&eWeary II'
+    three: '&cWeary III'
+  Archery:
+    one: '&bArchery I'
+    two: '&eArchery II'
+  Confusion:
+    one: '&bConfusion I'
+    two: '&eConfusion II'
+  Life:
+    one: '&bLife I'
+    two: '&eLife II'
+  Lightning:
+    one: '&bLightning I'
+    two: '&eLightning II'
+    three: '&cLightning III'
+  LightsOut:
+    one: '&bLights Out I'
+    two: '&eLights Out II'
+  Soul:
+    one: '&bSoul I'
+    two: '&eSoul II'
+  SwordBlock:
+    one: '&bSword Block I'
+  Thief:
+    one: '&bThief I'
+    two: '&eThief II'
+    three: '&cThief III'
+  Thunderous:
+    one: '&bThunderous I'
+    two: '&eThunderous II'
+    three: '&cThunderous III'
+  Blast:
+    one: '&bBlast I'
+    two: '&eBlast II'
+  Experience:
+    one: '&bExperience I'
+    two: '&eExperience II'
+    three: '&cExperience III'
+  Haste:
+    one: '&bHaste I'
+    two: '&eHaste II'
+    three: '&cHaste III'
+  ObsidianDestroyer:
+    one: '&bObsidian Destroyer I'
+    two: '&eObsidian Destroyer II'
+    three: 'cObsidian Destroyer III'

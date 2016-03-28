@@ -5,6 +5,7 @@ import java.util.List;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -26,60 +27,6 @@ public class AnvilApply3Listener implements Listener {
 		plugin = pl;
 	}
 
-	String usedbeast3 = "&cBeast III";
-	String beastE3 = ChatColor.translateAlternateColorCodes('&', usedbeast3);
-
-	String usedbump3 = "&cBump III";
-	String bumpE3 = ChatColor.translateAlternateColorCodes('&', usedbump3);
-
-	String usedimplode3 = "&cImplode III";
-	String implodeE3 = ChatColor.translateAlternateColorCodes('&', usedimplode3);
-
-	String usedleaps3 = "&cLeaps III";
-	String leapsE3 = ChatColor.translateAlternateColorCodes('&', usedleaps3);
-
-	String usedreborn3 = "&cReborn III";
-	String rebornE3 = ChatColor.translateAlternateColorCodes('&', usedreborn3);
-
-	String usedreplenish3 = "&cReplenish III";
-	String replenishE3 = ChatColor.translateAlternateColorCodes('&', usedreplenish3);
-
-	String usedretreat3 = "&cRetreat III";
-	String retreatE3 = ChatColor.translateAlternateColorCodes('&', usedretreat3);
-
-	String usedscoot3 = "&cScoot III";
-	String scootE3 = ChatColor.translateAlternateColorCodes('&', usedscoot3);
-
-	String usedtipsy3 = "&cTipsy III";
-	String tipsyE3 = ChatColor.translateAlternateColorCodes('&', usedtipsy3);
-
-	String usedvanish3 = "&cVanish III";
-	String vanishE3 = ChatColor.translateAlternateColorCodes('&', usedvanish3);
-
-	String usedweary3 = "&cWeary III";
-	String wearyE3 = ChatColor.translateAlternateColorCodes('&', usedweary3);
-
-	String usedlightning3 = "&cLightning III";
-	String lightningE3 = ChatColor.translateAlternateColorCodes('&', usedlightning3);
-
-	String usedthunderous3 = "&cThunderous III";
-	String thunderousE3 = ChatColor.translateAlternateColorCodes('&', usedthunderous3);
-
-	String usedexperience3 = "&cExperience III";
-	String experienceE3 = ChatColor.translateAlternateColorCodes('&', usedexperience3);
-
-	String usedhaste3 = "&cHaste III";
-	String hasteE3 = ChatColor.translateAlternateColorCodes('&', usedhaste3);
-
-	String usedobsidiandestroyer3 = "&cObsidian Destroyer III";
-	String obsidiandestroyerE3 = ChatColor.translateAlternateColorCodes('&', usedobsidiandestroyer3);
-	
-	String usedthief3 = "&cThief III";
-	String thiefE3 = ChatColor.translateAlternateColorCodes('&', usedthief3);
-
-	String usedtoughness3 = "&cToughness III";
-	String toughnessE3 = ChatColor.translateAlternateColorCodes('&', usedtoughness3);
-
 	@EventHandler
 	public void onCombine(InventoryClickEvent e) {
 		if (!(e.getWhoClicked() instanceof Player))
@@ -90,6 +37,63 @@ public class AnvilApply3Listener implements Listener {
 		SlotType stype = e.getSlotType();
 		InventoryType inv = e.getInventory().getType();
 		ItemStack cursor = e.getCursor();
+		
+        ConfigurationSection names = plugin.getConfig().getConfigurationSection("enchantNames");
+		
+		String usedbeast3 = names.getConfigurationSection("Beast").getString("three");
+		String beastE3 = ChatColor.translateAlternateColorCodes('&', usedbeast3);
+
+		String usedbump3 = names.getConfigurationSection("Bump").getString("three");
+		String bumpE3 = ChatColor.translateAlternateColorCodes('&', usedbump3);
+
+		String usedimplode3 = names.getConfigurationSection("Implode").getString("three");
+		String implodeE3 = ChatColor.translateAlternateColorCodes('&', usedimplode3);
+
+		String usedleaps3 = names.getConfigurationSection("Leaps").getString("three");
+		String leapsE3 = ChatColor.translateAlternateColorCodes('&', usedleaps3);
+
+		String usedreborn3 = names.getConfigurationSection("Reborn").getString("three");
+		String rebornE3 = ChatColor.translateAlternateColorCodes('&', usedreborn3);
+
+		String usedreplenish3 = names.getConfigurationSection("Replenish").getString("three");
+		String replenishE3 = ChatColor.translateAlternateColorCodes('&', usedreplenish3);
+
+		String usedretreat3 = names.getConfigurationSection("Retreat").getString("three");
+		String retreatE3 = ChatColor.translateAlternateColorCodes('&', usedretreat3);
+
+		String usedscoot3 = names.getConfigurationSection("Scoot").getString("three");
+		String scootE3 = ChatColor.translateAlternateColorCodes('&', usedscoot3);
+
+		String usedtipsy3 = names.getConfigurationSection("Tipsy").getString("three");
+		String tipsyE3 = ChatColor.translateAlternateColorCodes('&', usedtipsy3);
+
+		String usedvanish3 = names.getConfigurationSection("Vanish").getString("three");
+		String vanishE3 = ChatColor.translateAlternateColorCodes('&', usedvanish3);
+
+		String usedweary3 = names.getConfigurationSection("Weary").getString("three");
+		String wearyE3 = ChatColor.translateAlternateColorCodes('&', usedweary3);
+
+		String usedlightning3 = names.getConfigurationSection("Lightning").getString("three");
+		String lightningE3 = ChatColor.translateAlternateColorCodes('&', usedlightning3);
+
+		String usedthunderous3 = names.getConfigurationSection("Thunderous").getString("three");
+		String thunderousE3 = ChatColor.translateAlternateColorCodes('&', usedthunderous3);
+
+		String usedexperience3 = names.getConfigurationSection("Experience").getString("three");
+		String experienceE3 = ChatColor.translateAlternateColorCodes('&', usedexperience3);
+
+		String usedhaste3 = names.getConfigurationSection("Haste").getString("three");
+		String hasteE3 = ChatColor.translateAlternateColorCodes('&', usedhaste3);
+
+		String usedobsidiandestroyer3 = names.getConfigurationSection("ObsidianDestroyer").getString("three");
+		String obsidiandestroyerE3 = ChatColor.translateAlternateColorCodes('&', usedobsidiandestroyer3);
+
+		String usedthief3 = names.getConfigurationSection("Thief").getString("three");
+		String thiefE3 = ChatColor.translateAlternateColorCodes('&', usedthief3);
+
+		String usedtoughness3 = names.getConfigurationSection("Toughness").getString("three");
+		String toughnessE3 = ChatColor.translateAlternateColorCodes('&', usedtoughness3);
+		
 		String req = plugin.getConfig().getString("notEnoughLevelsMessage");
 		String reqmsg = ChatColor.translateAlternateColorCodes('&', req);
 		int threeCost = plugin.getConfig().getInt("tierTwoApplyCost");
@@ -106,7 +110,8 @@ public class AnvilApply3Listener implements Listener {
 			String fullinv = plugin.getConfig().getString("fullInvMessage");
 			String fullinvmsg = ChatColor.translateAlternateColorCodes('&', fullinv);
 			if (p.getInventory().firstEmpty() == -1) {
-				p.sendMessage(fullinvmsg);
+				if (!(fullinvmsg.equals("none")))
+					p.sendMessage(fullinvmsg);
 				return;
 			}
 			if (slot == 1 && item1 != null) {
@@ -126,11 +131,12 @@ public class AnvilApply3Listener implements Listener {
 							|| lore.contains(obsidiandestroyerE3) || lore.contains(thiefE3)
 							|| lore.contains(toughnessE3)) {
 						if (plevel < threeCost) {
-							p.sendMessage(reqmsg.replace("{levels}", cost3));
+							if (!(reqmsg.equals("none")))
+								p.sendMessage(reqmsg.replace("{levels}", cost3));
 							return;
 						} else if (plevel >= threeCost) {
-							Bukkit.getServer().getPluginManager().callEvent(
-									new AnvilApply(p, anvil, lore, clear, threeCost, plevel, item, oldmeta, newmeta, m));
+							Bukkit.getServer().getPluginManager().callEvent(new AnvilApply(p, anvil, lore, clear,
+									threeCost, plevel, item, oldmeta, newmeta, m));
 						}
 					}
 				}
