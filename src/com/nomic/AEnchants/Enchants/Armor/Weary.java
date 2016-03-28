@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import org.bukkit.ChatColor;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -13,18 +14,27 @@ import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
+import com.nomic.AEnchants.Main;
+
 public class Weary implements Listener {
+	
+	private Main plugin;
 
-	String one = "&bWeary I";
-	String two = "&eWeary II";
-	String three = "&cWeary III";
-
-	String tOne = ChatColor.translateAlternateColorCodes('&', one);
-	String tTwo = ChatColor.translateAlternateColorCodes('&', two);
-	String tThree = ChatColor.translateAlternateColorCodes('&', three);
+	public Weary(Main pl) {
+		plugin = pl;
+	}
 
 	@EventHandler(priority = EventPriority.HIGH)
 	public void onPlayerHit(EntityDamageByEntityEvent e) {
+		
+		ConfigurationSection names = plugin.getConfig().getConfigurationSection("enchantNames");
+		String one = names.getConfigurationSection("Weary").getString("one");
+		String two = names.getConfigurationSection("Weary").getString("two");
+		String three = names.getConfigurationSection("Weary").getString("three");
+		String tOne = ChatColor.translateAlternateColorCodes('&', one);
+		String tTwo = ChatColor.translateAlternateColorCodes('&', two);
+		String tThree = ChatColor.translateAlternateColorCodes('&', three);
+		
 		if (!(e.getEntity() instanceof Player && e.getDamager() instanceof Player))
 			return;
 		Player p = (Player) e.getEntity();

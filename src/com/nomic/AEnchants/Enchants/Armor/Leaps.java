@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -18,11 +19,18 @@ import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
+import com.nomic.AEnchants.Main;
 import com.nomic.AEnchants.Events.ArmorDrag;
 import com.nomic.AEnchants.Events.ArmorHotbar;
 import com.nomic.AEnchants.Events.ArmorShift;
 
 public class Leaps implements Listener {
+	
+	private Main plugin;
+
+	public Leaps(Main pl) {
+		plugin = pl;
+	}
 	
 	Material diamondb = Material.DIAMOND_BOOTS;
 	Material ironb = Material.IRON_BOOTS;
@@ -44,16 +52,17 @@ public class Leaps implements Listener {
 	Material chainh = Material.CHAINMAIL_HELMET;
 	Material leatherh = Material.LEATHER_HELMET;
 	
-	String one = "&bLeaps I";
-	String two = "&eLeaps II";
-	String three = "&cLeaps III";
-	
-	String tOne = ChatColor.translateAlternateColorCodes('&', one);
-	String tTwo = ChatColor.translateAlternateColorCodes('&', two);
-	String tThree = ChatColor.translateAlternateColorCodes('&', three);
-	
 	@EventHandler
 	public void shift(ArmorShift e) {
+		
+		ConfigurationSection names = plugin.getConfig().getConfigurationSection("enchantNames");
+		String one = names.getConfigurationSection("Leaps").getString("one");
+		String two = names.getConfigurationSection("Leaps").getString("two");
+		String three = names.getConfigurationSection("Leaps").getString("three");
+		String tOne = ChatColor.translateAlternateColorCodes('&', one);
+		String tTwo = ChatColor.translateAlternateColorCodes('&', two);
+		String tThree = ChatColor.translateAlternateColorCodes('&', three);
+		
 		Player p = e.getPlayer();
 		List<String> lore = e.getLore();
 		SlotType stype = e.getSlotType();
@@ -127,6 +136,15 @@ public class Leaps implements Listener {
 	
 	@EventHandler
 	public void hotbar(ArmorHotbar e) {
+		
+		ConfigurationSection names = plugin.getConfig().getConfigurationSection("enchantNames");
+		String one = names.getConfigurationSection("Leaps").getString("one");
+		String two = names.getConfigurationSection("Leaps").getString("two");
+		String three = names.getConfigurationSection("Leaps").getString("three");
+		String tOne = ChatColor.translateAlternateColorCodes('&', one);
+		String tTwo = ChatColor.translateAlternateColorCodes('&', two);
+		String tThree = ChatColor.translateAlternateColorCodes('&', three);
+		
 		Player p = e.getPlayer();
 		List<String> lore = e.getLore();
 		Material m = e.getItem().getType();
@@ -180,6 +198,15 @@ public class Leaps implements Listener {
 	
 	@EventHandler
 	public void drag(ArmorDrag e) {
+		
+		ConfigurationSection names = plugin.getConfig().getConfigurationSection("enchantNames");
+		String one = names.getConfigurationSection("Leaps").getString("one");
+		String two = names.getConfigurationSection("Leaps").getString("two");
+		String three = names.getConfigurationSection("Leaps").getString("three");
+		String tOne = ChatColor.translateAlternateColorCodes('&', one);
+		String tTwo = ChatColor.translateAlternateColorCodes('&', two);
+		String tThree = ChatColor.translateAlternateColorCodes('&', three);
+		
 		Player p = e.getPlayer();
 		PlayerInventory inv = p.getInventory();
 		Material cm = e.getCItem().getType();
@@ -280,6 +307,15 @@ public class Leaps implements Listener {
 	
 	@EventHandler(priority = EventPriority.HIGHEST)
 	public void onbreak(PlayerItemBreakEvent e) {
+		
+		ConfigurationSection names = plugin.getConfig().getConfigurationSection("enchantNames");
+		String one = names.getConfigurationSection("Leaps").getString("one");
+		String two = names.getConfigurationSection("Leaps").getString("two");
+		String three = names.getConfigurationSection("Leaps").getString("three");
+		String tOne = ChatColor.translateAlternateColorCodes('&', one);
+		String tTwo = ChatColor.translateAlternateColorCodes('&', two);
+		String tThree = ChatColor.translateAlternateColorCodes('&', three);
+		
 		Player p = e.getPlayer();
 		ItemStack item = e.getBrokenItem();
 		List<String> lore = item.getItemMeta().getLore();
@@ -290,6 +326,15 @@ public class Leaps implements Listener {
 	
 	@EventHandler(priority = EventPriority.HIGH)
 	public void drop(InventoryClickEvent e) {
+		
+		ConfigurationSection names = plugin.getConfig().getConfigurationSection("enchantNames");
+		String one = names.getConfigurationSection("Leaps").getString("one");
+		String two = names.getConfigurationSection("Leaps").getString("two");
+		String three = names.getConfigurationSection("Leaps").getString("three");
+		String tOne = ChatColor.translateAlternateColorCodes('&', one);
+		String tTwo = ChatColor.translateAlternateColorCodes('&', two);
+		String tThree = ChatColor.translateAlternateColorCodes('&', three);
+		
 		if (!(e.getWhoClicked() instanceof Player))
 			return;
 		Player p = (Player) e.getWhoClicked();

@@ -6,13 +6,22 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 
+import com.nomic.AEnchants.Main;
+
 public class Blast implements Listener {
+	
+	private Main plugin;
+
+	public Blast(Main pl) {
+		plugin = pl;
+	}
 
 	Material ma = Material.STONE;
 	Material mb = Material.COBBLESTONE;
@@ -34,15 +43,16 @@ public class Blast implements Listener {
 	Material mr = Material.QUARTZ_BLOCK;
 	Material ms = Material.SANDSTONE;
 	Material mt = Material.STAINED_CLAY;
-	
-	String one = "&bBlast I";
-	String two = "&eBlast II";
-	
-	String tOne = ChatColor.translateAlternateColorCodes('&', one);
-	String tTwo = ChatColor.translateAlternateColorCodes('&', two);
 
 	@EventHandler(priority = EventPriority.HIGHEST)
 	public void blockBreak(BlockBreakEvent e) {
+		
+		ConfigurationSection names = plugin.getConfig().getConfigurationSection("enchantNames");
+		String one = names.getConfigurationSection("Blast").getString("one");
+		String two = names.getConfigurationSection("Blast").getString("two");
+		String tOne = ChatColor.translateAlternateColorCodes('&', one);
+		String tTwo = ChatColor.translateAlternateColorCodes('&', two);
+		
 		Player p = e.getPlayer();
 		if (p.getItemInHand().getType() == Material.AIR)
 			return;

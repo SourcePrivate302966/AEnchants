@@ -5,22 +5,32 @@ import java.util.Random;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 
+import com.nomic.AEnchants.Main;
+
 public class Soul implements Listener {
+	
+	private Main plugin;
 
-	String one = "&bSoul I";
-	String two = "&eSoul II";
-
-	String tOne = ChatColor.translateAlternateColorCodes('&', one);
-	String tTwo = ChatColor.translateAlternateColorCodes('&', two);
+	public Soul(Main pl) {
+		plugin = pl;
+	}
 
 	@EventHandler(priority = EventPriority.HIGH)
 	public void onPlayerHit(EntityDamageByEntityEvent e) {
+		
+		ConfigurationSection names = plugin.getConfig().getConfigurationSection("enchantNames");
+		String one = names.getConfigurationSection("Soul").getString("one");
+		String two = names.getConfigurationSection("Soul").getString("two");
+		String tOne = ChatColor.translateAlternateColorCodes('&', one);
+		String tTwo = ChatColor.translateAlternateColorCodes('&', two);
+		
 		if (!(e.getEntity() instanceof Player && e.getDamager() instanceof Player))
 			return;
 		Player p = (Player) e.getDamager();

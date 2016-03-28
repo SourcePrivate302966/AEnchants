@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -21,18 +22,19 @@ public class Experience implements Listener {
 		plugin = pl;
 	}
 	
-	String one = "&bExperience I";
-	String two = "&eExperience II";
-	String three = "&cExperience III";
-	
-	String tOne = ChatColor.translateAlternateColorCodes('&', one);
-	String tTwo = ChatColor.translateAlternateColorCodes('&', two);
-	String tThree = ChatColor.translateAlternateColorCodes('&', three);
-	
 	FileConfiguration config = plugin.getConfig();
 
 	@EventHandler(priority = EventPriority.HIGH)
 	public void onMine(BlockBreakEvent e) {
+		
+		ConfigurationSection names = plugin.getConfig().getConfigurationSection("enchantNames");
+		String one = names.getConfigurationSection("Experience").getString("one");
+		String two = names.getConfigurationSection("Experience").getString("two");
+		String three = names.getConfigurationSection("Experience").getString("three");
+		String tOne = ChatColor.translateAlternateColorCodes('&', one);
+		String tTwo = ChatColor.translateAlternateColorCodes('&', two);
+		String tThree = ChatColor.translateAlternateColorCodes('&', three);
+		
 		Player p = e.getPlayer();
 		int exp = e.getExpToDrop();
 		if (p.getItemInHand().getType() == Material.AIR)

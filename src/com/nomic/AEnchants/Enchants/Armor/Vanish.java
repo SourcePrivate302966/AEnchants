@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import org.bukkit.ChatColor;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -13,21 +14,29 @@ import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
+import com.nomic.AEnchants.Main;
+
 public class Vanish implements Listener {
+	
+	private Main plugin;
 
-	String one = "&bVanish I";
-	String two = "&eVanish II";
-	String three = "&cVanish III";
-
-	String tOne = ChatColor.translateAlternateColorCodes('&', one);
-	String tTwo = ChatColor.translateAlternateColorCodes('&', two);
-	String tThree = ChatColor.translateAlternateColorCodes('&', three);
-
-	String anti = "&bAnti Fog I";
-	String tAnti = ChatColor.translateAlternateColorCodes('&', anti);
+	public Vanish(Main pl) {
+		plugin = pl;
+	}
 
 	@EventHandler(priority = EventPriority.HIGH)
 	public void onPlayerHit(EntityDamageByEntityEvent e) {
+		
+		ConfigurationSection names = plugin.getConfig().getConfigurationSection("enchantNames");
+		String one = names.getConfigurationSection("Vanish").getString("one");
+		String two = names.getConfigurationSection("Vanish").getString("two");
+		String three = names.getConfigurationSection("Vanish").getString("three");
+		String tOne = ChatColor.translateAlternateColorCodes('&', one);
+		String tTwo = ChatColor.translateAlternateColorCodes('&', two);
+		String tThree = ChatColor.translateAlternateColorCodes('&', three);
+		String anti = names.getConfigurationSection("AntiFog").getString("one");
+		String tAnti = ChatColor.translateAlternateColorCodes('&', anti);
+		
 		if (!(e.getEntity() instanceof Player && e.getDamager() instanceof Player))
 			return;
 		Player p = (Player) e.getEntity();

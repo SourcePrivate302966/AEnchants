@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import org.bukkit.ChatColor;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -11,18 +12,27 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.inventory.PlayerInventory;
 
+import com.nomic.AEnchants.Main;
+
 public class Toughness implements Listener {
+	
+	private Main plugin;
 
-	String one = "&bToughness I";
-	String two = "&eToughness II";
-	String three = "&cToughness III";
-
-	String tOne = ChatColor.translateAlternateColorCodes('&', one);
-	String tTwo = ChatColor.translateAlternateColorCodes('&', two);
-	String tThree = ChatColor.translateAlternateColorCodes('&', three);
+	public Toughness(Main pl) {
+		plugin = pl;
+	}
 
 	@EventHandler(priority = EventPriority.HIGH)
 	public void onPlayerHit(EntityDamageByEntityEvent e) {
+		
+		ConfigurationSection names = plugin.getConfig().getConfigurationSection("enchantNames");
+		String one = names.getConfigurationSection("Toughness").getString("one");
+		String two = names.getConfigurationSection("Toughness").getString("two");
+		String three = names.getConfigurationSection("Toughness").getString("three");
+		String tOne = ChatColor.translateAlternateColorCodes('&', one);
+		String tTwo = ChatColor.translateAlternateColorCodes('&', two);
+		String tThree = ChatColor.translateAlternateColorCodes('&', three);
+		
 		if (!(e.getEntity() instanceof Player && e.getDamager() instanceof Player))
 			return;
 		Player p = (Player) e.getEntity();

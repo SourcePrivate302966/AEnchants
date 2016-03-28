@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -12,18 +13,27 @@ import org.bukkit.event.block.BlockDamageEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
+import com.nomic.AEnchants.Main;
+
 public class ObsidianDestroyer implements Listener {
 	
-	String one = "&bObsidian Destroyer I";
-	String two = "&eObsidian Destroyer II";
-	String three = "&cObsidian Destroyer III";
-	
-	String tOne = ChatColor.translateAlternateColorCodes('&', one);
-	String tTwo = ChatColor.translateAlternateColorCodes('&', two);
-	String tThree = ChatColor.translateAlternateColorCodes('&', three);
+	private Main plugin;
+
+	public ObsidianDestroyer(Main pl) {
+		plugin = pl;
+	}
 
 	@EventHandler(priority = EventPriority.HIGH)
 	public void onMine(BlockDamageEvent e) {
+		
+		ConfigurationSection names = plugin.getConfig().getConfigurationSection("enchantNames");
+		String one = names.getConfigurationSection("ObsidianDestroyer").getString("one");
+		String two = names.getConfigurationSection("ObsidianDestroyer").getString("two");
+		String three = names.getConfigurationSection("ObsidianDestroyer").getString("three");
+		String tOne = ChatColor.translateAlternateColorCodes('&', one);
+		String tTwo = ChatColor.translateAlternateColorCodes('&', two);
+		String tThree = ChatColor.translateAlternateColorCodes('&', three);
+		
 		Player p = e.getPlayer();
 		if (p.getItemInHand().getType() == Material.AIR)
 			return;
