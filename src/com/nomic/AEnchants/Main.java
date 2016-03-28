@@ -11,6 +11,7 @@ import com.nomic.AEnchants.Enchants.Blast;
 import com.nomic.AEnchants.Enchants.Haste;
 import com.nomic.AEnchants.Enchants.ObsidianDestroyer;
 import com.nomic.AEnchants.Enchants.Armor.Arc;
+import com.nomic.AEnchants.Enchants.Armor.Beast;
 import com.nomic.AEnchants.Enchants.Armor.Blaze;
 import com.nomic.AEnchants.Enchants.Armor.Bump;
 import com.nomic.AEnchants.Enchants.Armor.Feast;
@@ -96,6 +97,7 @@ public class Main extends JavaPlugin {
 		pm.registerEvents(new Apply1(this), this);
 		pm.registerEvents(new Apply2(this), this);
 		pm.registerEvents(new Apply3(this), this);
+		pm.registerEvents(new Beast(this), this);
 		pm.registerEvents(new CreateSign(this), this);
 	}
 	

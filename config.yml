@@ -22,6 +22,7 @@ enchantLimit: 5
 enabledBooks:
   enabledTierOnes:
   - Arc
+  - Beast
   - Blaze
   - Bump
   - Feast
@@ -53,6 +54,7 @@ enabledBooks:
   - Thief
   - Toughness
   enabledTierTwos:
+  - Beast
   - Bump
   - Health Boost
   - Implode
@@ -78,6 +80,7 @@ enabledBooks:
   - Thief
   - Toughness
   enabledTierThrees:
+  - Beast
   - Bump
   - Implode
   - Leaps
