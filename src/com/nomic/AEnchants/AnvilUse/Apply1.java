@@ -204,6 +204,8 @@ public class Apply1 implements Listener {
 
 		String usedswordblock = names.getConfigurationSection("SwordBlock").getString("one");
 		String swordblockE = ChatColor.translateAlternateColorCodes('&', usedswordblock);
+		String usedswordblock2 = names.getConfigurationSection("SwordBlock").getString("two");
+		String swordblockE2 = ChatColor.translateAlternateColorCodes('&', usedswordblock2);
 
 		String usedthunderous = names.getConfigurationSection("Thunderous").getString("one");
 		String thunderousE = ChatColor.translateAlternateColorCodes('&', usedthunderous);
@@ -2720,8 +2722,40 @@ public class Apply1 implements Listener {
 			}
 		} else if (lore.contains(swordblockE)) {
 			if (oldmeta.hasLore()) {
-				if (oldlore.contains(swordblockE))
+				if (oldlore.contains(swordblockE)) {
+					if (m == diamonds || m == irons || m == golds || m == stones || m == woods) {
+						if (app.getStringList("SwordBlock").contains("Sword")) {
+							oldlore.remove(swordblockE);
+							oldlore.add(swordblockE2);
+							newmeta.setLore(oldlore);
+							item.setItemMeta(newmeta);
+							p.getInventory().addItem(item);
+							p.setLevel(plevel - oneCost);
+							anvil.clear();
+							p.setItemOnCursor(clear);
+							p.closeInventory();
+							if (!(sendmsg.equals("none")))
+								p.sendMessage(sendmsg.replace("{enchant}", usedswordblock.replace("&b", "")));
+						}
+					} else if (m == diamonda || m == irona || m == golda || m == stonea || m == wooda) {
+						if (app.getStringList("SwordBlock").contains("Axe")) {
+							oldlore.remove(swordblockE);
+							oldlore.add(swordblockE2);
+							newmeta.setLore(oldlore);
+							item.setItemMeta(newmeta);
+							p.getInventory().addItem(item);
+							p.setLevel(plevel - oneCost);
+							anvil.clear();
+							p.setItemOnCursor(clear);
+							p.closeInventory();
+							if (!(sendmsg.equals("none")))
+								p.sendMessage(sendmsg.replace("{enchant}", usedswordblock.replace("&b", "")));
+						}
+					}
 					return;
+				} else if (oldlore.contains(swordblockE2)) {
+					return;
+				}
 			}
 			if (enchants + loreLines >= enchantLimit) {
 				if (!(toomanyenchantsmsg.equals("none")))

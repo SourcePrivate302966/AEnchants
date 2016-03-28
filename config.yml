@@ -251,6 +251,7 @@ enchantNames:
     two: '&eSoul II'
   SwordBlock:
     one: '&bSword Block I'
+    two: '&eSword Block II'
   Thief:
     one: '&bThief I'
     two: '&eThief II'

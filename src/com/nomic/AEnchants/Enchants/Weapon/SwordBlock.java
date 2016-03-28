@@ -26,7 +26,9 @@ public class SwordBlock implements Listener {
 		
 		ConfigurationSection names = plugin.getConfig().getConfigurationSection("enchantNames");
 		String one = names.getConfigurationSection("SwordBlock").getString("one");
+		String two = names.getConfigurationSection("SwordBlock").getString("two");
 		String tOne = ChatColor.translateAlternateColorCodes('&', one);
+		String tTwo = ChatColor.translateAlternateColorCodes('&', two);
 		
 		if (!(e.getEntity() instanceof Player && e.getDamager() instanceof Player))
 			return;
@@ -36,9 +38,11 @@ public class SwordBlock implements Listener {
 		if (p.getItemInHand().getType() == Material.AIR)
 			return;
 		List<String> lore = p.getItemInHand().getItemMeta().getLore();
-		if (!(lore.contains(tOne)))
-			return;
 		double damage = e.getDamage();
-		p.setLastDamage(damage * 0.95);
+		if (lore.contains(tOne)) {
+			p.setLastDamage(damage * 0.95);
+		} else if (lore.contains(tTwo)) {
+			p.setLastDamage(damage * 0.90);
+		}
 	}
 }

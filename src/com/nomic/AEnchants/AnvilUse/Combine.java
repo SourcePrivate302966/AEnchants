@@ -141,6 +141,11 @@ public class Combine implements Listener {
 		String soulE = ChatColor.translateAlternateColorCodes('&', usedsoul);
 		String usedsoul2 = names.getConfigurationSection("Soul").getString("two");
 		String soulE2 = ChatColor.translateAlternateColorCodes('&', usedsoul2);
+		
+		String usedswordblock = names.getConfigurationSection("SwordBlock").getString("one");
+		String swordblockE = ChatColor.translateAlternateColorCodes('&', usedswordblock);
+		String usedswordblock2 = names.getConfigurationSection("SwordBlock").getString("two");
+		String swordblockE2 = ChatColor.translateAlternateColorCodes('&', usedswordblock2);
 
 		String usedthunderous = names.getConfigurationSection("Thunderous").getString("one");
 		String thunderousE = ChatColor.translateAlternateColorCodes('&', usedthunderous);
@@ -390,6 +395,16 @@ public class Combine implements Listener {
 			p.setLevel(plevel - bookCost);
 			if (!(sendmsg.equals("none")))
 				p.sendMessage(sendmsg.replace("{book}", usedthunderous2.replace("&e", "")));
+		} else if (lore1.contains(swordblockE) && lore.contains(swordblockE)) {
+			anvil.clear();
+			p.setItemOnCursor(clear);
+			p.closeInventory();
+			meta.setLore(Arrays.asList(swordblockE2));
+			result.setItemMeta(meta);
+			p.getInventory().addItem(result);
+			p.setLevel(plevel - bookCost);
+			if (!(sendmsg.equals("none")))
+				p.sendMessage(sendmsg.replace("{book}", usedswordblock2.replace("&e", "")));
 		} else if (lore1.contains(blastE) && lore.contains(blastE)) {
 			anvil.clear();
 			p.setItemOnCursor(clear);

@@ -192,6 +192,8 @@ public class ClickSign implements Listener {
 		String swordblock = "SwordBlock";
 		String usedswordblock = names.getConfigurationSection("SwordBlock").getString("one");
 		String swordblockE = ChatColor.translateAlternateColorCodes('&', usedswordblock);
+		String usedswordblock2 = names.getConfigurationSection("SwordBlock").getString("two");
+		String swordblockE2 = ChatColor.translateAlternateColorCodes('&', usedswordblock2);
 
 		String thunderous = "Thunderous";
 		String usedthunderous = names.getConfigurationSection("Thunderous").getString("one");
@@ -645,6 +647,13 @@ public class ClickSign implements Listener {
 				if (!(sendmsg.equals("none")))
 					p.sendMessage(
 							sendmsg.replace("{tier}", two).replace("{enchant}", usedtoughness2.replace("&e", "")));
+			} else if (enchants.get(i).equals(swordblock)) {
+				meta.setLore(Arrays.asList(swordblockE2));
+				book.setItemMeta(meta);
+				inv.addItem(book);
+				if (!(sendmsg.equals("none")))
+					p.sendMessage(
+							sendmsg.replace("{tier}", two).replace("{enchant}", usedswordblock2.replace("&e", "")));
 			}
 		} else if (sign.getLine(1).contains(three)) {
 			p.setLevel(pLevel - levels);

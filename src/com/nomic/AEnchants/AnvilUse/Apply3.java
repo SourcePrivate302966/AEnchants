@@ -72,9 +72,6 @@ public class Apply3 implements Listener {
 	public void onCombine(AnvilApply e) {
 		
         ConfigurationSection names = plugin.getConfig().getConfigurationSection("enchantNames");
-		
-		String usedarc = names.getConfigurationSection("Arc").getString("one");
-		String arcE = ChatColor.translateAlternateColorCodes('&', usedarc);
 
 		String usedbeast = names.getConfigurationSection("Beast").getString("one");
 		String beastE = ChatColor.translateAlternateColorCodes('&', usedbeast);
@@ -83,26 +80,12 @@ public class Apply3 implements Listener {
 		String usedbeast3 = names.getConfigurationSection("Beast").getString("three");
 		String beastE3 = ChatColor.translateAlternateColorCodes('&', usedbeast3);
 
-		String usedblaze = names.getConfigurationSection("Blaze").getString("one");
-		String blazeE = ChatColor.translateAlternateColorCodes('&', usedblaze);
-
 		String usedbump = names.getConfigurationSection("Bump").getString("one");
 		String bumpE = ChatColor.translateAlternateColorCodes('&', usedbump);
 		String usedbump2 = names.getConfigurationSection("Bump").getString("two");
 		String bumpE2 = ChatColor.translateAlternateColorCodes('&', usedbump2);
 		String usedbump3 = names.getConfigurationSection("Bump").getString("three");
 		String bumpE3 = ChatColor.translateAlternateColorCodes('&', usedbump3);
-
-		String usedfeast = names.getConfigurationSection("Feast").getString("one");
-		String feastE = ChatColor.translateAlternateColorCodes('&', usedfeast);
-
-		String usedfish = names.getConfigurationSection("Fish").getString("one");
-		String fishE = ChatColor.translateAlternateColorCodes('&', usedfish);
-
-		String usedhealthboost = names.getConfigurationSection("HealthBoost").getString("one");
-		String healthboostE = ChatColor.translateAlternateColorCodes('&', usedhealthboost);
-		String usedhealthboost2 = names.getConfigurationSection("HealthBoost").getString("two");
-		String healthboostE2 = ChatColor.translateAlternateColorCodes('&', usedhealthboost2);
 
 		String usedimplode = names.getConfigurationSection("Implode").getString("one");
 		String implodeE = ChatColor.translateAlternateColorCodes('&', usedimplode);
@@ -146,9 +129,6 @@ public class Apply3 implements Listener {
 		String usedscoot3 = names.getConfigurationSection("Scoot").getString("three");
 		String scootE3 = ChatColor.translateAlternateColorCodes('&', usedscoot3);
 
-		String usedsunlight = names.getConfigurationSection("Sunlight").getString("one");
-		String sunlightE = ChatColor.translateAlternateColorCodes('&', usedsunlight);
-
 		String usedtipsy = names.getConfigurationSection("Tipsy").getString("one");
 		String tipsyE = ChatColor.translateAlternateColorCodes('&', usedtipsy);
 		String usedtipsy2 = names.getConfigurationSection("Tipsy").getString("two");
@@ -170,21 +150,6 @@ public class Apply3 implements Listener {
 		String usedweary3 = names.getConfigurationSection("Weary").getString("three");
 		String wearyE3 = ChatColor.translateAlternateColorCodes('&', usedweary3);
 
-		String usedarchery = names.getConfigurationSection("Archery").getString("one");
-		String archeryE = ChatColor.translateAlternateColorCodes('&', usedarchery);
-		String usedarchery2 = names.getConfigurationSection("Archery").getString("two");
-		String archeryE2 = ChatColor.translateAlternateColorCodes('&', usedarchery2);
-
-		String usedconfusion = names.getConfigurationSection("Confusion").getString("one");
-		String confusionE = ChatColor.translateAlternateColorCodes('&', usedconfusion);
-		String usedconfusion2 = names.getConfigurationSection("Confusion").getString("two");
-		String confusionE2 = ChatColor.translateAlternateColorCodes('&', usedconfusion2);
-
-		String usedlife = names.getConfigurationSection("Life").getString("one");
-		String lifeE = ChatColor.translateAlternateColorCodes('&', usedlife);
-		String usedlife2 = names.getConfigurationSection("Life").getString("two");
-		String lifeE2 = ChatColor.translateAlternateColorCodes('&', usedlife2);
-
 		String usedlightning = names.getConfigurationSection("Lightning").getString("one");
 		String lightningE = ChatColor.translateAlternateColorCodes('&', usedlightning);
 		String usedlightning2 = names.getConfigurationSection("Lightning").getString("two");
@@ -192,30 +157,12 @@ public class Apply3 implements Listener {
 		String usedlightning3 = names.getConfigurationSection("Lightning").getString("three");
 		String lightningE3 = ChatColor.translateAlternateColorCodes('&', usedlightning3);
 
-		String usedlightsout = names.getConfigurationSection("LightsOut").getString("one");
-		String lightsoutE = ChatColor.translateAlternateColorCodes('&', usedlightsout);
-		String usedlightsout2 = names.getConfigurationSection("LightsOut").getString("two");
-		String lightsoutE2 = ChatColor.translateAlternateColorCodes('&', usedlightsout2);
-
-		String usedsoul = names.getConfigurationSection("Soul").getString("one");
-		String soulE = ChatColor.translateAlternateColorCodes('&', usedsoul);
-		String usedsoul2 = names.getConfigurationSection("Soul").getString("two");
-		String soulE2 = ChatColor.translateAlternateColorCodes('&', usedsoul2);
-
-		String usedswordblock = names.getConfigurationSection("SwordBlock").getString("one");
-		String swordblockE = ChatColor.translateAlternateColorCodes('&', usedswordblock);
-
 		String usedthunderous = names.getConfigurationSection("Thunderous").getString("one");
 		String thunderousE = ChatColor.translateAlternateColorCodes('&', usedthunderous);
 		String usedthunderous2 = names.getConfigurationSection("Thunderous").getString("two");
 		String thunderousE2 = ChatColor.translateAlternateColorCodes('&', usedthunderous2);
 		String usedthunderous3 = names.getConfigurationSection("Thunderous").getString("three");
 		String thunderousE3 = ChatColor.translateAlternateColorCodes('&', usedthunderous3);
-
-		String usedblast = names.getConfigurationSection("Blast").getString("one");
-		String blastE = ChatColor.translateAlternateColorCodes('&', usedblast);
-		String usedblast2 = names.getConfigurationSection("Blast").getString("two");
-		String blastE2 = ChatColor.translateAlternateColorCodes('&', usedblast2);
 
 		String usedexperience = names.getConfigurationSection("Experience").getString("one");
 		String experienceE = ChatColor.translateAlternateColorCodes('&', usedexperience);
@@ -251,9 +198,6 @@ public class Apply3 implements Listener {
 		String toughnessE2 = ChatColor.translateAlternateColorCodes('&', usedtoughness2);
 		String usedtoughness3 = names.getConfigurationSection("Toughness").getString("three");
 		String toughnessE3 = ChatColor.translateAlternateColorCodes('&', usedtoughness3);
-
-		String usedantifog = names.getConfigurationSection("AntiFog").getString("one");
-		String antifogE = ChatColor.translateAlternateColorCodes('&', usedantifog);
 		
 		Player p = e.getPlayer();
 		ConfigurationSection app = plugin.getConfig().getConfigurationSection("appliablePieces");

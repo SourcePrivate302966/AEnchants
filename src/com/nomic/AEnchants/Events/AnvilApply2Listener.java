@@ -93,6 +93,9 @@ public class AnvilApply2Listener implements Listener {
 
 		String usedsoul2 = names.getConfigurationSection("Soul").getString("two");
 		String soulE2 = ChatColor.translateAlternateColorCodes('&', usedsoul2);
+		
+		String usedswordblock2 = names.getConfigurationSection("SwordBlock").getString("two");
+		String swordblockE2 = ChatColor.translateAlternateColorCodes('&', usedswordblock2);
 
 		String usedthunderous2 = names.getConfigurationSection("Thunderous").getString("two");
 		String thunderousE2 = ChatColor.translateAlternateColorCodes('&', usedthunderous2);
@@ -152,7 +155,7 @@ public class AnvilApply2Listener implements Listener {
 							|| lore.contains(lightningE2) || lore.contains(lightsoutE2) || lore.contains(soulE2)
 							|| lore.contains(thunderousE2) || lore.contains(blastE2) || lore.contains(experienceE2)
 							|| lore.contains(hasteE2) || lore.contains(obsidiandestroyerE2) || lore.contains(thiefE2)
-							|| lore.contains(toughnessE2)) {
+							|| lore.contains(toughnessE2) || lore.contains(swordblockE2)) {
 						if (plevel < twoCost) {
 							if (!(reqmsg.equals("none")))
 								p.sendMessage(reqmsg.replace("{levels}", cost2));
